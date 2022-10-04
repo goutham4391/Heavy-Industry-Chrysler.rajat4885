@@ -1,0 +1,14 @@
+
+
+.sdp-configurator-trim-view__container-options-pricing.sdp-configurator-trim-view__container-option,
+.sdp-configurator-trim-selector-card__container-vehicle-details .sdp-configurator-trim-selector-card__container-vehicle-details-stat:nth-child(2),
+.payment-summary-container__tabs .tab-container .tab-block:nth-child(2),
+.payment-summary-container__tabs .tab-container .tab-block:nth-child(3),
+.payment-summary-container__tabs .tab-container-gcss .tab-gcss--type-block:nth-child(2),
+.payment-summary-container__tabs .tab-container-gcss .tab-gcss--type-block:nth-child(3),
+.sdp-configurator-status-drawer__finance-for-container.sdp-configurator-status-drawer__price-container,
+.sdp-configurator-status-drawer__lease-for-container.sdp-configurator-status-drawer__price-container,
+.sdp-configurator-summary-view__container-row-pricingbar-inner-wrap .sdp-configurator-summary-view__container-row-pricingbar-stat:nth-child(4),
+.sdp-configurator-summary-view__container-row-pricingbar-inner-wrap .sdp-configurator-summary-view__container-row-pricingbar-stat:nth-child(3) {
+    display: none !important;
+}

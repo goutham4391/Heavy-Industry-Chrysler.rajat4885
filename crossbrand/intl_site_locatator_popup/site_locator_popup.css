@@ -1,0 +1,252 @@
+.isl-reveal-modal-bg {
+    position: fixed;
+    z-index: 2147483650;
+    display: block;
+    background: #000000;
+    background: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: none;
+}
+.modal-ISL-popup{
+    display: none;
+    background: #fff;
+    position: fixed;
+    z-index: 2147483660;
+    color: #000;
+}
+.popup-header {
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+.popup-header h1{
+    background: none;
+}
+.popup-footer{
+    width: 100%;
+    background:#999999;
+    text-align: center;
+    padding:5px 0;
+}
+.popup-footer .gc-cta{
+    position: relative;
+}
+.popup-header .gc-heading-size-13{
+    text-transform: uppercase;
+}
+
+
+.site_links div {
+    margin-left: 0;
+    margin-top: 5px;
+}
+.site-selector{
+    margin:30px 0;
+}
+.site-selector .separator{
+    display: none;
+    border-top: 1px solid #636363;
+    margin-top: 12px;
+}
+.site-selector .header-text span{
+    text-transform: none;
+}
+.chrysler .site-selector .header-text span{
+    font-family: "Lucida Grande","Lucida Sans Unicode","Lucida Sans",Arial;
+}
+.site-selector .left-content{
+    display: inline-block;
+    padding:10px 0;
+    width: 49%;
+    vertical-align: top;
+    min-height:160px;
+    border-right:1px solid #636363;
+}
+.site-selector .right-content{
+    display: inline-block;
+    width: 49%;
+    padding:10px 0;
+}
+
+.site-selector .flag-div > img{
+    margin:0 auto;
+    display:block;
+}
+.site-selector .flag-div > .header-text {
+    margin:18px 0 10px;
+    text-align: center;
+}
+.site-selector .flag-div .site_links{
+    font-size: 14px!important;
+}
+.modal-ISL-overlay-noBS .site-selector .right-content .flag-div img{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    border: 3px solid #363636;
+    padding: 6px;
+}
+.site-selector .right-content >  .header-text
+{
+    margin: 18px 0 10px;
+    text-align: center;
+}
+
+.right-content > .site_links {
+    text-align: center;
+}
+.site_links {
+    text-align: center;
+}
+/*Media Queries */
+@media only screen and (max-width:480px){
+    .site-selector .left-content,.site-selector .right-content{
+        width: 100%;
+    }
+    .modal-ISL-popup{
+        width: 90%;
+        left: 4%;
+    }
+    .site-selector .separator{
+        display: block;
+        width: 80%;
+        margin: 0 auto;
+        position: relative;
+        margin-bottom: 15px;
+        margin-top: 15px;
+    }
+    .site-selector .separator span{
+        position: absolute;
+        left: 45%;
+        background: #fff;
+        padding: 0 5px;
+        top: -10px;
+    }
+}
+@media only screen and (max-device-width:736px){
+     .pop-up-enabled{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+    .modal-ISL-popup{
+        width: 100% !important;
+        height: 100%;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0;
+        overflow-y:scroll;
+        -ms-transform: translateX(0%) !important;
+        -webkit-transform: translateX(0%) !important;
+        -moz-transform: translateX(0%) !important;
+        -o-transform: translateX(0%) !important;
+        transform: translateX(0%) !important;
+    }
+     .isl-wrapper{
+        display: table;
+        width: 100%;
+        height: 100%;
+    }
+     .isl-wrapper>div{
+        display: table-cell;
+        vertical-align: middle;
+    }
+     .popup-header{
+        margin-top: 15px;
+    }
+     .popup-header h1{
+        font-size: 24px;
+        margin-bottom: 5px;
+    }
+     .site-selector{
+        text-align: center;
+        padding: 0 15px;
+        font-family: "FranklinGothic-Md","proxima_nova_regular","Lucida_Sans_regular","TradeGothicCond",Helvetica,Arial;
+        margin: 0;
+    }
+     .chrysler .header-text span{
+        font-size: 13px;
+    }
+    .site-selector .separator{
+        display: block;
+    }
+     .site-selector .separator span{
+        font-weight: bold;
+    }
+     .site-selector .gc-cta{
+        display: block;
+        border-radius: 2px;
+    }
+     .popup-footer .gc-cta{
+        color: #000;
+        text-decoration: underline;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+     .site-selector .ui-btn-inner:after{
+        content: "\e01a";
+        font-family: "ChryslerIcons";
+        font-size: 8px;
+        padding-left: 5px;
+    }
+     .popup-header .ui-btn{
+        display: none;
+    }
+     .site-selector .left-content, .site-selector .right-content{
+        width: 100%;
+        border: none;
+    }
+     .popup-footer{
+        background: #fff;
+        padding:0;
+    }
+    .popup-footer h6{
+        margin-top: 5px;
+    }
+}
+@media only screen and (max-device-width:736px) and (orientation: landscape){
+     .site-selector .left-content, .site-selector .right-content{
+        width: 49%;
+        border: none;
+    }
+    .popup-header h1{
+       margin-bottom: 15px;
+    }
+     .site-selector .separator{
+        display: none;
+    }
+     .site-selector .left-content{
+        border-right: 1px solid #636363;
+    }
+     .site-selector .flag-div{
+        width: 85%;
+        margin: 0 auto;
+    }
+    .popup-footer h6{
+        margin-top: 15px;
+    }
+    .site-selector .flag-div > .header-text{
+        margin: 10px 0 10px;
+    }
+}
+@media only screen and (min-width:480px){
+    .popup-header .ui-btn{
+        display: none;
+    }
+    .modal-ISL-popup{
+        width: 554px;
+        top: 28%;
+        left: 50%;
+        -ms-transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+    }
+}

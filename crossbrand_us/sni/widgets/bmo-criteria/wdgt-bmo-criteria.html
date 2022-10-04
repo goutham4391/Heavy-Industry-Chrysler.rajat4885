@@ -1,0 +1,38 @@
+<script id="bmo-match-hb-template" type="text/x-handlebars-template">
+    <div class="match-modal-wrapper gcss-colors-background-primary">
+        <button class="cllc-modal-button cllc-modal-close" title="Close"></button>
+        <div class="header-modal-match gcss-typography-brand-heading-4">
+            <span class="icon gcss-icon-wrench gcss-typography-brand-heading-6"></span> Your Build Criteria
+
+            <div class="gcss-typography-label-1"> You Built a
+                <span class="gcss-no-text-transform">{{year}} {{#nameFormat description}}{{/nameFormat}}</span>
+            </div>
+        </div>
+
+       
+
+        <div class="body-modal-match bmo-match gcss-typography-label-3 ">
+            <p class="gcss-typography-label-2">Your search criteria from Build & Price have been retained and are reflected in your search filter.</p>
+            <div class="col-span-12">
+                <ul>
+                    {{#each options.col1}}
+                        <li><span>{{{this}}}</span></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-span-12">
+                <ul>
+                    {{#each options.col2}}
+                        <li><span>{{{this}}}</span></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript" src="assets/javascript/WdgtBMOCriteria.js"></script>
+<script type="text/javascript">
+    cllc.lazy.requires([
+    { href: "/crossbrand_us/styleguide/css/xb/sni/widgets/match-modal/" + cllc.config.brand + "/wdgt-match-modal.css" },
+    { src: "/crossbrand_us/sni/widgets/bmo-criteria/assets/javascript/WdgtBMOCriteria.js" }]);
+</script>

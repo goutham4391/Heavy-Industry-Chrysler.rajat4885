@@ -1,0 +1,73 @@
+<html>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/incentives.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:11 GMT -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <script type="application/javascript" src="../../../../services/vehicleData.getVehicle.prod.chrysler.js"></script>
+  <script src="../../../shopping-tools/shared/data_functions.js"></script>
+  <script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+
+  <script language="javascript">
+    var appUrl = "";
+    var query = "";
+    var brandID = "CUC";
+    var year = getParameter("year");
+    var vehicle = getParameter("vehicle") || getParameter("family");
+    var ccode = getParameter("ccode");
+    var modelYearCode = getParameter("modelYearCode") || getParameter("modelyearcode");
+
+    var modelCodes = {
+      "200": "09",
+      "200_convertible": "00",
+      "chrysler_200": "09",
+      "chrysler_200c": "00",
+      "300": "01",
+      "chrysler_300": "01",
+      "pt_convertible": "02",
+      "aspen": "03",
+      "aspen_hybrid": "03",
+      "crossfire": "04",
+      "pacifica": "05",
+      "pt_cruiser": "06",
+      "sebring_sedan": "07",
+      "sebring": "07",
+      "town_country": "08",
+      "sebring_convertible": "19",
+      "pacifica_hybrid": "10",
+      "voyager": "13"
+    };
+
+    function findApp() {
+      var campaign = "";
+
+      if (ccode) {
+        var myc = ccode.substr(0, 9);
+        appUrl = "/incentives." + Vehicles.getFamilyFromMYC(myc) + "." + myc.substr(3, 4) + ".html#/model/" + myc;
+      } else if (modelYearCode) {
+        appUrl = "/incentives." + Vehicles.getFamilyFromMYC(modelYearCode) + "." + modelYearCode.substr(3, 4) +
+          ".html#/model/" + modelYearCode;
+      } else if (year && vehicle && modelCodes[vehicle]) {
+        modelYearCode = brandID + year + modelCodes[vehicle];
+        appUrl = "/incentives." + vehicle + "." + year + ".html#/model/" + modelYearCode;
+      } else {
+        return pickerPage("incentives");
+      }
+      campaign = getCampaign();
+      if (campaign) {
+        query += "&" + campaign;
+      }
+      doRedirect(appUrl, query);
+    }
+    findApp();
+  </script>
+
+</head>
+
+<body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/incentives.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:11 GMT -->
+</html>

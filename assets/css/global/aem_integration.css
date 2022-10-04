@@ -1,0 +1,339 @@
+/**global overrides */
+
+html {
+    box-sizing: content-box;
+}
+
+.main-navigation,
+.footer {
+    box-sizing: border-box;
+}
+
+body {
+    height: auto;
+    overflow: inherit !important;
+}
+
+img {
+    display: inline;
+}
+
+.main-navigation,
+.footer {
+    font-size: 14px;
+}
+
+.footer {
+    clear: both;
+    
+}
+
+.ui-mobile [data-role=page]{
+    position: relative;
+}
+
+.ui-mobile .footer {
+    clear: both;
+    overflow-x: scroll;
+}
+
+.main-navigation img,
+.footer img {
+    display: block;
+}
+
+.header-wrapper.desktop-header{
+    height: 8rem;
+}
+
+.header-wrapper .image-container {
+    width: 100%;
+}
+
+.header-wrapper .row {
+    margin-left: 0;
+    text-decoration: none !important;
+}
+
+@media screen and (max-width: 509px){
+    .header-wrapper .row {
+        display: flex;
+        margin: inherit;
+    }
+    .header-wrapper .row:before{
+        display: inherit;
+    }
+}
+
+.header-wrapper .navigation-card-wrapper .vehicle-name {
+    font-weight: bold;
+}
+
+.header-wrapper .nav-flyout.flyout-standard .flyout-links .layout-grid .col .link-list {
+    text-align: left;
+}
+
+.header-wrapper .nav-flyout.flyout-standard .navcards .navigation-card-content > .icon-container{
+    background: inherit;
+}
+
+.header-wrapper .link-list .heading {
+    padding: 0;
+}
+
+.header-wrapper a:hover,
+.footer a:hover {
+    text-decoration: none;
+}
+
+.header-wrapper .nav-flyout .navcards .navigation-card-container {
+    flex-grow: inherit;
+    display: inherit;
+    flex-direction: inherit;
+}
+
+
+/* Global mobile overrides*/
+
+.ui-mobile .m-header-wrapper,
+.m-header-wrapper {
+    z-index: 999999;
+}
+
+.ui-mobile .m-header-wrapper .flyout-wrapper .flyout-menu.primary .navcards .navigation-card-content > .icon-container .iconLabel{
+    text-transform: uppercase;
+}
+
+
+/** always show mobile disclaimer button **/
+.main-navigation .disclosure-button-wrapper {
+    display: none;
+}
+@media screen and (max-width: 1004px) {
+    
+    .disclosure-button-wrapper {
+        display: block;
+    }
+}
+
+
+/*global mobile override for blank space on top of mobile hero*/
+
+.ui-mobile .royalSlider.heroSlider {
+    margin-top: 0 !important;
+}
+
+
+/*CGMDS-5009*/
+
+.ui-mobile .page-selector .ui-content {
+    padding-top: 0;
+}
+
+.footer .body .link-list li a,
+.footer .body .link-list .heading {
+    font-size: 14px !important;
+}
+
+
+/**CGMDS-5880 Mobile fixes**/
+
+.ui-mobile .main-navigation p {
+    margin: 0;
+}
+
+
+.ui-mobile .zipCode.zipcode-block .toggle {
+    display: flex;
+}
+
+
+.ui-mobile .main-navigation .changeZip {
+    border: none;
+}
+
+.ui-mobile .main-navigation .text-field-wrapper > form {
+    display: flex;
+}
+
+.main-navigation p,.footer p {
+    padding: 0;
+}
+.footer .head .link-rail .link-text{
+    font-family: 'Roboto';
+}
+/**
+}
+
+@media screen and (max-width: 509px) {
+    .ui-mobile .zipCode .dataField .text-field-wrapper input,.ui-mobile .m-header-wrapper .flyout-menu .highlighted-menu-items .highlighted-menu-item-dropdown .partialWidth .zipDrawer .text-field-wrapper a {
+        padding: 1.4rem 4.2rem 1.2rem 2.5rem;
+    }
+  
+}
+**/
+
+
+.xb-main-content .xb-app-header nav#asc-app-nav{
+ z-index: 100; 
+}
+
+.disclosure-panel-wrapper{
+  box-sizing: border-box;
+}
+
+.disclosure-panel-wrapper .col-lg-6 {
+    width: 80%;
+}
+  .ownership-statements p {
+    padding-bottom: 2rem;
+    margin-left: auto;
+    margin-right: 1.5rem;
+    padding-left: 1.6%;
+    padding-right: 1.6%; }
+
+    .disclosure-panel-wrapper .col-xs-6 {
+    width: 100%!important;
+}
+    .disclosure-panel-wrapper .col-xs-5 {
+    width: 80%!important;
+}
+
+@media screen and (max-width: 509px){
+ 
+.disclosure-panel-wrapper .col-xs-6 {
+    width: 100%;
+} 
+}
+
+.disclosure-panel-wrapper .close{
+  opacity: 1;
+}
+
+/*CGMDS-4861*/
+@media screen and (min-width: 1005px){
+.ownership-statements {
+    min-width: 70rem !important;
+}  
+}
+
+/*cgmain-7237*/
+.header-wrapper.fiat__wrapper .m-header-wrapper .brand-logo .link-image img {
+    height: 4rem;
+}
+
+.header-wrapper .flyout-menu .menu-items .menu-item .menu-item-icon {
+    line-height: inherit;
+}
+
+/* clearing content in header row :after & before */
+.header-wrapper .row::before, .header-wrapper .row::after {
+    content: none !important;
+}
+
+.footer .head-wrapper .head .link-rail .layout-grid .col-item:nth-of-type(1) > a.link-image {
+  margin-bottom: 0;
+}
+
+.ui-mobile .footer .head-wrapper .head .link-rail .layout-grid .col-item:nth-of-type(1) > a.link-image {
+  margin-top: -8px;
+}
+.ui-mobile .zipCode .result .zip{
+    width:auto;
+    flex-grow:1
+}
+
+@media screen and (min-width: 700px) {
+    .header-wrapper.desktop-header.countrywrapper{
+        height: 11rem;
+    }
+}
+
+
+/*CGMDS-8260*/
+body.scroll-locked {
+  overflow: hidden !important;
+  height: 100%;
+}
+
+.m-header-wrapper .navigation-card-wrapper .iconDetails  {
+    line-height: normal;
+}
+
+#asc-wrapper #content {
+	top: 0;
+}
+
+.tic-page {
+    margin-top: 0 !important;
+}
+
+.main-navigation ul.links,
+.footer a.link,
+.footer ul.links {
+	font-family: roboto!important;
+}/*
+section.page, body.xb-page {
+    max-width: 1920px;
+}*/
+#main-content, .main-content {
+    margin: auto;
+    max-width: 1600px;
+    min-width: 1024px;
+}
+/*
+.col-lg-3 {
+    width: 30%;
+}
+*/
+
+
+/* CGMDS-7449 */
+@media screen and (min-width: 700px){
+    .footer .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* CGMDS-6316 */
+.main-navigation .navigation-card-container p,.footer p{
+    padding:0px;
+}
+
+
+/* CGMDS-7735 */
+.disclosure-panel .ucx-close-button{
+    font-size: 0px;
+    opacity: 1;
+}
+.ucx-close-button:not([data-nolabel]) {
+    font-size: 1.2rem;
+}
+
+.footer .link-rail .col-md-4{
+    width:auto;
+}
+
+body.scroll-locked {
+ left:0;
+  right:0;
+}
+
+.header-wrapper #flyout-vehicles{
+   margin-left: 0px;
+   margin-right: 0px;
+}
+.header-wrapper #flyout-vehicles.nav-flyout .btn-links {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.gcss-theme-light .suggested a {
+    color: #636363; 
+}
+
+/*CGMDS-7117*/
+.key-stat-wrapper .align-center{
+  line-height: normal;
+}

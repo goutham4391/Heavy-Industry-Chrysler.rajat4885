@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/pe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+	<script type="application/javascript" src="../../../../services/vehicleData.getVehicle.prod.chrysler.js"></script>
+    <script src="../../../shopping-tools/shared/data_functions.js"></script>
+	<script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+
+	<script language="javascript">
+		var year = getParameter("year");
+		var vehicle = getParameter("vehicle") || getParameter("family");
+		var model = getParameter("model");
+		var modelYearCode = getParameter("modelYearCode") || getParameter("modelyearcode");;
+		var ccode = getParameter("ccode");
+
+		function findApp() {
+			var appUrl = "../../../../payment-calculator.html";
+			var query = "";
+			var campaign = getCampaign();
+
+			if (ccode && ccode.length > 9) {
+				query += "ccode=" + ccode;
+				appUrl = "/payment-calculator." + Vehicles.getFamilyFromMYC(ccode.substr(0, 9)) + "." + ccode.substr(3, 4) +
+					".html";
+			} else if (modelYearCode) {
+				query += "modelYearCode=" + modelYearCode;
+				appUrl = "/payment-calculator." + Vehicles.getFamilyFromMYC(modelYearCode) + "." + modelYearCode.substr(3, 4) +
+					".html";
+			} else if (year && vehicle) {
+				query += "year=" + year + "&vehicle=" + vehicle;
+				appUrl = "/payment-calculator." + vehicle + "." + year + ".html";
+				if (model) {
+					query += "&model=" + model;
+				}
+			} else {
+				return pickerPage("incentives");
+			}
+			if (campaign) {
+				query += "&" + campaign;
+			}
+			doRedirect(appUrl, query);
+		}
+		findApp();
+	</script>
+
+</head>
+
+<body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/pe.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+</html>

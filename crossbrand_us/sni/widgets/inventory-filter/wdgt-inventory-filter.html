@@ -1,0 +1,552 @@
+<div class="wdgt wdgt-inventory-filter">
+<form class="wdgt-inventory-filter-form" id="wdgt-inventory-filter-form-1" autocomplete="off" role="form" method="post" action="#">
+<div id="wdgt-inventory-filter-panel-group-1" class="xb-app-sni-panel-group">
+<div class="xb-app-sni-panel xb-app-sni-panel-static modal-headline">
+<div class="xb-app-sni-panel-heading">
+<div class="modal-headline-container gc-background-color-b">
+<h2 class="gcss-typography-brand-heading-4 mobile_filter_headline">
+Filter Results
+</h2>
+<button data-action="cllc.modal.close" type="button" class="cllc-modal-button" title="Close"></button>
+</div>
+</div>
+</div>
+<div class="xb-app-sni-panel xb-app-sni-panel-static zipcode-panel">
+<div class="xb-app-sni-panel-heading collapsed gcss-colors-line-primary gcss-colors-background-primary" data-x-parent="#wdgt-inventory-filter-panel-group-1">
+<h2 class="xb-app-sni-panel-title zipcode gcss-typography-label-1 gcss-icon-location">
+ZIP CODE
+<span id="zipcode" class="gcss-colors-text-body-subdued"></span>
+</h2>
+<a href="#xb-app-change-zipcode" data-lpos="search-new-inventory:filtering-options:zipcode-overlay" data-lid="open" class="gcss-button-tertiary change-zipcode" tabindex="1"><div aria-hidden="true">Change</div><span class="gcss-sr-only custom-zipcode-label"></span></a>
+</div>
+</div>
+<div class="xb-app-sni-panel xb-app-sni-panel-static">
+<div class="xb-app-sni-panel-heading has-range">
+<h2 class="xb-app-sni-panel-title search_within_panel gcss-colors-text-body-primary gcss-typography-label-10" id="search-within-header">
+Search Radius <span class="gcss-typography-font-size-small lowercase-text">(in miles)</span>
+</h2>
+</div>
+<section class="xb-app-sni-panel-body has-range" data-json-prop="custom::dealerRadiusRange" data-template-id="tmpl-wdgt-inventory-filter-dealer-range">
+<div data-render-json></div>
+</section>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::ranges" data-template-id="tmpl-wdgt-inventory-filter-static-panels-ranges">
+<div data-render-json></div>
+</div>
+<div class="xb-app-sni-panel">
+<button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expanded="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#panel-collapse-1">
+<h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+Dealers
+</h2>
+<span class="selection-counter" aria-hidden="true">
+<span id="dealer" class="gcss-colors-text-body-primary gcss-typography-label-2" data-summary-label-counter="wdgt-inventory-filter-dealer-selection-counter"></span>
+</span>
+<span class="xb-app-sni-panel-indicator gcss-icon-chevron-down"></span>
+</button>
+<div id="panel-collapse-1" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:dealer" data-lid="">
+<div class="xb-app-sni-panel-body gcss-colors-background-primary">
+<div class="form-group" data-json-prop="getlocatedealers::dealer" data-template-id="tmpl-wdgt-inventory-filter-dealer">
+<div data-render-json data-sni-content-preloader>
+<div class="sni-content-preloader" style="height: 50px"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::variations" data-template-id="tmpl-wdgt-inventory-filter-collapsible-panels-models">
+<div data-render-json></div>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::status" data-template-id="tmpl-wdgt-inventory-filter-collapsible-panels-status-attributes">
+<div data-render-json></div>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::attributes" data-template-id="tmpl-wdgt-inventory-filter-collapsible-panels-other-attributes">
+<div data-render-json></div>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::colorGroups" data-template-id="tmpl-wdgt-inventory-filter-collapsible-panels-colors-and-trim">
+<div data-render-json></div>
+</div>
+<div data-json-prop="getinventoryfilters::inventoryFilters::result::data::categories" data-template-id="tmpl-wdgt-inventory-filter-collapsible-panels-categories-options">
+<div data-render-json></div>
+</div>
+<div class="xb-app-sni-panel xb-app-sni-panel-static" id="panel-static-ram-cab-box-configuration" style="display:none">
+<div class="xb-app-sni-panel-heading collapsed" data-x-parent="#wdgt-inventory-filter-panel-group-1">
+<div style="display: block">
+<a class="gcss-button-tertiary  gcss-button-plain gcss-icon-info-circle explore-cab-box" href="#cab-box-modal" data-lpos="search-new-inventory:filtering-options" data-lid="ram-explore-cab-and-box-configurations" title="Explore Cab and Box configurations"><span>Explore Cab and Box Configurations</span></a>
+</div>
+</div>
+</div>
+<div class="xb-app-sni-panel xb-app-sni-panel-static reset_filters">
+<div class="xb-app-sni-panel-heading collapsed">
+<div>
+<a class="gcss-button-tertiary  gcss-button-plain  gcss-icon-refresh" data-action="form.reset" data-donottrack="true" data-lpos="search-new-inventory:filter-results" data-lid="reset" href="javascript:void(0);">RESET FILTERS</a>
+</div>
+</div>
+</div>
+<div class="xb-app-sni-panel xb-app-sni-panel-static wdgt-inventory-filter-overlay-btn-group">
+<div class="xb-app-sni-panel-heading collapsed">
+<div>
+<a class="gcss-button-tertiary  gcss-button-plain  gcss-icon-not-available" data-action="cllc.modal.close" data-donottrack="true" data-lpos="search-new-inventory:filter-results" data-lid="reset" href="javascript:void(0);">Cancel</a>
+</div>
+<div>
+<a id="wdgt-inventory-filter-update-results" class="gcss-icon-align-right gcss-button gcss-button-variable gcss-icon-refresh gcss-button-plain" data-action="cllc.modal.close" data-donottrack="true" data-lpos="search-new-inventory:filter-results" data-lid="update-results" href="javascript:void(0);">Update Results</a>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<script type="text/x-handlebars-template" id="tmpl-toggle-list-length-cta">
+    <button type="button" class="toggle-list-length gcss-button-tertiary gcss-button-small gcss-button-plain" id="{{getUniqueId this.identifier 'toggle-list-length-cta'}}" data-lpos="filtering-options:{{getUniqueId this.identifier 'toggle-list-length-cta'}}" data-lid="" data-max-length="{{#if tllc-max-length}}{{tllc-max-length}}{{else}}0{{/if}}" data-for="ul#{{getUniqueId identifier 'checkbox container'}}" data-for-items=">li" data-collapse-status="{{#if tllc-initial-toggle-status}}{{tllc-initial-toggle-status}}{{else}}show-more{{/if}}" href="javascript:void(0);" style="{{#if tllc-max-length}}{{#compare data.length "<=" tllc-max-length}}display:none;{{/compare}}{{else}}display:none;{{/if}}"><span data-show="show-more">See all {{data.length}} {{identifier}}{{#compare data.length ">" "1"}}s{{/compare}} within <span class="range-value">{{data.range.currentRadiusDisplayValue.value}}</span><span class="range-unit"> {{data.range.unit}}{{#if data.range.pluralize}}{{#compare data.length ">" "1"}}s{{/compare}}{{/if}}<span class="icon gcss-icon-chevron-down-2" aria-hidden="true"></span></span></span></button>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-toggle-list-length-other-cta">
+    <button type="button" class="toggle-list-length gcss-button-tertiary gcss-button-small gcss-button-plain" id="{{getUniqueId this.identifier 'toggle-list-length-other-cta'}}" data-lpos="filtering-options:{{getUniqueId this.identifier 'toggle-list-length-other-cta'}}" data-lid="" data-max-length="{{#if tlloc-max-length}}{{tlloc-max-length}}{{else}}0{{/if}}" data-for="ul#{{getUniqueId identifier 'checkbox container'}}" data-for-items=">li" data-collapse-status="{{#if tlloc-initial-toggle-status}}{{tlloc-initial-toggle-status}}{{else}}show-more{{/if}}" href="javascript:void(0);" style="{{#if tlloc-max-length}}{{#compare data.length "<=" tlloc-max-length}}display:none;{{/compare}}{{else}}display:none;{{/if}}"><span data-show="show-more" class="gcss-typography-font-size-small">Show All {{attr-lpos}}</span></button>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-toggle-list-length-st-cta">
+    <button type="button" class="toggle-list-length gcss-button-tertiary gcss-button-small gcss-button-plain" id="{{getUniqueId this.identifier 'toggle-list-length-st-cta'}}" data-lpos="filtering-options:{{getUniqueId this.identifier 'toggle-list-length-st-cta'}}" data-lid="" data-max-length="{{#if tllsc-max-length}}{{tllsc-max-length}}{{else}}0{{/if}}" data-for="ul#{{getUniqueId identifier 'checkbox container'}}" data-for-items=">li" data-collapse-status="{{#if tllsc-initial-toggle-status}}{{tllsc-initial-toggle-status}}{{else}}show-more{{/if}}" href="javascript:void(0);" style="{{#if tllsc-max-length}}{{#compare data.length "<=" tllsc-max-length}}display:none;{{/compare}}{{else}}display:none;{{/if}}"><span data-show="show-more" class="gcss-typography-font-size-small">Show All {{name}}</span></button>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-toggle-list-length-categories-cta">
+    <button type="button" class="toggle-list-length gcss-button-tertiary gcss-button-small gcss-button-plain" id="{{getUniqueId this.identifier 'toggle-list-length-categories-cta'}}" data-lpos="filtering-options:{{getUniqueId this.identifier 'toggle-list-length-categories-cta'}}" data-lid="" data-max-length="{{#if tllcc-max-length}}{{tllcc-max-length}}{{else}}0{{/if}}" data-for="ul#{{getUniqueId identifier 'checkbox container'}}" data-for-items=">li" data-collapse-status="{{#if tllcc-initial-toggle-status}}{{tllcc-initial-toggle-status}}{{else}}show-more{{/if}}" href="javascript:void(0);" style="{{#if tllcc-max-length}}{{#compare data.length "<=" tllcc-max-length}}display:none;{{/compare}}{{else}}display:none;{{/if}}"><span data-show="show-more" class="gcss-typography-font-size-small">Show All {{name}}</span></button>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-partial-range-label">
+        <label class="gcss-colors-text-body-primary gcss-typography-label-2" id="{{accessibleUniqueId identifier 'range-label'}}" {{#if data-prefix-suffix}} {{{data-prefix-suffix}}} {{else}} {{#if data-prefix}} data-prefix="{{{data-prefix}}}"{{/if}} {{#if data-suffix}} data-suffix="{{{data-suffix}}}"{{/if}}{{/if}}>{{#if data-default-label-prop}}{{getAbsoluteValueNumber (lookup data data-default-label-prop)}}{{else}}{{#if data.min}}{{getAbsoluteValueNumber data.min}}{{else}}0{{/if}}{{/if}}</label>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-partial-range-container">
+    <div class="range-container">
+        <section class="row-span">
+            <div class="col-span-full">
+                <input {{#compare (toLowerCase data-input-id) "===" "dealer-radius-range"}}style="{{getRadiusSliderPercentage data.min data.max}}" {{/compare}}type="range"
+                data-querystring-range-value="{{getCurrentRangeValue}}"
+                aria-labelledby="{{attr-headerId}} {{accessibleUniqueId identifier 'range-label'}}"
+                id="{{getUniqueId identifier 'range'}}"
+                data-lpos="filtering-options:{{#if attr-lpos}}{{getDatalayerLinkTrackIdentifier attr-lpos}}{{else}}null{{/if}}"
+                data-lid=""
+                {{#if attr-name}} name="{{attr-name}}"{{/if}}
+                min="{{#if data.min}}{{getAbsoluteValueNumber data.min}}{{else}}0{{/if}}"
+                max="{{#if data.max}}{{getAbsoluteValueNumber data.max}}{{else}}0{{/if}}"
+                data-default-value="{{#if data-default-value-prop}}{{getAbsoluteValueNumber (lookup data data-default-value-prop)}}{{else}}{{#if data.min}}{{getAbsoluteValueNumber data.min}}{{else}}0{{/if}}{{/if}}"
+                step="{{#if data.step}}{{data.step}}{{/if}}"
+                value="{{#if data-default-value-prop}}{{getAbsoluteValueNumber (lookup data data-default-value-prop)}}{{else}}{{#if data.min}}{{getAbsoluteValueNumber data.min}}{{else}}0{{/if}}{{/if}}"
+                {{#if ../includeDataAttributesFromContext}} {{addDataAttributesFromContext this ../includeDataAttributesFromContextRecursive}} {{/if}} {{#if data-input-id}}
+                data-input-id="{{data-input-id}}" {{/if}}>
+            </div>
+
+        </section>
+    </div>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-partial-radius-range-container">
+  <nav role="navigation" aria-label="Search Radius">
+    <ul class="search-radius {{identifier}}">
+      {{#if data.sniRadiusRange}}
+        {{#each data.sniRadiusRange}}
+          <li class="search-radius__link {{#compare (getCurrentRadiusStatus this) '===' 'active'}}active gcss-colors-element-primary gcss-colors-text-element-primary{{/compare}}" tabindex="0">
+            <div class="checkbox ">
+              <input
+                tabindex="-1"
+                data-suffix={{../data-suffix}}
+                class="gcss-sr-only"
+                type="radio"
+                data-attr-set-value="text"
+                id="{{getUniqueId 'radius picker radio' @index}}"
+                data-lpos="filtering-options:search-within:{{this}}"
+                data-lid=""
+                name="radius"
+                value={{this}}
+                data-input-id={{../data-input-id}}
+              >
+              <label for="{{getUniqueId 'radius picker radio' @index}}" class="gcss-typography-font-size-default">{{this}}</label>
+            </div>
+          </li>
+        {{/each}}
+      {{/if}}
+    </ul>
+  </nav>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-partial-checkbox-selection-container">
+    <div class="selection-container">
+        {{#if data.hasError}}
+            {{#if data.errorMessage}}
+                <div>{{data.errorMessage}}</div>
+            {{else}}
+                <div class="sni-content-preloader" style="height: 50px"></div>
+            {{/if}}
+        {{else}}
+        <fieldset>
+            <legend class="gcss-sr-only">{{identifier}}</legend>
+            <ul class="checkbox-container {{identifier}}" id="{{getUniqueId identifier 'checkbox container'}}">
+                {{#each data}}
+                <li>
+                    <div class="checkbox gc-forms-checkbox">
+                        <input tabindex="0" class="gcss-sr-only" type="checkbox" data-querystring-check-value="{{getCurrentCheckValue ../attr-name ../data-attr-set-value}}" id="{{getUniqueId ../identifier 'checkbox' @index}}" data-lpos="filtering-options:{{getDatalayerLinkTrackIdentifier ../attr-lpos}}" data-lid="" name="{{../attr-name}}" data-attr-set-value="{{../data-attr-set-value}}" data-summary-label-counter="{{../data-summary-label-counter}}" {{#if ../includeDataAttributesFromContext}} {{addDataAttributesFromContext this ../includeDataAttributesFromContextRecursive}} {{/if}}>
+                        <label for="{{getUniqueId ../identifier 'checkbox' @index}}">
+                            {{#if image}}
+                            <span class="thumbnail">
+                                <img src="/assets/images/blank.gif" data-sources="src={{mediaServerPathConcat image}}" data-trigger="none" alt="{{desc}}" />
+                            </span>
+                            {{/if}}
+                            {{#compare image "===" null}}
+                                {{#compare (mediaServerBrandChecker) "===" "jeep"}}
+                                <span class="thumbnail">
+                                     <img src="/crossbrand_us/assets/images/JeepLogo.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}}
+                                {{#compare (mediaServerBrandChecker) "===" "dodge"}}
+                                <span class="thumbnail">
+                                    <img src="/crossbrand_us/assets/images/DodgeLogo.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}}
+                                {{#compare (mediaServerBrandChecker) "===" "ramtrucks"}}
+                                <span class="thumbnail">
+                                    <img src="/crossbrand_us/assets/images/RamLogo.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}}
+                                {{#compare (mediaServerBrandChecker) "===" "fiatusa"}}
+                                <span class="thumbnail">
+                                    <img src="/crossbrand_us/assets/images/FiatLogo.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}}
+                                {{#compare (mediaServerBrandChecker) "===" "alfaromeousa"}}
+                                <span class="thumbnail">
+                                    <img src="/crossbrand_us/assets/images/alfaromeousa.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}} 
+                                {{#compare (mediaServerBrandChecker) "===" "chrysler"}}
+                                <span class="thumbnail">
+                                    <img src="/crossbrand_us/assets/images/ChryslerLogo.jpg" alt="{{desc}}">
+                                </span>
+                                {{/compare}} 
+                            {{/compare}}
+                            <span class="gc-font-secondary gc-font-color-secondary gc-heading-size-17 thumbnail-gap">{{#if ../data-prop}}{{lookup this ../data-prop}}{{else}}{{{this}}}{{/if}}</span>
+                            {{#if ../insert-content-from-helper-1}}
+                                {{{applyHelper ../insert-content-from-helper-1 this}}}
+                            {{/if}}
+                        </label>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </fieldset>
+            {{#if insert-content-from-helper-2}}
+                {{{applyHelper insert-content-from-helper-2 this}}}
+            {{/if}}
+            {{#if insert-content-from-helper-3}}
+                {{{applyHelper insert-content-from-helper-3 this}}}
+            {{/if}}
+            {{#if insert-content-from-helper-4}}
+                {{{applyHelper insert-content-from-helper-4 this}}}
+            {{/if}}
+            {{#if insert-content-from-helper-5}}
+                {{{applyHelper insert-content-from-helper-5 this}}}
+            {{/if}}
+        {{/if}}
+    </div>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-inventory-status-checkbox-selection-container">
+    <div class="selection-container">
+        <fieldset>
+            <legend class="gcss-sr-only">{{identifier}}</legend>
+            <ul class="checkbox-container {{identifier}}" id="{{getUniqueId identifier 'checkbox container'}}">
+                {{#each data}}
+                <li>
+                    <div class="checkbox gc-forms-checkbox">
+                        <input
+                            tabindex="0"
+                            class="gcss-sr-only"
+                            type="checkbox" 
+                            data-querystring-check-value="{{getCurrentCheckValue ../attr-name ../data-attr-set-value}}"
+                            id="{{getUniqueId ../identifier 'checkbox' @index}}"
+                            data-lpos="filtering-options:{{getDatalayerLinkTrackIdentifier ../attr-lpos}}:{{#if ../data-prop}}{{lookup this ../data-prop}}{{else}}{{{this}}}{{/if}}"
+                            data-lid=""
+                            name="{{../attr-name}}"
+                            data-attr-set-value="{{../data-attr-set-value}}"
+                            data-summary-label-counter="{{../data-summary-label-counter}}"
+                            data-code="{{this.code}}"
+                        >
+                        <label for="{{getUniqueId ../identifier 'checkbox' @index}}">
+                            <span class="gc-font-secondary gc-font-color-secondary gc-heading-size-17 thumbnail-gap">{{#if ../data-prop}}{{lookup this ../data-prop}}{{else}}{{{this}}}{{/if}}</span>
+                        </label>
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </fieldset>
+    </div>
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-collapsible-panels-models">
+    {{#if data.length}}
+        <div class="xb-app-sni-panel">
+            <button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expanded="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#{{getUniqueId 'models panel collapse' type @index}}">
+                <h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+                    Models
+                </h2>
+                <span class="selection-counter" aria-hidden="true">
+                    <span id={{getUniqueId 'label models panel collapse' type @index}} class="gcss-colors-text-body-primary gcss-typography-label-3" data-summary-label-counter="{{getUniqueId 'label models panel collapse selection counter'}}"></span>
+                </span>
+                <span class="xb-app-sni-panel-indicator gcss-icon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <div id="{{getUniqueId 'models panel collapse' type @index}}" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:models" data-lid="">
+                <div class="xb-app-sni-panel-body gcss-colors-background-primary">
+                    <div class="container">
+                        <section class="row-span">
+                            <div class="col-span-full">
+                                {{renderPartial "tmpl-partial-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "models") attr-name="variation" attr-lpos="models" data-attr-set-value="text" data=data data-prop="" data-summary-label-counter=(getUniqueId "label models panel collapse selection counter")}}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-collapsible-panels-categories-options">
+    {{#each data}}
+        <div class="xb-app-sni-panel">
+            <button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expanded="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#{{getUniqueId 'categories options panel collapse' name @index}}">
+                <h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+                    {{name}}
+                </h2>
+                <span class="selection-counter" aria-hidden="true">
+                    <span id={{getUniqueId 'label categories options panel collapse' name @index}} class="gc-font-secondary gcss-colors-text-body-primary gcss-typography-label-3" data-summary-label-counter="{{getUniqueId 'label categories options panel collapse selection counter' name @index}}"></span>
+                </span>
+                <span class="xb-app-sni-panel-indicator gcss-icon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <div id="{{getUniqueId 'categories options panel collapse' name @index}}" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:{{name}}" data-lid="">
+                <div class="xb-app-sni-panel-body gcss-colors-background-primary">
+                    <div class="container">
+                        {{#if subcategories}}
+                            {{#each subcategories}}
+                                <section class="row-span">
+                                    <div class="col-span-full">
+                                        <div class="form-group">
+                                            <h3 class="gcss-typography-label-2">{{name}}</h3>
+                                            {{renderPartial "tmpl-partial-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "categories options" name) name=(stringValueOf name) attr-name=(stringValueOf (getInventoryResultsFilterAttrName name)) attr-lpos=(stringValueOf ../name "-" name) data-attr-set-value="data-code" data=options data-prop="longdesc" data-summary-label-counter=(getUniqueId "label categories options panel collapse selection counter" ../name @../index) includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-5="renderPartial tmpl-toggle-list-length-st-cta" tllsc-max-length="4" tllsc-initial-toggle-status="show-more"}}
+                                        </div>
+                                    </div>
+                                </section>
+                            {{/each}}
+                        {{else}}
+                            <section class="row-span">
+                                <div class="col-span-full">
+                                    {{renderPartial "tmpl-partial-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "categories options" name) attr-name=(stringValueOf (getInventoryResultsFilterAttrName name)) attr-lpos=(stringValueOf name)  name=(stringValueOf name) data-attr-set-value="data-code" data=options data-prop="longdesc" data-summary-label-counter=(getUniqueId "label categories options panel collapse selection counter" name @index) includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-5="renderPartial tmpl-toggle-list-length-st-cta" tllsc-max-length="4" tllsc-initial-toggle-status="show-more" }}
+                                </div>
+                            </section>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-collapsible-panels-status-attributes">
+    {{#if data.length}}
+        <div class="xb-app-sni-panel">
+            <button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expanded="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#{{getUniqueId 'status panel collapse' type @index}}">
+                <h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+                    Inventory Status
+                </h2>
+                <span class="selection-counter" aria-hidden="true">
+                    <span id={{getUniqueId 'label status panel collapse' type @index}} class="gcss-colors-text-body-primary gcss-typography-label-3" data-summary-label-counter="{{getUniqueId 'label status panel collapse selection counter'}}"></span>
+                </span>
+                <span class="xb-app-sni-panel-indicator gcss-icon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <div id="{{getUniqueId 'status panel collapse' type @index}}" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:status" data-lid="">
+                <div class="xb-app-sni-panel-body gcss-colors-background-primary">
+                    <div class="container">
+                        <section class="row-span">
+                            <div class="col-span-full">
+                                {{renderPartial "tmpl-inventory-status-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "Inventory Status" status) attr-name=(stringValueOf "attributes::status" desc) attr-lpos=(stringValueOf "status:" desc) data-attr-set-value="data-code" data=data data-prop="desc" data-summary-label-counter=(getUniqueId "label status panel collapse selection counter")}}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-collapsible-panels-other-attributes">
+    {{#each data}}
+        <div class="xb-app-sni-panel">
+            <button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expanded="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#{{getUniqueId 'other attributes panel collapse' type @index}}">
+                <h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+                    {{type}}
+                </h2>
+                <span class="selection-counter" aria-hidden="true">
+                    <span id={{getUniqueId 'label other attributes panel collapse' type @index}} class="gc-font-secondary gcss-colors-text-body-primary gcss-typography-label-3" data-summary-label-counter="{{getUniqueId 'label other attributes panel collapse selection counter' name @index}}"></span>
+                </span>
+                <span class="xb-app-sni-panel-indicator gcss-icon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <div id="{{getUniqueId 'other attributes panel collapse' type @index}}" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:{{type}}" data-lid="">
+                <div class="xb-app-sni-panel-body gcss-colors-background-primary">
+                    <div class="container">
+                        <section class="row-span">
+                            <div class="col-span-full">
+                                {{renderPartial "tmpl-partial-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "other attributes" type) attr-name=(toLowerCaseNoSpace "attributes::"type) attr-lpos=(stringValueOf type) data-attr-set-value="text" data=values data-prop="" data-summary-label-counter=(getUniqueId "label other attributes panel collapse selection counter" name @index) includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-3="renderPartial tmpl-toggle-list-length-other-cta" tlloc-max-length="4" tlloc-initial-toggle-status="show-more"}}
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-collapsible-panels-colors-and-trim">
+    {{#if data.length}}
+        <div class="xb-app-sni-panel">
+            <button class="xb-app-sni-panel-heading collapsed" type="button" aria-haspopup="true" aria-expaned="false" data-x-parent="#wdgt-inventory-filter-panel-group-1" data-collapse="collapse" data-target="#{{getUniqueId 'colors and trim panel collapse' type @index}}">
+                <h2 class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-1">
+                    Colors
+                </h2>
+                <span class="selection-counter" aria-hidden="true">
+                    <span id={{getUniqueId 'label colors and trim panel collapse' type @index}} class="gcss-colors-text-body-primary gcss-typography-label-3" data-summary-label-counter="{{getUniqueId 'label colors and trim panel collapse selection counter'}}"></span>
+                </span>
+                <span class="xb-app-sni-panel-indicator gcss-icon-chevron-down" aria-hidden="true"></span>
+            </button>
+            <div id="{{getUniqueId 'colors and trim panel collapse' type @index}}" class="xb-app-sni-panel-collapse collapse" data-lpos="filtering-options:colors" data-lid="">
+                <div class="xb-app-sni-panel-body gcss-colors-background-primary">
+                    <div class="container">
+                        {{#each data}}
+                            {{#compare (toLowerCase type) "===" "exterior"}}
+                                <section class="row-span">
+                                    <div class="col-span-full">
+                                        <div class="form-group">
+                                            <h3 class="gcss-typography-label-2">Exterior Color</h3>
+                                            <div class="selection-container">
+                                                <fieldset>
+                                                <legend class="gcss-sr-only">Exterior Colors</legend>
+                                                <ul class="checkbox-color color-picker">
+                                                    {{#each colors}}
+                                                        <li>
+                                                            <div class="checkbox">
+                                                                <input tabindex="0" class="gcss-sr-only" type="checkbox" data-querystring-check-value="{{getCurrentCheckValue (getInventoryResultsFilterAttrName "colors") "code"}}" id="{{getUniqueId 'color picker checkbox' @index}}" data-lpos="filtering-options:colors:exterior-colors:{{desc}}" data-lid="" name="{{stringValueOf (getInventoryResultsFilterAttrName ../type)}}" data-attr-set-value="data-code" data-summary-label-counter="{{getUniqueId 'label colors and trim panel collapse selection counter'}}" data-summary-format="" data-summary-selector="#wdgt-inventory-filter-color-picker-selection-summary-1" data-summary-values="data-desc" {{addDataAttributesFromContext this false}}>
+                                                                <label for="{{getUniqueId 'color picker checkbox' @index}}" title="{{desc}}"><span class="color-swatch" style="background-image:url('{{mediaServerPathPic url}}');"></span><span class="gcss-sr-only">{{desc}}</span></label>
+                                                            </div>
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </fieldset>
+                                                <div class="selection-summary gcss-colors-line-primary gcss-typography-label-4" id="wdgt-inventory-filter-color-picker-selection-summary-1" data-selection-count="0"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            {{/compare}}
+                            {{#compare (toLowerCase type) "===" "seatcolor"}}
+                                {{#if seatColorVos.length}}
+                                    <section class="row-span">
+                                        <div class="col-span-full">
+                                            <div class="form-group">
+                                                <h3 class="gcss-typography-label-2">Interior Color</h3>
+                                                {{renderPartial "tmpl-inventory-status-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "Inventory Status" status) attr-name=(stringValueOf "optionCodes::interior" desc) attr-lpos=(stringValueOf "colors:interior-colors" desc) data-attr-set-value="data-code" data=seatColorVos data-prop="desc" data-summary-label-counter=(getUniqueId "label colors and trim panel collapse selection counter")}}
+                                            </div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+                            {{/compare}}
+                            {{#compare (toLowerCase type) "===" "interior"}}
+                                {{#if intFabric.length}}
+                                    <section class="row-span">
+                                        <div class="col-span-full">
+                                            <div class="form-group">
+                                                <h3 class="gcss-typography-label-2">Seating & Trim</h3>
+                                                {{renderPartial "tmpl-partial-checkbox-selection-container" identifier="seating-trim-fabric" attr-name=(stringValueOf "attributes::" type) attr-lpos="colors:seating-trim" data-attr-set-value="data-desc" data=intFabric data-prop="desc" data-summary-label-counter=(getUniqueId "label colors and trim panel collapse selection counter") includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-4="renderPartial tmpl-toggle-list-length-st-cta" tllsc-max-length="4" tllsc-initial-toggle-status="show-more" name="Seating & Trim"}}
+                                            </div>
+                                        </div>
+                                    </section>
+                                {{/if}}
+                                {{#if trimStyles}}
+                                    {{#if trimStyles.subcategories}}
+                                        {{#each trimStyles.subcategories}}
+                                            <section class="row-span">
+                                                <div class="col-span-full">
+                                                    <div class="form-group">
+                                                        <h3 class="gcss-typography-label-2">{{name}}</h3>
+                                                        {{renderPartial "tmpl-partial-checkbox-selection-container" identifier=(getSafeDomClassIdentifier "categories options" name) attr-name=(stringValueOf (getInventoryResultsFilterAttrName name)) attr-lpos=(stringValueOf "colors:" name) data-attr-set-value="data-code" data=options data-prop="longdesc" data-summary-label-counter=(getUniqueId "label colors and trim panel collapse selection counter") includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-4="renderPartial tmpl-toggle-list-length-st-cta" tllsc-max-length="4" tllsc-initial-toggle-status="show-more" name="Seating & Trim"}}
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        {{/each}}
+                                    {{/if}}
+                                {{/if}}
+                            {{/compare}}
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/if}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-dealer-range">
+    {{
+      renderPartial "tmpl-partial-radius-range-container"
+      identifier=(getSafeDomClassIdentifier "dealer radius")
+      attr-name="radius"
+      attr-lpos="search-within"
+      data=data
+      data-default-value-prop="currentRadius"
+      data-default-label-prop="currentRadiusDisplayValue"
+      data-suffix="&#x0020;mi"
+      includeDataAttributesFromContext=false
+      data-input-id="dealer-radius-within"
+    }}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-static-panels-ranges">
+    {{#each data}}
+        {{#each this}}
+            {{#compare @../key "===" "specs"}}
+                <div class="xb-app-sni-panel xb-app-sni-panel-static">
+                    <div class="xb-app-sni-panel-heading has-range">
+                        <h2
+                            class="xb-app-sni-panel-title gcss-colors-text-body-primary gcss-typography-label-10"
+                            id="{{accessibleUniqueId (getSafeDomClassIdentifier this type) 'range'}}-header"
+                        >
+                            {{type}}
+                        </h2>
+                    </div>
+                    <div class="range-label-container">
+                        {{renderPartial "tmpl-partial-range-label" identifier=(getSafeDomClassIdentifier this type) attr-name=(stringValueOf "ranges::" (toLowerCase (getInventoryResultsPricingRangeFilterAttrName type)) "::min") attr-lpos=(stringValueOf "min-" (toLowerCase type)) data=this data-prefix-suffix=(getDataPrefixSuffix type) data-default-value-prop="min" data-default-label-prop="min" step=null includeDataAttributesFromContext=false}}
+                    </div>
+                    <section class="xb-app-sni-panel-body has-range">
+                        {{renderPartial "tmpl-partial-range-container" identifier=(getSafeDomClassIdentifier this type) attr-headerId=(stringValueOf (accessibleUniqueId (getSafeDomClassIdentifier this type) 'range') "-header") attr-name=(stringValueOf "ranges::" (toLowerCase (getInventoryResultsPricingRangeFilterAttrName type)) "::min") attr-lpos=(stringValueOf "min-" (toLowerCase type)) data=this data-prefix-suffix=(getDataPrefixSuffix type) data-default-value-prop="min" data-default-label-prop="min" step=null includeDataAttributesFromContext=false}}
+                    </section>
+                </div>
+            {{/compare}}
+            {{#compare @../key "===" "pricing"}}
+                {{#compare (toLowerCase type) "===" "price"}}
+                    <div class="xb-app-sni-panel xb-app-sni-panel-static">
+                        <div class="xb-app-sni-panel-heading has-range">
+                            <h2
+                                class="xb-app-sni-panel-title xb-app-sni-panel-heading gcss-colors-text-body-primary gcss-typography-label-10"
+                                id="{{accessibleUniqueId (getSafeDomClassIdentifier 'max pricing' this type) 'range'}}-header"
+                            >
+                                {{#compare (toLowerCase type) "===" "price"}}
+                                    {{desc}}
+                                {{else}}
+                                    {{type}}
+                                {{/compare}}
+                            </h2>
+                        </div>
+                        <div class="range-label-container">
+                            {{renderPartial "tmpl-partial-range-label" identifier=(getSafeDomClassIdentifier "max pricing" this type) attr-name=(stringValueOf "ranges::" (toLowerCase (getInventoryResultsPricingRangeFilterAttrName type)) "::max") attr-lpos=(stringValueOf "max-" (toLowerCase type)) data=this data-default-value-prop="max" data-default-label-prop="max" step=null data-prefix="$" includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false}}
+                        </div>
+                        <section class="xb-app-sni-panel-body has-range">
+                            {{renderPartial "tmpl-partial-range-container" identifier=(getSafeDomClassIdentifier "max pricing" this type) attr-headerId=(stringValueOf (accessibleUniqueId (getSafeDomClassIdentifier 'max pricing' this type) 'range') "-header") attr-type=(toLowerCase type) attr-name=(stringValueOf "ranges::" (toLowerCase (getInventoryResultsPricingRangeFilterAttrName type)) "::max") attr-lpos=(stringValueOf "max-" (toLowerCase type)) data=this data-default-value-prop="max" data-default-label-prop="max" step=null data-prefix="$" includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false}}
+                        </section>
+                    </div>
+                {{/compare}}
+            {{/compare}}
+        {{/each}}
+    {{/each}}
+</script>
+<script type="text/x-handlebars-template" id="tmpl-wdgt-inventory-filter-dealer">
+    <div>
+        {{renderPartial "tmpl-partial-checkbox-selection-container" identifier="dealer" attr-name="dealerCodes" attr-lpos="dealer" data-attr-set-value="data-dealercode,data-locationseq" data=data data-prop="dealerName" data-summary-label-counter="wdgt-inventory-filter-dealer-selection-counter" includeDataAttributesFromContext=true includeDataAttributesFromContextRecursive=false insert-content-from-helper-2="renderPartial tmpl-toggle-list-length-cta" tllc-max-length="4" tllc-initial-toggle-status="show-more"}}
+    </div>
+</script>
+<script type="text/javascript">
+    cllc.lazy.requires([
+    { href: "/crossbrand_us/styleguide/css/xb/sni/widgets/inventory-filter/" + cllc.config.brand + "/wdgt-inventory-filter.css" },
+    { src: "/crossbrand_us/common/bridge/" + cllc.config.brand + "/radiusConfig.js" },
+    { src: "/crossbrand_us/sni/widgets/inventory-filter/assets/javascript/rangeslider.min.js" },
+    { src: "/crossbrand_us/sni/widgets/inventory-filter/assets/javascript/WdgtInventoryFilter.js" }], function () {
+        return window.wdgtInventoryFilter = window.wdgtInventoryFilter || new WdgtInventoryFilter(document.querySelector('.wdgt-inventory-filter'));
+    });
+</script>

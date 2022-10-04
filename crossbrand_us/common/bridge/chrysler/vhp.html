@@ -1,0 +1,97 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/vhp.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+<head>
+    <title>Chrysler - Bridge - Vehicle Home Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+    <script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+    <script language="javascript">
+       
+
+        var appUrl = "";
+        model_year = getParameter("year"),
+            family = getParameter("vehicle"),
+            subfolder = "landing/index.html",
+            vehicle_my = "",
+            destination = "";
+            campaign = "";
+
+        if (family == "") {
+            family = getParameter("family");
+        }
+
+        function findApp() {
+
+            campaign = getCampaign();
+            if (campaign) {
+                campaign = "?" + campaign;
+            }
+
+            if (family == "") {
+                   window.location.replace("../../../../all-vehicles.html" + campaign + "&app=vhp");
+            } else {
+
+                if (model_year == "2016" || model_year == "2017" || model_year == "2018" || model_year == "2019" || model_year == "2020" || model_year == "2021" || model_year == "2022") {
+                    subfolder = "";
+                    vehicle_my = model_year;
+                    model_year += "../../../../index.html";
+                } 
+
+                family = family.toLowerCase();
+
+                function translate(o, n) {
+                    this.oldElement = o;
+                    this.newElement = n;
+                }
+              console.log("vehicle_my:: "+vehicle_my);
+                var model_year_folder = (vehicle_my > 2016) ? "" : "/en";
+              
+                var vehicleCodes = [
+                    new translate("200", model_year_folder + "/" + model_year + "200/" + subfolder + ((vehicle_my > 2016) ? "index.html" : "") + campaign),
+                    //new translate( "200", 			"/en/2014/200/"+subfolder+campaign),
+                    new translate("200_convertible", model_year_folder + "/" + model_year + "200-convertible/" + subfolder + ((vehicle_my > 2016) ? ".html" : ".html") + campaign),
+                    new translate("300", model_year_folder + "/" + ((vehicle_my > 2017) ? model_year : "") + "300" + subfolder + '.html' + campaign),
+                    new translate("town_country", model_year_folder + "/" + model_year + "town-country/" + subfolder + ((vehicle_my > 2016) ? "index.html" : "") + campaign),
+                    new translate("pacifica", model_year_folder + "/" + ((vehicle_my > 2017) ? model_year : "") + "pacifica" + subfolder + '.html' + campaign),
+                    new translate("pacifica_hybrid", model_year_folder + "/" + ((vehicle_my > 2017) ? model_year : "") + "pacifica" + "/hybrid" + subfolder + '.html' + campaign)
+                ];
+
+                    for (var i = 0; i < vehicleCodes.length; i++) {
+                        if (family == vehicleCodes[i].oldElement) {
+                            destination = vehicleCodes[i].newElement; //"/en/"+family
+                            isFamilyValid = true;
+                            break;
+                        }
+                    }
+
+//                if(family=="300" && getParameter("year")=="2017"){
+//                  appUrl= "/2017/300/index.html"
+//                }
+
+              console.log("appurl:: "+appUrl);
+                appUrl = destination;
+
+
+                window.location.replace(appUrl);
+            }
+        }
+    </script>
+
+</head>
+
+<body style="background:#000000" onLoad="findApp();">
+
+
+
+</body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/vhp.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+</html>

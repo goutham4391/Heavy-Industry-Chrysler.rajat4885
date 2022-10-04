@@ -1,0 +1,137 @@
+<html>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/inventory.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:22 GMT -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+  <script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+  <script language="javascript" src="../../../../data/inventory.js"></script>
+  <script src="../../../shopping-tools/shared/data_functions.js"></script>
+  <script language="javascript" src="radiusConfig.js"></script>
+
+  <script>
+    var app = getParameter("app"),
+      campaign = "",
+      url = "",
+      query = "",
+      defaultRadius = radiusConfig.defaultRadius,
+      extendedRadius = radiusConfig.extendedRadius,
+      selectedRadius = "";
+
+    var context = {
+      year: getParameter("year"),
+      vehicle: getParameter("vehicle") || getParameter("family"),
+      model: getParameter("model"),
+      myc: (getParameter("modelYearCode") || getParameter("modelyearcode")).replace(/^I/, "C"),
+      ccode: getParameter("ccode"),
+      llp: getParameter("llp"),
+      optionCodes: getParameter("options").replaceAll('%2C', ','),
+      dealer: getParameter("dealerid"),
+      radius: getParameter("radius")
+    };
+
+    if (getParameter("zipcode")) {
+      setCookie('zipcode', getParameter("zipcode"), 365);
+    }
+
+    function init() {
+      try {
+        if (app == "preownedinventory" || app == "CPOV") {
+          url = "https://www.chryslercertified.com/";
+          query += "refrel=chrysler";
+        } else {
+
+          if (context.ccode) {
+            context.year = context.ccode.substr(3, 4);
+            context.vehicle = Vehicles.getFamilyFromMYC(context.ccode.substr(0, 9));
+            context.model = Vehicles.getModelFromCcode(context.ccode);
+          }
+
+          if (context.myc) {
+            context.year = context.myc.substr(3, 4);
+            context.vehicle = Vehicles.getFamilyFromMYC(context.myc);
+          }
+          //get vehicle variation attributes based on ccode
+          if (context.model) {
+            context.myc = Vehicles.getModelYearCode(context);
+            context.trim = Vehicles.getTrim(context);
+            context.trimDisplay = Vehicles.getTrimDisplay(context);
+            var drives = Vehicles.getAvailableDrives(context);
+            if (drives.length) {
+              var drive = drives[0];
+              context.drive = drive.id;
+              context.driveName = drive.name;
+            }
+          } else if (!context.myc && context.year && context.vehicle) {
+            context.myc = Vehicles.getModelYearCode({
+              year: context.year,
+              vehicle: context.vehicle
+            });
+          }
+
+          //verify modelyearcode is available
+          if (!context.myc) {
+            return pickerPage("sni");
+          }
+
+          if (getParameter("radius") !== '') {
+            selectedRadius = context.radius;
+          } else {
+            for (var i = 0; i < extendedRadius.length; i++) {
+              if (extendedRadius[i].myc === context.myc) {
+                selectedRadius = extendedRadius[i].radius;
+                break;
+              }
+            }
+            if (selectedRadius === '') {
+              selectedRadius = defaultRadius;
+            }
+          }
+          if (context.vehicle && context.year) {
+            url = "/new-inventory." + context.vehicle + ".html";
+          }
+          else {
+            return pickerPage("sni");
+          }
+
+          query += "modelYearCode=" + context.myc.replace(/^C/, "I") + "&radius=" + selectedRadius;
+
+          if (context.ccode && context.llp && context.optionCodes) {
+            query += "&ccode=" + context.ccode + "&llp=" + context.llp + "&ref=bmo";
+          }
+
+          if (context.trimDisplay) {
+            query += "&variation=" + encodeURIComponent(context.trimDisplay);
+          }
+          if (context.optionCodes) {
+            query += "&optionCodes=" + context.optionCodes;
+          }
+          if (context.driveName) {
+            query += "&drive=" + context.driveName;
+          }
+        }
+        campaign = getCampaign();
+        if (campaign) {
+          query += "&" + campaign;
+        }
+      } catch (e) {
+        return pickerPage("sni");
+      }
+
+      doRedirect(url, query);
+    }
+
+    init();
+  </script>
+</head>
+
+<body>
+
+</body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/inventory.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:22 GMT -->
+</html>

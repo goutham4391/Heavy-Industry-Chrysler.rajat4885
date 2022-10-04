@@ -1,0 +1,177 @@
+.pgLoading {
+    background: url("../images/pageLoader_fiat.gif") no-repeat scroll center bottom transparent;
+    height: 100px;
+    text-align: center;
+    margin-left: 635px;
+}
+#header_title h1 {
+    color: #000000;
+    display: inline;
+    float: left;
+    font-size: 21px;
+    font-weight: normal;
+    padding: 8px 0 0 30px;
+    width: 940px;
+	line-height: 125%;
+	margin-top:20px;
+}
+
+#vehicle_selection {
+    margin-left: 30px;
+    max-height: 415px;
+	
+ }
+
+.form_container {
+    background: url("../images/form_container_back.gif") repeat-y scroll left top transparent;
+    border-bottom: 1px solid #DFDFDE;
+    float: left;
+    margin-right: 15px;
+    margin-top: 0;
+    width: 290px;
+	padding-bottom:15px;
+}
+
+
+/* WCAG */
+/*.form_container h1 {
+    background: url("../images/title_background.gif")  repeat-x scroll left top transparent;
+	color: #333333;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 12px;
+    text-align: center;
+    width: 290px;	
+}*/
+
+.form_container h2 {
+    background: url("../images/title_background.jpg")  repeat-x scroll left top transparent;
+	color: #333333;
+    font-family: arial;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px;
+    padding-top: 12px;
+    text-align: center;
+    width: 290px;	
+}
+input[type="radio"]:focus,
+select:focus, textarea:focus, #sbuttonemail:focus,
+input[type="text"]:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgbargba( 32, 61, 244 , 1);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba( 32, 61, 244 , 1);
+}
+
+
+.formrow {
+
+	float: left;
+    margin-left: 10px;
+    padding: 5px;
+	width:300px;
+    
+}
+.formrow .fieldname {
+    color: #575757;
+    float: left;
+    font-size: 9px;
+    
+    width: 100px;
+}
+.formrow .formfield {
+    color: #575757;
+    float: left;
+    font-size: 9px;
+ 
+    width: 200px;
+}
+
+#contact_information1, #contact_information2  {
+
+    max-height: 500px;
+	
+}
+#contact_information2   {
+
+    max-height: 530px;
+	
+}
+
+
+
+
+.required_color {
+    color: red !important;
+    font-weight: normal;
+}
+
+#email_description {
+    margin-bottom: 20px;
+    margin-right: 0;
+    margin-top: 0;
+    max-height: 415px;
+}
+
+#radioselect{
+   color: #333333;
+    font-family: arial;
+    font-size: 10px;
+    margin-top: 10px;
+    vertical-align: 1px;
+}
+
+#conditionyes{
+   color: #333333;
+    font-family: arial;
+    font-size: 10px;
+    margin-top: 10px;
+    vertical-align: 1px;
+}
+
+input[type="text"]{
+   
+    border: 1px solid lightblue;
+    color: #333333;
+    font-family: arial;
+    font-size: 10px;
+	padding: 4px 0 3px 8px;
+}
+
+.form-error-msg{
+  
+    clear: both;
+    color: #E3152B !important;
+    font-size: 10px !important;
+    line-height: 10px !important;
+    margin-left: 100px;
+    padding: 5px 0 0 0px !important;
+}
+
+.form-error-msg-state{
+  
+    clear: both;
+    color: #E3152B !important;
+    font-size: 10px !important;
+    line-height: 10px !important;
+
+    padding: 5px 0 0 0px !important;
+}
+
+
+.state{
+border: 1px solid lightblue;
+width:70px;
+height:20px;
+}
+
+#iframe {
+overflow: auto;
+overflow-x: hidden;
+overflow-y: auto;
+frameBorder: 0;
+
+}

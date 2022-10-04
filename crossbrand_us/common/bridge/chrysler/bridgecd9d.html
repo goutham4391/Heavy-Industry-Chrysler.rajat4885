@@ -1,0 +1,252 @@
+<html>
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/bridge.html?app=afc&referral=Chrysler-Global-Footer by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:02:55 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+    <META NAME="ROBOTS" CONTENT="NOINDEX, FOLLOW">
+    <script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+    <script type="application/javascript" src="../../../../services/vehicleData.getVehicle.prod.chrysler.js"></script>
+    <script src="../../../shopping-tools/shared/data_functions.js"></script>
+    
+    <script language="javascript">                            
+        var appUrl = "../../../../index.html";
+        var app = getParameter("app");        
+        var translate = {
+      	    "defaultTranslation" : {
+			    "300": "chrysler-300"
+            }
+        };
+
+        function translateName(vehi, yr) {
+            if (!vehi) {
+                return '';
+            }
+
+            if(translate[yr] && translate[yr][vehi]) {
+                return translate[yr][vehi];
+            } else {
+                if (translate['defaultTranslation'] && translate['defaultTranslation'][vehi]) {
+                    return translate['defaultTranslation'][vehi];
+                }
+            }
+            return vehi;
+        }
+
+        function findApp() {
+            var params = getQueryParams();
+            var query = "";
+            var year = params.year;
+            var vehicle = params.vehicle || params.family;
+            var model = params.vehicle;
+            var trim = params.trim;
+            var modelYearCode = params.modelYearCode || params.modelyearcode;
+            var ccode = params.ccode;
+            var llp = params.llp;
+            var zipcode = params.zipcode;
+            var options = params.options;
+            var page = params.page;
+            var conf = params.conf;
+            var driveType = "";
+            var campaign = "";
+            var referral = params["overlay-page"] || params.referral;
+            var dealerid = params.dealerid; 
+            var isValidVehicle = !!((year && vehicle) || modelYearCode || ccode);
+            var visitorID = params.adobe_mc || '';
+            var inBridge = params.inBridge;
+            var pageType = params.pageType || "";
+
+            if (ccode && ccode.length == 16 && !modelYearCode) {
+                modelYearCode = ccode.substr(0,9);
+            }
+
+            /** translate old app names to new **/     
+            app = appTranslate(app);
+
+            //set zipcode cookie if zipcode param exists in query string
+            if (params.zipcode) {
+                setCookie("zipcode", zipcode, 365, "../../../../index.html");
+                delete(params.zipcode);
+            }
+
+            /** section to add temporary overrides **/
+            if (year === "2016" && vehicle == "town_country" && app == "bmo") {
+                params.year = "2017";
+                params.vehicle = "pacifica";
+                params.modelYearCode = "CUC201705";
+            }
+            //go to picker page if vehicle is 200
+            if (vehicle == "200") {
+                isValidVehicle = false;                
+            }
+            /** end overrides **/       
+            
+            /** app-specific logic **/
+
+            function redirecToNewBridge(){
+                return ((vehicle === "pacifica" || vehicle === "pacifica_hybrid")  && (!inBridge) && (pageType != 'shopping-tools')); 
+            }
+            
+            /** sufu logic **/
+            if (app == "sufu" || app == "brochure" || app == "gab") {
+                appUrl = "sufu.html";
+            }
+            /*/ CURRENT INCENTIVES LOGIC ////////////////////////////////*/
+            if (app == "incentives") {
+                if (redirecToNewBridge()) {
+                    return doRedirect('../../../../selectpacifica.html', getCampaign(), `${app}` );
+                } else if (!isValidVehicle) {
+                    return pickerPage("incentives");
+                } else {
+                    appUrl = "incentives.html";
+                }
+
+            } /*/ BUILD MY OWN LOGIC -  ////////////////////////////////////////////////////////////////////////*/
+            if (app == "bmo") {
+                if (redirecToNewBridge() ) {
+                    return doRedirect('../../../../select-pacifica.bmo.html', getCampaign(), `${app}` );
+                }
+                appUrl = "bmo.html";
+                if (!isValidVehicle) {
+                    return  doRedirect('../../../../vehicle-selector.bmo.html', getCampaign());
+                }
+
+            } /*/ COMPARE LOGIC -  ///////////////////////////////////////////////////////*/
+            if (app == "compare" || app == "specs") {
+                if ((app == "compare") && redirecToNewBridge() ) {
+                    return doRedirect('../../../../select-pacifica.model-compare.html', getCampaign(), `${app}` );
+                }
+
+                if (!isValidVehicle) {
+                    return doRedirect('../../../../vehicle-selector.model-compare.html');
+                }
+                appUrl = "compare.html";
+            }
+            /*/ CPOV DETAIL LOGIC -  ////////////////////////////////////////////////////////////////////////*/
+            if (app == "cpovdetail") {
+                var stock_number = getParameter("stock_number");
+                appUrl = "cpovdetail1e79.html?dealerid=" + dealerid + "&stock_number=" + stock_number;
+            } /*/ VEHICLE SELECTOR LOGIC -  ////////////////////////////////////////////////////////////////////*/
+            if (app == "selector") {
+                return pickerPage("selector");
+            }
+
+            /*/ FIND A DEALER LOGIC  ///////////////////////////////////////////////////////////////////////*/
+            if (app == "dealer") {
+                appUrl = "dealerloc.html";
+            }
+            /*/ SEARCH NEW INVENTORY and SEARCH CPOV INVENTORY /////////////////////////////////////////////*/
+            if (app == "sni" || app == "cpov" || app == "preownedinventory") {
+                if ((app == "sni") && redirecToNewBridge()) {
+                    return doRedirect('../../../../select-pacifica.sni.html', getCampaign(), `${app}` );
+                }
+                appUrl = "inventory.html";
+            }
+            /*/ GET A QUOTE and SCHEDULE A TEST DRIVE LOGIC  ///////////////////////////////////////////////*/
+            if (app == "testdrive" || app == "gaq" ) {
+                appUrl = "gaq.html";
+            }
+
+            /*/APPLY FOR CREDIT LOGIC  ///////////////////////////////////////////////*/
+            if (app == "afc" || app == "gpq" || app == "po") {
+                appUrl = "cc.html";
+            }
+            /*// PAYMENT CALCULATOR ///////////////////////////////////////////////*/
+            if (app == "pe") {
+                if (redirecToNewBridge() ) {
+                    return doRedirect('../../../../select-pacifica.pe.html', getCampaign(), `${app}` );
+                } else if (!isValidVehicle) {
+                    return pickerPage("pe");
+                } else {
+                    appUrl = "pe.html";
+                }
+            }
+            /*/Vehicle Homepage Page Logic/////////////////////////////////////////////////////////////*/
+            if (app == "vhp") {
+                appUrl = "vhp.html";
+                query = "vehicle=" + vehicle + "&year=" + year;
+            }
+             /*// ORE redirect logic - ///////////////////////////////////////////////*/
+            if (app == "ore") {
+                if(ccode) {
+                    var model = Vehicles.getModelFromCcode(ccode);
+                        var drives = Vehicles.getAvailableDrives({
+                        year: year,
+                        vehicle: vehicle,
+                        model: model
+                    });
+
+                    if (drives.length) {
+                        driveType = drives[0].name;
+                    }
+
+                    params.driveType = driveType;
+                }
+                params.zipcode = zipcode;
+                appUrl = "ore.html";
+
+            }
+
+            /*/ Custom Order Integration redirect LOGIC -  ///////////////////////////////////////////////////////*/
+            if (app === "cov") {
+                var modelYearCode;
+                var vehicleName = (params.vehicle || vehicle || '').replace(/_/g, '-');
+                var covParamObj = {};
+
+                try {
+                    modelYearCode = params.modelYearCode || Vehicles.getModelYearCode({year: year, vehicle: vehicle});
+                } catch (ex) {
+                    console.error(ex);
+                    modelYearCode = void 0;
+                }
+
+                var yearVal = modelYearCode.substr(3, 4) || params.year;
+                var translatedVehicleName = translateName(vehicleName, yearVal);
+                
+                covParamObj.zipcode = zipcode;
+                covParamObj.myc = modelYearCode;
+                covParamObj.state = params.zipStateCode || '';
+                covParamObj.ccode = params.ccode || '';
+                covParamObj.llp = params.llp || '';
+                covParamObj.configstring = params.configurationString || '';
+                covParamObj.refrel = 't1';
+                covParamObj.adobe_mc = visitorID;
+                appUrl = 'https://www.eshopcustomorder.com/t1/';
+
+                if(!(window.location.host === "www.chrysler.com" || window.location.host === "es.chrysler.com")) {
+                    appUrl = 'https://uat.eshopcustomorder.com/t1/';
+                }
+
+                appUrl = appUrl + year + '/' + params.brand + '/' + translatedVehicleName + '/';
+                query = covParamObj;
+            }
+
+            /* #app-reservation Custom Reservation Integration */
+            if (app === "reservation") {
+
+                appUrl = 'https://reservation.chrysler.com/t1';
+
+                if(!(window.location.host === "www.chrysler.com" || window.location.host === "es.chrysler.com")) {
+                    appUrl = 'https://uat-reservation.chrysler.com/t1';
+                }
+
+                appUrl = appUrl + '?adobe_mc=' + (visitorID || '');
+                return doRedirect(appUrl, null);
+            }
+
+            if (!query) {
+                query = params;
+            }
+            doRedirect(appUrl, query);            
+        }
+        findApp();
+    </script>
+
+</head>
+
+<body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/bridge.html?app=afc&referral=Chrysler-Global-Footer by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:03:11 GMT -->
+</html>

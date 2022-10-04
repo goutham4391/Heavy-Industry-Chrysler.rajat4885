@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+ 
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/cc.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:23 GMT -->
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+  <script language="javascript">
+
+  function findApp() {
+  	var app = getParameter("app"),
+  		referral = getParameter("overlay-page") || getParameter("referral"),  		
+  		brand = "Chrysler",  		
+  		afc_utm_campaign = "291",
+  		gpq_utm_campaign = "310",
+  		zipcode = getCookie("zipcode") || "",
+  		appUrl = "",
+  		exitPage = "../../../../exit.html";
+  	//set default referral
+  	if (!app) {
+  		app = brand + "-Apply-For-Credit-Shopping-Tools-Menu";
+  	}
+  	if (app == "afc") {
+  		appUrl += exitPage + "?url=https://apply.chryslercapital.com/applylong?p=" + brand + "&utm_source=oem&utm_medium=referral&utm_content=" + referral + "&utm_campaign=" + afc_utm_campaign + "&zipcode=" + zipcode + "&message=true";
+  	} else if (app == "gpq") {
+  		appUrl += exitPage + "?url=https://apply.chryslercapital.com/ApplyPrequalification.aspx?p=" + brand + "&utm_source=oem&utm_medium=referral&utm_content=" + referral + "&utm_campaign=" + gpq_utm_campaign + "&zipcode=" + zipcode + "&message=true";
+  	} else if (app == "po") {
+	    if (referral == "search-new-inventory" || referral.indexOf("search-new-inventory") > -1) {
+	        referral = brand + "-Inventory-Payment-Calculator";
+	    } else if (referral == "payment-calculator") {
+	        referral = brand + "-Payment-Calculator";
+	    } else if (referral.indexOf("model-compare") > -1) {
+	        referral = brand + "-Model-Compare-Payment-Calculator";
+	    } else if (referral.indexOf("build") > -1) {
+	        referral = brand + "-Build-Price-Summary-Page";
+	    }
+	    appUrl = exitPage + "?url=https://www.chryslercapital.com/chrysler?utm_source=oem&utm_medium=referral&utm_content=" + referral + "&utm_campaign=Tier1-LP&prov_id=291&zipcode=" + zipcode + "&message=true";
+  	} else {
+  		appUrl += exitPage + "?url=https://apply.chryslercapital.com/applylong?p=" + brand + "&utm_source=oem&utm_medium=referral&utm_content=" + referral + "&utm_campaign=" + afc_utm_campaign + "&zipcode=" + zipcode + "&message=true";
+  	}
+  	window.location.replace(appUrl);
+  }
+  findApp();
+</script>
+
+ </head>
+ <body></body>
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/cc.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:24 GMT -->
+</html>

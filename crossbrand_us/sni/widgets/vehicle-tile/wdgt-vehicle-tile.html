@@ -1,0 +1,610 @@
+<div class="loading">
+<div class="results-preloader">
+<div>
+<img alt="loader" src="../../assets/images/loader.gif"/>
+</div>
+</div>
+</div>
+<script id="vehicle-tiles-exact-tpl" type="text/x-handlebars-template">
+  {{#if noVehicles}}
+    <h2 class="gcss-colors-text-body-primary no-vehicles-label">No Search Results Found</h2>
+    <div class="vehicle-tiles">
+      <p class="gcss-colors-text-body-primary gcss-typography-label-3 nomatchesmessage">You can modify your search by using the filters.</p>
+    </div>
+  {{else}}
+    {{#if matchCount.exact}}
+      {{#if exactMatchedFilterCount}}
+        <h2 class="gcss-colors-text-body-primary partial-label">Exact Matches <span class="vehicles-count gcss-colors-text-body-tertiary">{{#if matchCount.exact}}({{matchCount.exact}}){{else}}(00){{/if}}</span></h2>
+      {{else}}
+        <h2 class="gcss-colors-text-body-primary partial-label">{{#if matchCount.partial}}Exact Matches {{else}} Available Vehicles {{/if}}<span class="vehicles-count gcss-colors-text-body-tertiary">{{#if matchCount.exact}}({{matchCount.exact}}){{else}}(00){{/if}}</span></h2>
+      {{/if}}
+
+      <div class="vehicle-tiles exact" id="exact">
+        <div class="vehicle-results gcss-theme-light"></div>
+        {{#compare metadata.exactMatchCount ">=" 10}}
+          <div class="load-more">
+            <button
+              type="button"
+              class="gcss-button gcss-button-plain"
+              data-lid="load_more_results"
+              data-lpos="">LOAD MORE RESULTS
+              <span class="icon gcss-icon-chevron-down"></span>
+            </button>
+          </div>
+        {{/compare}}
+
+      </div>
+    {{else}}
+      {{renderPartial "tmpl-partial-sni-custom-order-vehicle-banner"}}
+    {{/if}}
+  {{/if}}
+</script>
+<script id="vehicle-tiles-partial-tpl" type="text/x-handlebars-template">
+  {{#if matchCount.partial}}
+    <h2 class="gcss-colors-text-body-primary partial-label">Near Matches <span class="vehicles-count gcss-colors-text-body-tertiary">({{matchCount.partial}})</span></h2>
+    <div class="vehicle-tiles partial" id="partial">
+
+      {{#compare matchCount.partial "==" 0}}
+        <p class="nomatchesmessage gcss-typography-label-3 gcss-colors-text-body-primary">We couldn’t find an partial match, but here are exact vehicles:</p>
+      {{/compare}}
+
+      <div class="vehicle-results gcss-theme-light"></div>
+      {{#compare 10 "<" metadata.partialMatchCount}}
+        <div class="load-more">
+          <button
+            type="button"
+            class="gcss-button gcss-button-plain"
+            data-lid="load_more_results"
+            data-lpos=""
+          >LOAD MORE RESULTS
+            <span class="icon gcss-icon-chevron-down"></span>
+          </button>
+        </div>
+      {{/compare}}
+
+    </div>
+  {{/if}}
+</script>
+<div class="vehicle-tiles-exact"></div>
+<div class="vehicle-tiles-partial"></div>
+<script id="vehicle-tiles-tpl" type="text/x-handlebars-template">
+
+  {{#if vehicles.length}}
+    {{#each vehicles}}
+
+      <div data-vin="{{vin}}" class="wdgt-vehicle-tile gcss-colors-background-primary">
+        <div class="v-main-card">
+          <div class="v-image my-{{modelYear}}">
+            <div class="v-dealer-status" data-dealer="{{dealerCode}}" data-status="{{statusCode}}"></div>
+            <div class="details-image-wrapper">
+              <div class="details-image-link" tabindex="0">
+                {{#if upfitOptions}}
+                  {{#ifMaxWidth 567}}
+                  <img src="/assets/images/blank.gif" data-sources="src={{getImg extImage 640 300 'rearhero' 'white'}};src={{getImg extImage 640 300 'rearhero' 'white'}},media=(max-width:767px);src={{getImg extImage 640 300 'rearhero' 'white'}},media=(max-width:567px)" alt="{{vehicleDesc}}" />
+                  {{else}}
+                  <img src="/assets/images/blank.gif" data-sources="src={{getImg extImage 340 183 'rearhero' 'white'}};src={{getImg extImage 340 183 'rearhero' 'white'}},media=(max-width:767px);src={{getImg extImage 340 183 'rearhero' 'white'}},media=(max-width:567px)" alt="{{vehicleDesc}}" />
+                  {{/ifMaxWidth}}
+                {{else}}
+                  {{#ifMaxWidth 567}}
+                  <img src="/assets/images/blank.gif" data-sources="src={{getImg extImage 640 300 'fronthero' 'white'}};src={{getImg extImage 640 300 'fronthero' 'white'}},media=(max-width:767px);src={{getImg extImage 640 300 'fronthero' 'white'}},media=(max-width:567px)" alt="{{vehicleDesc}}" />
+                  {{else}}
+                  <img src="/assets/images/blank.gif" data-sources="src={{getImg extImage 340 183 'fronthero' 'white'}};src={{getImg extImage 340 183 'fronthero' 'white'}},media=(max-width:767px);src={{getImg extImage 340 183 'fronthero' 'white'}},media=(max-width:567px)" alt="{{vehicleDesc}}" />
+                  {{/ifMaxWidth}}
+                {{/if}}
+
+                <span  data-statuscode={{statusCode}} data-lid="{{modelYear}}-{{vehicleDesc}}:vehicle-front" data-lpos={{#unless match.requestedFilterCount}}"search-new-inventory:available-vehicles"{{else}} {{#compare match.matchLevel "==" "Partial"}}"search-new-inventory:near-matches" {{else}} "search-new-inventory:exact-matches" {{/compare}}{{/unless}} data-single-image="true" data-selected-tab="exterior" data-image-path="{{extImage}}" aria-label="View Vehicle Image Gallery" data-image-type="exterior" {{#if upfitOptions}}data-upfit="true"{{/if}} class="expand"></span>
+
+              </div>
+              <span class="gcss-icon-camera gcss-typography-label-2" aria-hidden="true">7</span>
+              <span class="gcss-icon-zoom-in"></span>
+              {{#if upfitOptions}}
+                <div class="v-upfit">
+                  <span class="gcss-icon-star-circle"></span>
+                  <p class="gcss-typography-label-4">UPFIT INSTALLED</p>
+                  <span class="gcss-icon-disclaimer-circle" data-component="DisclosureBubble" title="{{upfitOptions.0.disclaimer}}"></span>
+                </div>
+              {{/if}}
+            </div>
+        </div>
+
+          <div class="v-details" {{#isEppEnabled this}} data-eppenabled='true' {{/isEppEnabled}}>
+            <div class="dealer-logo-info"></div>
+            <div class="detail-card-wrapper">
+              <div class="detail-card">
+                <div class="v-name">
+                  <h3 class="gcss-typography-label-1 gcss-colors-text-body-primary">{{modelYear}} {{vehicleDesc}}</h3>
+                </div>
+
+                {{#if vin}}
+                  {{#beingBuilt 'not' statusCode}}
+                    <div class='vin-detail gcss-typography-label-4 gcss-colors-text-body-primary'>
+                      VIN : <a tabindex="0" data-vehicle="{{modelYear}}-{{vehicleDesc}}" target="_blank" data-lid="window-sticker" data-lpos={{#unless match.requestedFilterCount}}"search-new-inventory:available-vehicles"{{else}} {{#compare match.matchLevel "==" "Partial"}}"search-new-inventory:near-matches" {{else}} "search-new-inventory:exact-matches" {{/compare}}{{/unless}}  href="/hostd/windowsticker/getWindowStickerPdf.do?vin={{vin}}" class="sdp-button gcss-button-tertiary is-external--inline-icon">
+                        {{vin}}
+                        <span class="is-external-text-link"></span>
+                        <span class="gcss-sr-only">(Open in a new window)</span>
+                      </a>
+                    </div>
+                  {{else}}
+                    VIN : {{vin}}
+                  {{/beingBuilt}}
+                {{/if}}
+
+                  <div class='v-data'>
+                    <div class="v-cash">
+                        <div class="msrp">
+                            {{#if upfitOptions}}
+                                <p class="gcss-typography-label-4 gcss-colors-text-body-subdued">Starting at msrp{{#beingBuilt 'not' statusCode}}*{{/beingBuilt}}{{#beingBuilt 'is' statusCode}}<span data-component="DisclosureBubble" title='MSRP for standard equipment plus optional equipment listed. Vehicle delivery date and other vehicle information, including pricing and incentives, are subject to change until the vehicle build is complete.<br/>MSRP excludes additional charges including without limitation any delivery fees, government fees and taxes, title and registration fees, finance, filing and processing charges, emission testing charge, accessories and upfits.'></span>{{/beingBuilt}}</p>
+                                <h4 class="gcss-colors-text-body-primary gcss-typography-utility-heading-3">
+                                    {{#isEppEnabled this}}
+                                      <del>$<span class="msrp-amount">{{formatPrice price.msrp}}</span></del>
+                                    {{else}}
+                                      $<span class="msrp-amount">{{formatPrice price.msrp}}</span>
+                                    {{/isEppEnabled}}
+                                </h4>
+                                <span class="gcss-typography-label-7 gcss-colors-text-body-primary upfit-msrp">UPFIT COST NOT INCLUDED</h3>
+                            {{else}}
+                              <p class="gcss-typography-label-4 gcss-colors-text-body-subdued">vin msrp<span data-component="DisclosureBubble" title='MSRP for standard equipment plus optional equipment listed. MSRP excludes additional charges including without limitation any customer home delivery fees, government fees and taxes, title and registration fees, finance, filing and processing charges, emission testing charge, accessories and upfits. Pricing and incentives are subject to change at any time without notification and are based on the options included in the delivered vehicle. To get full pricing details, see your dealer.'></span></span></p>
+                              <h4 class="gcss-colors-text-body-primary gcss-typography-utility-heading-3" id="{{vin}}-price">
+                                {{#isEppEnabled this}}
+                                    <del>$<span class="msrp-amount">{{formatPrice price.msrp}}</del>
+                                {{else}}
+                                    $<span class="msrp-amount">{{formatPrice price.msrp}}</span>
+                                {{/isEppEnabled}}
+                              </h4>
+                            {{/if}}
+                        </div>
+
+                        {{#isEppEnabled this}}
+                            <div class="msrp epp-price">
+                                <p class="gcss-typography-label-4 gcss-colors-text-body-subdued">{{../eppLabel}}{{#if price.employeePriceDisclaimer }}<span data-component="DisclosureBubble" title='{{price.employeePriceDisclaimer}}'></span>{{/if}}</p>
+                                <h4 class="gcss-colors-text-body-primary gcss-typography-utility-heading-3" id="{{vin}}-price">$<span class="msrp-amount"><ins>{{formatPrice price.employeePrice}}</ins></span></h4>
+                            </div>
+                        {{/isEppEnabled}}
+
+                        <div class="buy">
+                            <p class="gcss-typography-label-4 gcss-colors-text-body-primary">buy</p>
+                            <h4 class="gcss-colors-text-body-primary gcss-typography-utility-heading-3">$<span class="buy-amount">{{formatPrice price.buy.monthlypayment}}</span> </h4><span class="gcss-color-text-body-secondary gcss-font-label-small">mo</span>
+                        </div>
+
+                        <div class="lease">
+                            <p class="gcss-typography-label-4 gcss-colors-text-body-primary">lease</p>
+                            <h4 class="gcss-colors-text-body-primary gcss-typography-utility-heading-3 ">$<span class="lease-amount">{{formatPrice price.lease.monthlypayment}}</span>  </h4><span class="gcss-color-text-body-secondary gcss-font-label-small">mo</span>
+                        </div>
+
+                        <div class="calc">
+                            {{#beingBuilt 'not' statusCode}}
+                                <a href="#pe-overlay" tabindex="0" data-matchtype="{{../matchType}}" data-dealerid={{dealerCode}} data-vin="{{vin}}" aria-describedby="{{vin}}-price" data-options="{{options}}" data-ccode="{{ccode}}" data-llp="{{llp}}" data-msrp="{{price.mrsp}}" data-destination="{{price.destination}}" class="gcss-button-tertiary gcss-button-plain gcss-button-small gcss-icon-calculator" title="Payment Calculator" data-donottrack="true" data-lid="{{modelYear}}-{{vehicleDesc}}:payment-calculator" data-lpos={{#unless match.requestedFilterCount}}"search-new-inventory:available-vehicles"{{else}} {{#compare match.matchLevel "==" "Partial"}}"search-new-inventory:near-matches" {{else}} "search-new-inventory:exact-matches" {{/compare}}{{/unless}}  data-statuscode="{{statusCode}}"></span> Calculate Payment</a>
+                            {{/beingBuilt}}
+                        </div>
+                    </div>
+                  </div>
+                  <div class="v-dealer" data-dealer="{{dealerCode}}" data-status="{{statusCode}}"></div>
+
+              </div>
+              <div class="v-filters">
+                {{#compare match.requestedFilterCount ">" 0}}
+                  <h3 class="gcss-typography-label-4 gcss-colors-text-body-subdued">Matches {{match.matchedFilterCount}} of {{match.requestedFilterCount}} Filters</h3>
+                  <div class="matching-filters">
+                    <ul>
+                      {{#matchedFilter match.matchedFilters match.filtersNotMatched}}
+                      {{/matchedFilter}}
+                    </ul>
+                  </div>
+                  {{#compare match.requestedFilterCount ">=" 6}}
+                    <div class="v-pmatch partial-match show-all" data-lid="{{modelYear}}-{{vehicleDesc}}:match-criteria-info" data-lpos={{#unless match.requestedFilterCount}}"search-new-inventory:available-vehicles"{{else}} {{#compare match.matchLevel "==" "Partial"}}"search-new-inventory:near-matches" {{else}} "search-new-inventory:exact-matches" {{/compare}}{{/unless}}  data-filtersNotMatched='{{match.filtersNotMatched}}' data-matchedFilters='{{match.matchedFilters}}'>
+                      <button type="button" class="gcss-button-tertiary gcss-button-plain gcss-colors-background-primary"><span class="gcss-typography-label-5"><u>Show All</u></span></button>
+                    </div>
+                  {{/compare}}
+                {{/compare}}
+              </div>
+            </div>
+            <div class="v-buttons" {{#isEppEnabled this}} data-eppenabled='true' {{/isEppEnabled}}>
+              {{#compare ../startBuyingProcessPrimaryCTA "==" 'true' }}
+                  {{#compare ../isOreEnabled "==" true }}
+                      <li class="ore-site-link">
+                          <a tabindex="0" data-context="{{oreurl this ../oreData}}" href="#app-ore" target="_blank" data-lid="{{modelYear}}-{{vehicleDesc}}:{{../oreData.oreLabel}}" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="sdp-button gcss-button is-external {{#ifMaxWidth '1023'}}gcss-button-block{{/ifMaxWidth}}" data-adobe-linktype="tool" data-adobe-evars="{&quot;eVar102&quot;:&quot;{{statusCode}}&quot;}" title="{{../oreData.oreLabel}}">{{../oreData.oreLabel}}<span class="gcss-sr-only view-dealer-site-aria"></span><span class="gcss-sr-only">(Open in a new window)</span></a>
+                      </li>
+                  {{else}}
+                      <li class="dealer-site-link">
+                          <a tabindex="0" data-donottrack="true" data-statuscode={{statusCode}} href="#" data-vin="{{vin}}" data-dealer="{{dealerCode}}" target="_blank" data-lid="{{modelYear}}-{{vehicleDesc}}:view-on-dealer-site" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="dealer sdp-button gcss-button is-external {{#ifMaxWidth "1023"}}gcss-button-block{{/ifMaxWidth}}" data-adobe-linktype="tool" title="View On Dealer Site">View On Dealer Site&nbsp; <span class="gcss-sr-only view-dealer-site-aria"></span><span class="gcss-sr-only">(Open in a new window)</span></a>
+                      </li>
+                  {{/compare}}
+                  <li>
+                      <a tabindex="0" data-donottrack="true" href="{{detailsLink vin  dealerCode statusCode @index ../page upfitOptions ../matchType match.matchedFilters}}" data-statuscode={{statusCode}} data-vin="{{vin}}" data-lid="{{modelYear}}-{{vehicleDesc}}:view-vehicle-details" data-ccode="{{ccode}}" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="details-link gcss-button gcss-button-secondary {{#ifMaxWidth '1023'}}gcss-button-block{{/ifMaxWidth}}" title="View Vehicle Details">View Vehicle Details <span class="gcss-sr-only">{{modelYear}} {{vehicleDesc}}</span></a>
+                  </li>
+              {{else}}
+                  {{#compare ../isOreEnabled "==" true }}
+                      <li class="ore-site-link">
+                          <a tabindex="0" data-adobe-evars="{&quot;eVar102&quot;:&quot;{{statusCode}}&quot;}" data-context="{{oreurl this ../oreData}}" href="#app-ore" target="_blank" data-lid="{{modelYear}}-{{vehicleDesc}}:{{../oreData.oreLabel}}" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="sdp-button gcss-button is-external gcss-button-primary {{#ifMaxWidth '1023'}}gcss-button-block{{/ifMaxWidth}}" data-adobe-linktype="tool" title="{{../oreData.oreLabel}}">{{../oreData.oreLabel}}<span class="gcss-sr-only view-dealer-site-aria"></span><span class="gcss-sr-only">(Open in a new window)</span></a>
+                      </li>
+                  {{else}}
+                      <li class="dealer-site-link">
+                          <a tabindex="0" data-donottrack="true" data-statuscode={{statusCode}} href="#" data-vin="{{vin}}" data-dealer="{{dealerCode}}" target="_blank" data-lid="{{modelYear}}-{{vehicleDesc}}:view-on-dealer-site" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="dealer sdp-button gcss-button is-external gcss-button-secondary {{#ifMaxWidth '1023'}}gcss-button-block{{/ifMaxWidth}}" data-adobe-linktype="tool" title="View On Dealer Site">View On Dealer Site&nbsp; <span class="gcss-sr-only view-dealer-site-aria"></span><span class="gcss-sr-only">(Open in a new window)</span></a>
+                      </li>
+                  {{/compare}}
+                  <li>
+                    <a tabindex="0" data-donottrack="true" data-statuscode={{statusCode}} href="{{detailsLink vin  dealerCode statusCode @index ../page upfitOptions ../matchType match.matchedFilters}}" data-vin="{{vin}}" data-lid="{{modelYear}}-{{vehicleDesc}}:view-vehicle-details" data-ccode="{{ccode}}" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" class="details-link gcss-button gcss-button-secondary {{#ifMaxWidth '1023'}}gcss-button-block{{/ifMaxWidth}}" title="View Vehicle Details">View Vehicle Details <span class="gcss-sr-only">{{modelYear}} {{vehicleDesc}}</span></a>
+                  </li>
+              {{/compare}}
+            </div>
+          </div>
+        </div>
+
+        <div class="v-info gcss-colors-background-primary">
+          <button class=" gcss-typography-label-4 gcss-colors-background-primary quickinfo " type="button" aria-expanded="false" aria-haspopup="true" aria-controls="{{vin}}-drawer" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}"  data-lid="{{modelYear}}-{{vehicleDesc}}:quick-info" data-ccode="{{ccode}}" data-statuscode="{{statusCode}}">
+              quick info <span class="gcss-color-element-tertiary-icon gcss-icon-chevron-down-2" aria-hidden="true"></span>
+          </button>
+
+          <div class="drawer gcss-colors-line-primary gcss-colors-text-body-primary" id="{{vin}}-drawer">
+            <div class="drawer-wrapper">
+              <div class="gcss-colors-background-secondary quickinfo-drawer-image">
+                <img src="/assets/images/blank.gif" data-src="{{getImg intImage 309 174 'I01' 'white'}}" alt="{{vehicleDesc}}" />
+                <a data-single-image="true" data-pov="I01" data-lid="{{modelYear}}-{{vehicleDesc}}:vehicle-interior" data-lpos="{{#unless match.requestedFilterCount}}search-new-inventory:available-vehicles{{else}}{{#compare match.matchLevel '==' 'Partial'}}search-new-inventory:near-matches{{else}}search-new-inventory:exact-matches{{/compare}}{{/unless}}" data-selected-tab="interior"  data-image-path="{{intImage}}" data-image-type="interior" data-statuscode="{{statusCode}}" class="expand gcss-icon-zoom-in" role="button" aria-label="expand image" tabindex="0"></a>
+              </div>
+              <div class="quickinfo-drawer-content">
+                <div class="gcss-sr-only">quick info, {{modelYear}} {{vehicleDesc}}</div>
+                <ul class="quickinfo-drawer-wrapper">
+                  {{#isDrawerEnabled ccode 'engine'}}
+                    <li class="quickinfo-drawer-item">
+                      <div class="quickinfo-drawer-item-content gcss-typography-font-size-default">
+                        <div class="icon gcss-icon-gear"></div>
+                        <div class="content">
+                          <div class="gcss-typography-label-5 gcss-colors-text-body-tertiary">Engine</div>
+                          <div class="gcss-colors-background-primary gcss-typography-label-4">{{engineDesc}}</div>
+                        </div>
+                      </div>
+                    </li>
+                  {{/isDrawerEnabled}}
+
+                  {{#isDrawerEnabled ccode 'transmission'}}
+                    <li class="quickinfo-drawer-item">
+                      <div class="quickinfo-drawer-item-content gcss-typography-font-size-default">
+                        <div class="icon gcss-icon-transmission"></div>
+                        <div class="content">
+                          <div class="gcss-typography-label-5 gcss-colors-text-body-tertiary">Transmission</div>
+                          <div class="gcss-colors-background-primary gcss-typography-label-4">{{transmissionDesc}}</div>
+                        </div>
+                      </div>
+                    </li>
+                  {{/isDrawerEnabled}}
+
+                  {{#isDrawerEnabled ccode 'drive'}}
+                    <li class="quickinfo-drawer-item">
+                      <div class="quickinfo-drawer-item-content gcss-typography-font-size-default">
+                        <div class="icon gcss-icon-drive"></div>
+                        <div class="content">
+                          <div class="gcss-typography-label-5 gcss-colors-text-body-tertiary">Drive</div>
+                          <div class="gcss-colors-background-primary gcss-typography-label-4">{{attributes.attributes.0.value}}</div>
+                        </div>
+                      </div>
+                    </li>
+                  {{/isDrawerEnabled}}
+
+                  {{#each specs.attributes}}
+                    {{#compare name "!=" "CityMPG"}}
+                      {{#compare name "!=" "HwyMPG"}}
+                        {{#isDrawerEnabled ../ccode name}}
+                          <li class="quickinfo-drawer-item {{name}}">
+                            <div class="quickinfo-drawer-item-content gcss-typography-font-size-default">
+                              {{#compare name "==" "Horsepower"}}<div class="icon gcss-icon-horsepower"></div>{{/compare}}
+                              {{#compare name "==" "Towing"}}<div class="icon gcss-icon-towing"></div>{{/compare}}
+                              {{#compare name "==" "Seats"}}<div class="icon gcss-icon-car-seat"></div>{{/compare}}
+
+                              <div class="content">
+                                <div class="gcss-typography-label-5 gcss-colors-text-body-tertiary">{{desc}}</div>
+                                <div class="gcss-colors-background-primary gcss-typography-label-4">
+                                  {{#compare value ">=" 0}}
+                                    {{getLocaleString value}}
+                                    {{#compare name "==" "Towing"}} LBS{{/compare}}
+                                    {{#compare name "==" "Horsepower"}} HP{{/compare}}
+                                  {{else}}
+                                    Not Recommended
+                                  {{/compare}}
+                                </div>
+                              </div>
+                            </div>
+                          </li>
+                        {{/isDrawerEnabled}}
+                      {{/compare}}
+                    {{/compare}}
+                  {{/each}}
+
+                  {{#isDrawerEnabled ccode 'cityhwy'}}
+                    {{{getMPG specs.attributes vehicleDesc}}}
+                  {{/isDrawerEnabled}}
+
+                  {{#if upfitOptions}}
+                    {{#isDrawerEnabled ccode 'horsepower'}}
+                      <li class="quickinfo-drawer-item">
+                        <div class="quickinfo-drawer-item-content gcss-typography-font-size-default">
+                          <div class="icon gcss-icon-horsepower"></div>
+                          <div class="content">
+                            <div class="gcss-typography-label-5 gcss-colors-text-body-tertiary">Upfit</div>
+                            {{#each upfitOptions}}
+                              <div class="gcss-colors-background-primary gcss-typography-label-4">{{desc}}</div>
+                            {{/each}}
+                          </div>
+                        </div>
+                      </li>
+                    {{/isDrawerEnabled}}
+                  {{/if}}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+  {{/if}}
+</script>
+<script id="tmpl-partial-sni-custom-order-vehicle-banner" type="text/x-handlebars-template">
+  <style>
+    /* TODO: Add this style snippet into the appropriate component stylesheet. */
+    .sni-custom-order-vehicle-banner__container {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+      padding: 30px 26px;
+    }
+
+    .sni-custom-order-vehicle-banner__container-headline {
+      margin-bottom: 5px;
+    }
+
+    .sni-custom-order-vehicle-banner__container-cta-wrapper {
+      margin-top: 0;
+    }
+
+    /* The following breakpoint targets tablet and below by using the @include gcss-screen-down('tablet') mixin. */
+    @media screen and (max-width: 1004px) {
+      .sni-custom-order-vehicle-banner__container-cta-wrapper {
+        margin-top: 22px;
+      }
+    }
+
+    /* The following breakpoint targets phablet and below (mobile) by using the gcss-screen-down('phablet') mixin. */
+    @media screen and (max-width: 609px) {
+    .sni-custom-order-vehicle-banner__container {
+      justify-content: center;
+      text-align: center;
+    }
+}
+  </style>
+  <div class="sni-custom-order-vehicle-banner__container gcss-colors-background-primary">
+    <div
+        class="sni-custom-order-vehicle-banner__container-headline-wrapper sni-custom-order-vehicle-banner__container-headline-wrapper-col sdp-col sdp-col-xs-12 sdp-col-sm-12 sdp-col-md-12 sdp-col-lg-8">
+      <h2 class="sni-custom-order-vehicle-banner__container-headline gcss-typography-brand-heading-5">Didn't find what you were looking for?</h2>
+      <p class="sni-custom-order-vehicle-banner__container-copy gcss-typography-body-size-1">Enter your desired vehicle details to create your custom order.  Your dealer of choice will follow up to help place your order.</p>
+    </div>
+    <div
+        class="sni-custom-order-vehicle-banner__container-cta-wrapper sni-custom-order-vehicle-banner__container-cta-wrapper-col sdp-col sdp-col-xs-12 sdp-col-sm-12 sdp-col-md-12 sdp-col-lg-4">
+      <a tabindex="0" href="#app-cov" target="_blank" data-lid="start-your-custom-order" data-lpos="search-new-inventory:custom-order-vehicle"
+        class="sdp-button gcss-button is-external gcss-button-primary " data-adobe-linktype="tool"
+        title="Start Your Custom Order">Start Your Custom Order<span class="gcss-sr-only">(Open in a new window)</span></a>
+    </div>
+  </div>
+</script>
+<script id="vehicle-show-matching-filter-tpl" type="text/x-handlebars-template">
+  <div>
+    <ul>
+      <ul>
+        {{#each getMatchedArray}}
+            <li><span class="gcss-icon-standard"></span> <span>{{this}}</span></li>
+        {{/each}}
+        {{#each getUnMatchedArray}}
+            <li><span class="gcss-icon-not-available"></span> <span>{{this}}</span></li>
+        {{/each}}
+    </ul>
+    </ul>
+  </div>
+</script>
+<script id="dealer-status-info-tpl" type="text/x-handlebars-template">
+  <div
+    class="dealer-status gcss-colors-text-body-secondary gcss-typography-font-size-small"
+  >
+    {{#compare statusCode "==" "KZX"}}
+      <span class="dealer-status-code ">On Dealer Lot
+        <span
+          data-component="DisclosureBubble"
+          class="dealer-status-disclosure"
+          title="Contact dealer to reserve this vehicle and lock in pricing and eligible incentives. <br/>Pre-production computer-generated images may be shown and may not be representative of the vehicle listed. Vehicle pricing, delivery date and other vehicle information is subject to change at any time without notification."
+        ></span>
+      </span>
+    {{else}}
+      {{#beingBuilt "is" statusCode}}
+        <span class="dealer-status-code ">Being Built
+          <span
+            data-component="DisclosureBubble"
+            class="dealer-status-disclosure"
+            title="This vehicle is being built now. Contact dealer to reserve this vehicle and lock in pricing and eligible incentives. <br/>Vehicles identified as “Being Built” are pre-production vehicles that are not yet on the dealer’s lot or in transit.  Pre-production computer-generated images may be shown and may not be representative of the vehicle listed. Vehicle pricing, delivery date and other vehicle information is subject to change until the vehicle build is complete."
+          ></span>
+        </span>
+      {{else}}
+        <span class="dealer-status-code ">In Transit
+          <span
+            data-component="DisclosureBubble"
+            class="dealer-status-disclosure"
+            title="This vehicle is in transit to the dealer now. Contact dealer to reserve this vehicle and lock in pricing and eligible incentives.<br/> Pre-production computer-generated images may be shown and may not be representative of the vehicle listed.  Vehicle pricing, delivery date and other vehicle information is subject to change at any time without notification."
+          ></span>
+        </span>
+      {{/beingBuilt}}
+    {{/compare}}
+  </div>
+</script>
+<script id="dealer-info-tpl" type="text/x-handlebars-template">
+  <div class="dealer gcss-colors-text-body-primary">
+    <div class="dealer-info">
+      <span class="gcss-icon-location"></span>
+      <strong
+        class="gcss-colors-text-body-primary"
+        id="{{dealerCode}}-distance"
+      >
+        <span class="miles-away gcss-typography-label-1">{{distance}}</span>
+      </strong>
+      <span class="gcss-typography-label-2" id="{{dealerCode}}-dealerCode">miles away</span>
+      <span class="dealer-link">
+        {{#isOLSHP services}}
+        <a
+            href="{{website}}"
+            target="_blank"
+            tabindex="0"
+            data-adobe-events="event48"
+            aria-describedby="{{dealerCode}}-distance {{dealerCode}}-dealerCode"
+            data-adobe-evars="{&quot;eVar27&quot;:&quot;{{dealerCode}}&quot;,&quot;eVar102&quot;:&quot;{{statusCode}}&quot;,&quot;eVar15&quot;:&quot;slot-{{increment}}&quot;,&quot;eVar70&quot;:&quot;exit-to-dealer&quot;}"
+            data-adobe-linktype="tool"
+            data-lpos={{#unless match.requestedFilterCount}}"search-new-inventory:available-vehicles"{{else}} {{#compare match.matchLevel "==" "Partial"}}"search-new-inventory:near-matches" {{else}} "search-new-inventory:exact-matches" {{/compare}}{{/unless}}
+            data-lid="{{dealerName}}"
+            class="dealer-name gcss-button-tertiary sdp-button is-external--inline-icon"
+            title="{{name}}"
+          >{{dealerName}}
+          <span class="is-external-text-link"></span>
+          <span class="gcss-sr-only">(Open in a new window)</span>
+        </a>
+        {{else}}
+          <span
+            class="dealer-name gcss-colors-text-body-tertiary"
+            title="{{dealerName}}"
+          >{{dealerName}}</span>
+      {{/isOLSHP}}
+      </span>
+    </div>
+  </div>
+</script>
+<script id="dealer-logo-info-tpl" type="text/x-handlebars-template">
+  {{#if displayAwardInfo}}
+    <a href="javascript:void(0)" data-scode="{{serviceCode}}" data-dealerurl="{{dealerWebsite}}" data-donottrack="true" class="info-modal" aria-label="{{logoName}}" data-adobe-linktype="func" data-lpos="search-new-inventory:available-vehicles" data-lid="{{logoName}}">
+      {{#compare logoPath "!=" ""}}
+        <img class="dealer-logo {{brand}}" src="{{logoPath}}" alt="{{logoName}}" title="{{logoName}}" />
+      {{/compare}}
+      <span class="info-icon gcss-icon-info-circle"></span>
+    </a>
+  {{/if}}
+</script>
+<script type="text/javascript">
+  cllc.lazy.requires([
+    {
+      href:
+        "/crossbrand_us/styleguide/css/xb/sni/widgets/vehicle-tile/" +
+        cllc.config.brand +
+        "/wdgt-vehicle-tile.css",
+    },
+    {
+      src: "/crossbrand_us/sni/widgets/vehicle-tile/assets/javascript/WdgtVehicleTile.js",
+    },
+  ]);
+</script>
+<script type="text/x-handlebars-template" id="info-modal-tpl">
+  <div class="info-modal-wrapper {{brand}}">
+    <div class="info-details">
+      <div class="info-image">
+        <img src="{{{tplImage}}}"  alt="" class="" title="" />
+
+       <!--  <img src="/content/dam/fca-brands/na/shoppingtools/WagoneerCertifiedModal_Desktop.png.image.1000.png" alt="" title=""/> -->
+      </div>
+      <div class="info-content">
+        {{#compare tplTitle "!=" ""}}<h4 class="info-title">{{tplTitle}}</h4>{{/compare}}
+        <div class="info-list">
+          {{#if tplContentArr.length}}
+          <ul>
+            {{#each tplContentArr}}
+              <li>{{{text}}}</li>
+            {{/each}}
+          </ul>
+          {{/if}}
+        </div>
+        {{#compare tplUrl "!=" ""}}
+          {{#compare tplUrlText "!=" ""}}
+            <div class="buttons-container">
+              <a href="{{tplUrl}}" class="sdp-button gcss-button-tertiary gcss-button-variable is-external--inline-icon" target="_blank" data-lpos="{{modalLpos}}" data-lid="button-{{modalLid}}" data-adobe-linktype="cta" tabindex="0" role="link" aria-describedby="{{tplUrlText}} cta">
+                <span class="is-external-text-link">{{tplUrlText}}</span>
+                <span class="gcss-sr-only">(Open in a new window)</span>
+              </a>
+            </div>
+          {{/compare}}
+        {{/compare}}
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/javascript">
+  cllc.lazy.requires([{
+      href: "/crossbrand_us/styleguide/css/xb/sni/widgets/info-modal/" + cllc.config.brand + "/wdgt-info-modal.css"
+    },
+    {
+      src: "/crossbrand_us/sni/widgets/info-modal/assets/javascript/WdgtInfoModal.js"
+    }
+  ], function () {
+    return new WdgtInfoModal();
+  });
+
+</script>
+<script type="text/x-handlebars-template" id="hero-model-hb-template">
+    <div class="model-hero-container">
+        <div class="row-span">
+            <div class="model-hero-image-selector">
+                <ul>
+                    <li data-lid="exterior" data-img-path='{{extView}}' data-vehicle="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails" data-relid="exterior" class="{{#if activeTab}} active gcss-icon-caret-down{{/if}}" tabindex="0" aria-label="Exterior View">EXTERIOR</li>
+                    <li data-lid="interior" data-img-path='{{intView}}' data-vehicle="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails" data-relid="interior" class="{{#unless activeTab}}  active gcss-icon-caret-down{{/unless}}" tabindex="0" aria-label="Interior View">INTERIOR</li>
+                </ul>
+            </div>
+        </div>
+        <div class="model-hero-image-container interior">
+            <img data-rel="interior" data-img-path='{{intView}}' data-sources='{{{dataSources intView "I01"}}}' alt="" class="" src="../../../../assets/images/blank.gif" />
+        </div>
+        <div class="model-slide-wrapper exterior">
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView  "fullfronthero"}}}' alt="1 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView  "front"}}}' alt="2 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView "position1"}}}' alt="3 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView "position6"}}}' alt="4 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView "position11"}}}' alt="5 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <img data-image-path={{extView}} data-lid="{{dataVehicle}}" data-lpos="search-new-inventory-vindetails"  data-rel="exterior" data-sources='{{{dataSources extView "rear"}}}' alt="6 of 6 images" class="slider" src="../../../../assets/images/blank.gif" />
+            <div class="slide-count gcss-typography-label-2"><span aria-live="polite" class="gcss-sr-only"></span></div>
+            <div class="slide-nav">
+                <a href="javascript:void(0)" role="button" aria-label="previous image" class=" previous gcss-icon-chevron-left-3 gcss-typography-utility-heading-big-1" data-lid="{{dataVehicle}}:exterior:prev" data-lpos="search-new-inventory-vindetails"></a>
+                <a href="javascript:void(0)" role="button" aria-label="next image" class="next gcss-icon-chevron-right-3 gcss-typography-utility-heading-big-1" data-lid="{{dataVehicle}}:exterior:next" data-lpos="search-new-inventory-vindetails"></a>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+cllc.lazy.requires([
+     { href: "/crossbrand_us/styleguide/css/xb/sni/widgets/hero-modal/" + cllc.config.brand + "/wdgt-hero-modal.css" },
+    {src: "/crossbrand_us/sni/widgets/hero-modal/assets/javascript/WdgtHeroModal.js"}
+], function() {
+    return new WdgHeroModal();
+});
+</script>
+<script id="vehicle-match-hb-template" type="text/x-handlebars-template">
+    <div class="match-modal-wrapper gcss-colors-background-primary">
+        <button class="cllc-modal-button cllc-modal-close" title="Close"></button>
+
+        <div class="header-modal-match gcss-typography-utility-heading-3 gcss-colors-text-body-primary">
+            Matches {{match.matchedFilterCount}} of {{match.requestedFilterCount}} Filters
+        </div>
+        <div class="body-modal-match gcss-typography-label-3">
+            <div class="col-span-12">
+                <ul>
+                    {{#each getMatchedArray}}
+                        <li><span class="gcss-icon-standard"></span> <span class="gcss-typography-label-3 gcss-colors-text-body-primary">{{this}}</span></li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="col-span-12 not-match">
+                <ul>
+                    {{#each getUnMatchedArray}}
+                        <li><span class="gcss-icon-not-available"></span> <span class="gcss-typography-label-3 gcss-colors-text-body-primary">{{this}}</span></li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+<script type="text/javascript">
+    cllc.lazy.requires([
+    { href: "/crossbrand_us/styleguide/css/xb/sni/widgets/match-modal/" + cllc.config.brand + "/wdgt-match-modal.css" },
+    { src: "/crossbrand_us/sni/widgets/match-modal/assets/javascript/WdgtMatchModal.js" },{ src: "/crossbrand_us/shopping-tools/shared/accessibility-es4.js" }], function () {
+        return new WdgtMatchModal();
+    });
+</script>

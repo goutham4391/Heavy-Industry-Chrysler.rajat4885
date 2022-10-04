@@ -1,0 +1,111 @@
+<html>
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/compare.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:21 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+  <script type="application/javascript" src="../../../../services/vehicleData.getVehicle.prod.chrysler.js"></script>
+  <script src="../../../shopping-tools/shared/data_functions.js"></script>
+<script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+
+    <script language="javascript">
+    var app = getParameter("app");
+    var brandID = "CUC"; /*Universal function to get parameter from url srting*/
+    var year = getParameter("year");
+    var vehicle = getParameter("family") || getParameter("vehicle");    
+     var page = getParameter("page");
+    var modelYearCode = getParameter("modelYearCode") || getParameter("modelyearcode");
+    var zipcode = getParameter("zipcode");
+	var modelCode = getParameter("modelCode");
+	var models = getParameter("models");
+	var ref = getParameter("ref");
+    var vehicleCode = null;
+	var pageName = getParameter("pageName");
+    var isBuildCompare = getParameter('isBuildCompare');
+    if (modelYearCode) {
+        year = modelYearCode.substr(3, 4);
+		vehicleCode = modelYearCode.substr(-2);
+    }     
+	if(modelCode){
+	    vehicleCode = modelCode.substr(-2);
+	}
+    var modelCodes = {
+            "200": "09", 
+            "200_convertible": "00", 
+            "chrysler_200": "09", 
+            "chrysler_200c": "00", 
+            "300": "01", 
+            "chrysler_300": "01", 
+            "pt_convertible": "02", 
+            "aspen": "03", 
+            "aspen_hybrid": "03", 
+            "crossfire": "04", 
+            "pacifica": "05", 
+            "pt_cruiser": "06", 
+            "sebring_sedan": "07", 
+            "sebring": "07", 
+            "town_country": "08", 
+            "sebring_convertible": "19",
+            "pacifica_hybrid": "10",
+            "voyager": "13"
+    };
+
+	if(vehicleCode){
+		Object.keys(modelCodes).forEach(function(key){
+			if(modelCodes[key] == vehicleCode){
+			   vehicle = key;
+			}
+		});
+	}
+
+    function findApp() {        
+        var appUrl = "";
+        var query = "";
+        var campaign = "";
+		if(vehicle){
+        	vehicle = vehicle.replace('chrysler_', '');
+        }
+       
+        if (modelYearCode) {
+        	year = modelYearCode.substr(3,4);
+            vehicle = Vehicles.getFamilyFromMYC(modelYearCode);
+            appUrl = '/model-compare.' + vehicle + '.' + year + '.html#/myc/' + modelYearCode;    
+        } else if (year && vehicle && modelCodes[vehicle]) {
+            appUrl = '/model-compare.' + vehicle + '.' + year + '.html#/myc/' + brandID + year + modelCodes[vehicle];
+        } else {
+            appUrl = '../../../../vehicle-selector.model-compare.html';
+        }
+
+        /*if (app == "specs") {
+            appUrl = "/compare/detailed-chart." + vehicle + "." + year + ".html";
+        } else {
+            appUrl = "/compare/quick-chart." + vehicle + "." + year + ".html";
+        }*/
+
+		if(pageName === 'build-and-price' && isBuildCompare) {
+			//compare 2.0
+        	appUrl = '../../../../model-compare.html#/builds';
+        }
+
+        if(ref){
+		  query += "&ref="+ref;
+		}
+
+        campaign = getCampaign();
+        if (campaign) {
+            query += "&" + campaign;
+        } 
+
+        doRedirect(appUrl, query);        
+    }
+    findApp();
+    </script>
+  
+</head>
+
+<body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/compare.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:21 GMT -->
+</html>

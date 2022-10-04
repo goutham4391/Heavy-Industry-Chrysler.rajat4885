@@ -1,0 +1,792 @@
+.xb-app-content {
+    padding-top: 30px;
+}
+
+.parsley-error-list {
+    text-align: left;
+}
+
+#xb-main-content-wrapper .border-top-thick {
+    border-width: 5px 1px 1px;
+}
+
+#xb-main-content-wrapper .border-top-thin {
+    border-width: 1px 1px 1px;
+    padding-top: 6px;
+}
+
+.bold-text {
+    font-weight: 500;
+}
+
+/* -------     Zip Code Overlay     -------  */
+
+#xb-app-pe-zipcode-overlay {
+    height: 60px;
+    padding: 20px 50px 20px 30px;
+    box-sizing: inherit;
+}
+
+#xb-app-pe-zipcode-overlay legend {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#xb-app-pe-zipcode-overlay div {
+    display: block;
+    height: 30px;
+}
+
+#xb-app-pe-zipcode-overlay input {
+    display: block;
+    float: left;
+}
+
+#xb-app-pe-zipcode-overlay button.gc-button:before {
+    left: auto;
+    margin: 0;
+    position: static;
+    right: auto;
+    width: 100%;
+}
+
+#xb-app-pe-zipcode-overlay button.gc-button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: none;
+    display: block;
+    float: left;
+    height: 30px;
+    padding: 0;
+    width: 30px;
+}
+
+/* -------      -------  */
+
+.xb-app-pe-vehicle-image {
+    position: absolute;
+    right: 90px;
+    top: -10px;
+}
+
+.xb-app-pe-util-nav {
+    position: relative;
+}
+
+.xb-app-pe-util-nav.zipcode {
+    float: right;
+    margin-right: 5px;
+}
+
+.xb-app-pe-util-nav-zipcode-error>div {
+    color: #d20f06;
+    padding-right: 5px;
+}
+
+.xb-app-pe-util-nav .xb-app-pe-util-nav-zipcode[data-active] {
+    display: table;
+}
+
+.xb-app-pe-util-nav .xb-app-pe-util-nav-zipcode {
+    display: none;
+}
+
+.xb-app-pe-util-nav .xb-app-pe-util-nav-zipcode .gc-forms-textbox {
+    color: #666666;
+    font-size: 13px;
+    line-height: 21px;
+    padding-right: 5px;
+}
+
+.xb-app-pe-util-nav .xb-app-pe-util-nav-zipcode div {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.xb-app-pe-util-nav .xb-app-pe-util-nav-zipcode .gc-forms-textbox input {
+    color: inherit;
+    display: block;
+    font-size: inherit;
+    height: 19px;
+    padding: 0;
+    text-align: center;
+    width: 42px;
+}
+
+.xb-app-pe-util-nav ul {
+    display: inline;
+}
+
+.xb-app-pe-util-nav li {
+    display: table-cell;
+}
+
+.xb-app-vehicle-name:after {
+    content: "";
+    display: block;
+}
+
+.xb-app-pc-content.xb-app-column-content {
+    display: none;
+}
+
+.vehicle-select-box-container .vehicle-selection {
+    visibility: hidden;
+}
+
+.xb-app-pe-util-nav .vehicle-select-box-container .vehicle-dropdown {
+    visibility: visible;
+}
+
+.zipcode-container>span {
+    float: left;
+    margin-right: 5px;
+    margin-top: 2px;
+}
+
+.xb-app-pe-util-nav-zipcode .gc-forms-textbox {
+    width: 42px;
+}
+
+.xb-app-pc-content .xb-app-column-content .no-buy,
+.xb-app-pc-content .xb-app-column-content .no-lease {
+    display: none;
+}
+
+.xb-app-column-content .column {
+    box-sizing: inherit;
+    border-style: solid;
+    float: left;
+    margin: 0 5px 0 0;
+    min-height: 605px;
+    min-width: 239px;
+    padding: 2px 10px;
+    position: relative;
+    width: 31.3%;
+}
+
+.column-row.row-two.no-buy,
+.column-row.row-two.no-lease {
+    display: none;
+}
+
+.column-row.row-two.no-buy {
+    vertical-align: top;
+}
+
+table.pc-form-table .column-row.row-two.no-buy td {
+    white-space: normal;
+    padding-right: 5px;
+}
+
+.column-row.row-two.no-buy p,
+.column-row.row-two.no-lease p {
+    padding-bottom: 30px;
+}
+
+.total-monthly-payment-amount-term {
+    display: inline-block;
+    line-height: 10px;
+}
+
+#xb-main-content-wrapper .is-hidden {
+    display: none !important;
+}
+
+#xb-main-content-wrapper .xb-app-column-content .column.column-three {
+    border-style: none;
+    margin-right: 0;
+}
+
+.column-row.gaq-form-container {
+    height: auto;
+}
+
+.form-text.parsley-validated.parsley-error {
+    border-color: #ff0000;
+}
+
+.parsley-error-list .custom-error-message {
+    color: #ff0000;
+}
+
+.column-row {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.column-row.row-one {
+    border: none;
+    padding-top: 0;
+}
+
+.column-row.row-one>span:after {
+    content: "";
+    display: block;
+}
+
+.lt-ie9 .total-monthly-payment-amount-term {
+    letter-spacing: -0.5px;
+}
+
+.column-row.row-two {
+    /*height: 55px;*/
+    display: none;
+}
+
+.column-row.row-two p {
+    padding-bottom: 2px;
+}
+
+.column-row.row-four .conflict {
+    /*color:#000;*/
+    border-color: #f02222;
+}
+
+.conflict_message {
+    color: #f02222;
+    display: none;
+}
+
+.column-row.row-six div {
+    margin-bottom: 5px;
+}
+
+.column-row.row-one>p,
+.column-row.row-seven>p {
+    line-height: 25px;
+}
+
+.column-row.row-seven>p {
+    padding-bottom: 0;
+}
+
+#xb-main-content-wrapper .lease-disclosure {
+    line-height: 14px;
+}
+
+#xb-main-content-wrapper .emp-title {
+    line-height: 14px;
+}
+
+.column-row.row-seven {
+    padding-bottom: 15px;
+}
+
+.column-row.row-seven>p {
+    margin-top: -7px;
+}
+
+.column-row.row-three {
+    height: auto;
+}
+
+span.right {
+    float: right;
+}
+
+.column-row .right {
+    float: right;
+    text-align: right;
+}
+
+.column-row .left {
+    text-align: left;
+}
+
+.program-name {
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.program-name span.tooltip {
+    display: inline-block;
+    width: 70%;
+}
+
+.textbox-group {
+    width: 100%;
+}
+
+.rate-radio-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.lt-ie9 .rate-radio-container div:first-child {
+    display: table-cell;
+}
+
+.pe-form-container {
+    width: 50%;
+}
+
+.gc-forms-textbox.user-rate {
+    display: block;
+    margin-top: -25px;
+    padding-left: 17px;
+    width: 60%;
+    box-sizing: inherit;
+}
+
+.gc-forms-textbox.user-rate label {
+    height: 31px;
+    padding-left: 5px;
+}
+
+.gc-forms-textbox input.user_rate_field {
+    width: 20%;
+    float: left;
+    vertical-align: middle;
+}
+
+.lt-ie9 .gc-forms-dropdown.term-dropdown,
+.lt-ie9 .gc-forms-dropdown.mileage-dropdown {
+    margin-bottom: 5px;
+}
+
+.term-dropdown label,
+.mileage-dropdown label {
+    text-align: left;
+}
+
+.term-dropdown select,
+.mileage-dropdown select {
+    float: right;
+}
+
+.column.column-three .gc-form .gc-forms-group {
+    display: block;
+}
+
+.column.column-three .gc-form .form-item.gc-forms-group:after {
+    margin-bottom: 5px;
+}
+
+.column.column-three .gc-form .gc-forms-buttons {
+    float: right;
+    margin: 30px 0;
+}
+
+#phone-prefix {
+    margin: 0 1px;
+}
+
+#phone-suffix {
+    width: 82px;
+}
+
+.footer-nav.xb-app-pe-util-nav .bmo-view {
+    display: none;
+    /*margin-top: 0px;*/
+}
+
+.footer-nav .standard-view,
+.footer-nav .bmo-view {
+    float: right;
+    /*margin-right: 6px;*/
+    /*margin-top: 10px;*/
+}
+
+.footer-nav.xb-app-pe-util-nav .standard-view li,
+.footer-nav .bmo-view li {
+    display: block;
+}
+
+.footer-nav.xb-app-pe-util-nav .standard-view li a {
+    margin-bottom: 7px;
+}
+
+#success,
+#error {
+    display: none;
+}
+
+#error .error-message {
+    color: #ff0000;
+}
+
+.form-label {
+    float: left;
+    display: table-cell;
+}
+
+.form-select-container {
+    display: block;
+    width: 50%;
+}
+
+.error_message_container {
+    display: block;
+    float: right;
+    height: auto;
+    width: 207px;
+}
+
+/*Custom APR Overrides*/
+
+#xb-main-content-wrapper .xb-app-column-content.custom_apr .standard-rate,
+#xb-main-content-wrapper .xb-app-column-content.custom_apr .column-row.row-three,
+#xb-main-content-wrapper .xb-app-column-content.custom_apr .column-row.row-five p {
+    display: none !important;
+}
+
+#xb-main-content-wrapper .xb-app-column-content.custom_apr .column.column-one,
+#xb-main-content-wrapper .xb-app-column-content.custom_apr .column.column-two,
+    {
+    min-height: 506px;
+}
+
+@media screen and (max-width: 1023px) {
+    #xb-main-content-wrapper .xb-app-column-content.custom_apr .column.column-three {
+        min-height: 0;
+    }
+
+
+}
+
+@media screen and (max-device-width: 480px) and (orientation: portrait) {
+    #xb-main-content-wrapper table.pc-form-table th {
+        white-space: unset;
+    }
+
+    #xb-main-content-wrapper .xb-app-pc-content .row-incentives .cash-incentive-amount.right {
+        margin-top: 45px;
+    }
+
+    #xb-main-content-wrapper .xb-app-pc-content .buy-column label {
+        display: inline;
+    }
+
+    #xb-main-content-wrapper .xb-app-pc-content .finance-estimate-amount {
+        width: 40%;
+    }
+
+}
+
+.global-values {
+    display: none;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-left: 120px;
+}
+
+.global-values li {
+    display: table-cell;
+    padding: 0 5px;
+}
+
+.global-values li:first-child {
+    padding-left: 0;
+}
+
+.global-values li.middle-item-pipes {
+    border-style: none solid;
+    border-width: thin;
+}
+
+.global-values span {
+    padding-left: 5px;
+}
+
+.xb-app-top-content {
+    position: relative;
+}
+
+.xb-app-pc-content {
+    padding: 0 0 10px 0;
+}
+
+.print-cta {
+    position: absolute;
+    top: 0;
+}
+
+.button-container-block {
+    float: left;
+    width: 49%;
+}
+
+.button-container-block.first {
+    margin-right: 5px;
+}
+
+/*
+Overlay View Specific Styles
+*/
+
+.overlay-view .vehicle-selection-container ul {
+    display: none !important;
+}
+
+#xb-main-content-wrapper.overlay-view.dodge .print-cta {
+    margin-top: 10px;
+}
+
+#xb-main-content-wrapper.overlay-view .xb-main-content {
+    background: #fff;
+}
+
+/*PRINT STYLES - TRANSFER TO MEDIA PRINT SHEET*/
+
+.print.down_payment_field_label,
+.dealer_discount_field_label,
+.trade_in_field_label,
+.print.down_payment_field_value,
+.dealer_discount_field_value,
+.trade_in_field_value {
+    display: none;
+}
+
+.print.xb-app-content .print.down_payment_field_label,
+.print.xb-app-content .dealer_discount_field_label,
+.print.xb-app-content .trade_in_field_label,
+.print.xb-app-content .print.down_payment_field_value,
+.print.xb-app-content .dealer_discount_field_value,
+.print.xb-app-content .trade_in_field_value {
+    display: block;
+}
+
+.print.xb-app-content .print.down_payment_field_label,
+.print.xb-app-content .dealer_discount_field_label,
+.print.xb-app-content .trade_in_field_label {
+    font-weight: 500;
+}
+
+.print.xb-app-content .print.down_payment_field_value,
+.print.xb-app-content .dealer_discount_field_value,
+.print.xb-app-content .trade_in_field_value {
+    font-weight: normal;
+}
+
+.print-dash-lines {
+    display: none;
+    height: 1px;
+    width: 100%;
+    border-style: none none dashed;
+    border-width: medium medium thin;
+    box-sizing: inherit;
+}
+
+.print.xb-app-content .print-dash-lines {
+    display: block;
+    margin: 5px 0;
+}
+
+.print.xb-app-content .xb-app-vehicle-name {
+    width: 384px;
+}
+
+.print.xb-app-content .xb-app-vehicle-name .gcss-no-text-transform {
+    white-space: break-spaces;
+    overflow-wrap: break-word;
+}
+
+.print.xb-app-content .xb-app-pe-util-nav .vehicle-select-box-container,
+#xb-main-content-wrapper.overlay-view .print.xb-app-content .xb-app-pe-util-nav form.xb-app-pe-util-nav-zipcode,
+.print.xb-app-content .page-view-title,
+.print.xb-app-content .print-cta,
+.print.xb-app-content .global-values,
+.print.xb-app-content .footer-nav.xb-app-pe-util-nav,
+.print.xb-app-content .gc-forms-select,
+.print.xb-app-content .gc-forms-select .gc-forms-select-label,
+.print.xb-app-content .gc-forms-select .gc-forms-select-options,
+.print.xb-app-content .gc-forms-select:after,
+.print.xb-app-content .gc-forms-radio.standard-rate,
+.print.xb-app-content .rate-radio-container,
+.print.xb-app-content .column-three,
+.print.xb-app-content .apply-for-credit,
+.print.xb-app-content .get-prequalified,
+.print.xb-app-content .column-row.row-seven>div:not(.xb-app-pc-pricing-container),
+.print.xb-app-content .xb-app-pe-util-nav.zipcode .xb-app-pe-util-nav-zipcode>div {
+    display: none;
+}
+
+.print.xb-app-content .xb-app-pe-util-nav.zipcode .xb-app-pe-util-nav-zipcode>div:first-child {
+    display: table-cell;
+}
+
+.print.xb-app-content .xb-app-pc-content {
+    padding: 10px 0;
+}
+
+.print.xb-app-content .xb-app-column-content .column {
+    height: auto;
+    margin: 0;
+    min-height: 0;
+    width: 97%;
+}
+
+.print.xb-app-content .xb-app-column-content .column-row,
+.print.xb-app-content .xb-app-column-content .column-row .xb-app-cash-incentives-list {
+    height: auto;
+}
+
+.print.xb-app-content .xb-app-column-content .column-row .xb-app-cash-incentives-list {
+    overflow: visible;
+}
+
+.print.xb-app-content .column-row p {
+    padding: 0;
+}
+
+.print.xb-app-content .gc-forms-textbox input,
+.print.xb-app-content .xb-app-pe-util-nav-zipcode .gc-forms-textbox,
+.print.xb-app-content .column-row.row-one p,
+.print.xb-app-content .border-top-thick,
+.print.xb-app-content .border-top-thin {
+    border: thin none;
+}
+
+.overlay-view .print.xb-app-content .xb-app-pe-util-nav.zipcode {
+    float: left;
+}
+
+.overlay-view.ramtrucks .print.xb-app-content .xb-app-top-content {
+    background-color: #ffffff;
+    background-image: none;
+}
+
+.overlay-view .print.xb-app-content .xb-app-pe-util-nav .zipcode-container {
+    display: block;
+}
+
+.print.xb-app-content .gc-forms-textbox input {
+    padding-right: 0;
+    height: 15px;
+}
+
+#xb-main-content-wrapper .print.xb-app-content .border-top-thin {
+    padding-top: 0;
+}
+
+#xb-main-content-wrapper .print.xb-main-content {
+    width: 680px;
+}
+
+.print.xb-app-content .column-row.row-one {
+    padding-top: 5px;
+}
+
+#print-disclaimers {
+    margin: 0 12px;
+    padding-top: 10px;
+}
+
+.print.xb-app-content .column-row.row-one>span:after {
+    content: "";
+    display: none;
+}
+
+#xb-main-content-wrapper .print.xb-app-content .column.column-two {
+    padding-top: 35px;
+    padding-bottom: 15px;
+}
+
+.print .form-label {
+    width: 100%;
+}
+
+.lt-ie9 .print.xb-app-content .term-dropdown,
+.lt-ie9 .print.xb-app-content .mileage-dropdown {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/** CGMDS-24367 a11y Changes - Tables added **/
+table.pc-form-table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table.pc-form-table th {
+    text-align: left;
+    width: 75%;
+    white-space: nowrap;
+}
+
+table.pc-form-table td {
+    padding: 7px 0;
+    width: 25%;
+    white-space: nowrap;
+}
+
+table.pc-form-table tr.no-lease td {
+    width: 100%;
+    white-space: normal;
+}
+
+.pc-form-table .left-align {
+    text-align: left;
+}
+
+.pc-form-table .right-align {
+    text-align: right;
+}
+
+.pc-form-table input {
+    box-shadow: none;
+    display: table-cell;
+    border-radius: 4px;
+    height: 30px;
+    width: 65px;
+    text-align: right;
+    padding: 0 8px;
+    vertical-align: middle;
+    background-color: #fff;
+    border: 1px #bfbfbf solid;
+}
+
+.pc-form-table .pe-currency {
+    color: #179103;
+    padding-right: 8px;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* hot fix for CGMDS-27620  */
+@-moz-document url-prefix() {
+    #xb-main-content-wrapper .xb-app-pc-content .gc-forms-radio.standard-rate label {
+        padding-left: 15px;
+    }
+}
+
+/* FCA-SDP-12171 */
+.buy-lease-column .input_wrapper {
+    display: inline-flex;
+}
+
+@media screen and (min-width: 700px) {
+    .xb-app-top-content .vehicle-selection-container .vehicle-select-box-container>li {
+        width: auto;
+        padding: 0 2.5% 2.5% 0;
+        display: inline-flex;
+    }
+
+    .xb-app-top-content .vehicle-selection-container .vehicle-select-box-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .xb-app-top-content .vehicle-selection-container .vehicle-select-box-container .gc-forms-select {
+        min-width: 100px;
+    }
+
+    .xb-app-top-content .vehicle-selection-container .vehicle-select-box-container>li:first-child {
+        width: auto;
+        padding-left: 0;
+    }
+
+    .xb-app-top-content .vehicle-selection-container .vehicle-select-box-container .gc-forms-dropdown .gc-forms-select li {
+        padding-right: 36px !important;
+    }
+}
+
+@media print {
+    #onetrust-banner-sdk {
+        display: none;
+    }
+}

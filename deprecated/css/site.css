@@ -1,0 +1,2279 @@
+/*-- promo carousel --*/
+/* 
+	NOTE:
+		curently 'homepage-buckets' is used;
+		when global promo tiles are implemented, 
+		delete this one style declaration as
+		it will not be used anymore. it will be
+		replaced by the bottom declaration
+		of 'global-promo-buckets'
+*/
+#homepage-buckets{
+	margin: 0px auto;
+	width: 940px;
+	position: relative;
+	top: -40px;
+}
+
+
+/*-- promo carousel --*/
+#global-promo-buckets{
+	margin: 30px auto 0px auto;
+	width: 940px;
+	position: relative;
+}
+#homepage #global-promo-buckets{
+	margin: 0px auto;
+	top: -40px;
+}
+#tnc-overview #global-promo-buckets,
+#vhp-200 #global-promo-buckets,
+#vhp-200c #global-promo-buckets,
+#vhp-300 #global-promo-buckets,
+#vhp-300c #global-promo-buckets,
+#vhp-300c-luxury #global-promo-buckets,
+#vhp-300c-varvatos-luxury-edition #global-promo-buckets,
+#vhp-300s #global-promo-buckets,
+#vhp-300s-glacier #global-promo-buckets,
+#vhp-300-limited #global-promo-buckets,
+#vhp-300-srt8 #global-promo-buckets,
+#vhp-tnc #global-promo-buckets,
+#glacier #global-promo-buckets
+{
+	display: none;
+}
+
+.main-promo
+{
+	background-image: url('../../index.html');
+	float: left;
+	height: 179px;
+	margin-left: -17px;
+	padding: 5px 0px 0px 18px;
+	width: 359px
+}
+
+#homepage .main-promo
+{
+	display: none;
+	background-image: url('../../index.html');
+	float: left;
+	height: 179px;
+	margin-left: -17px;
+	padding: 5px 0px 0px 18px;
+	width: 359px
+}
+
+
+.promo-carousel
+{
+	float: left;
+	height: 184px;
+	width: 947px;
+	display: block;
+}
+
+
+.promo-carousel .prev-arrow, .promo-carousel .next-arrow
+{
+	background-image: url('../../index.html');
+	background-position: -374px 0;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	float: left;
+	height: 152px;
+	margin: 0 7px 0 0;
+	width: 37px;
+}
+
+/*.promo-carousel .prev-arrow:hover
+{
+	background-position: -286px -274px;
+}*/
+
+.promo-carousel .next-arrow
+{
+	background-position: -402px 0;
+	margin: 0 0 0 7px;
+}
+
+/*.promo-carousel .next-arrow:hover
+{
+	background-position: -308px -274px;
+}*/
+
+.promo-carousel.no-scroll .prev-arrow, .promo-carousel.no-scroll .next-arrow
+{
+	visibility: hidden;
+}
+
+.promo-carousel .view
+{
+	float: left;
+	height: 184px;
+	overflow: hidden;
+	position: relative;
+	width: 852px;
+	height: 150px;
+}
+
+.promo-carousel .view ul
+{
+	height: 184px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1345px;
+}
+
+.promo-carousel .view ul li
+{
+	/*background-image: url('/images/homepage-buckets.png');
+	background-position: left -184px;*/
+	display: block;
+	float: left;
+	width: 208px;
+	height: 150px;
+	margin: 0 7px 0 0;
+	padding:0;
+	position: relative;
+}
+
+.promo-carousel .view ul li a img{
+	width: 208px;
+	height: 150px;
+}
+
+.promo-carousel .view ul li a
+{
+	display: block;
+	width: 208px;
+	height: 150px;
+}
+#global-promo-buckets .promo-carousel .view ul li a
+{
+	position: relative;
+}
+	#global-promo-buckets .promo-carousel .view ul li a sup
+	{
+		position: absolute;
+		height: 10px;
+		width: 7px;
+	}
+
+.promo-carousel .view ul li a sup
+{
+	opacity: 0;
+	display: block;
+	z-index: 999;
+}
+
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info
+{
+	position: absolute;
+	top: 55px;
+	right: 10px;
+	text-align: center;
+	color: #fff;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .price
+{
+	height: auto;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .verb,
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .mpg
+{
+	display: none !important;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .dollar-sign,
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .amount
+{
+	float: none;
+	display: inline;
+	font-size: 35px;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .dollar-sign{
+	font-size: 20px;
+	position: relative;
+	top: 12px;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .more-info
+{
+	display: block;
+	float: none;
+	position: relative;
+	top: -10px;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .more-info .month,
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .more-info .term-copy
+{
+	display: inline-block;
+	float: none;
+	color: #fff;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .more-info .month
+{
+	padding-right: 5px;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .more-info .term-copy sup
+{
+	opacity: 1;
+	z-index: 999;
+	display: inline-block;
+	position: relative;
+}
+
+.promo-carousel .view ul li.dynamic_200_lease .lease-info .legal
+{
+	font-size: 8px !important;
+	position: relative;
+	top: -7px;
+}
+
+
+/*generic styles*/
+
+.dotted-top{ background: url('../../index.html') repeat-x 0px 0px; padding-top:1px; }
+
+
+.animation_mask { position: absolute; top: 0px; left: 0px; z-index:100;background-image:url('../images/blank.gif'); width:100%; height:100%; }
+.animation-loader{ background: url("../../index.html") no-repeat center center; height: 100%;height: 100%; }
+
+.image-loading{ background: url('../../index.html') no-repeat  center center; }
+	
+
+/*-------------------------------------- BEGIN INDIVUDUAL PAGE STYLES -------------------------------------- */
+
+
+/*------------- homepage start-------------*/
+
+.hp-carousel .navigator
+{
+	position: absolute;
+	top: 465px;
+	right: 15px;
+	height: 20px;
+	z-index: 1;
+}
+
+.hp-carousel .navigator ul
+{
+	list-style: none;
+	margin: 0px auto;
+}
+
+.hp-carousel .navigator ul li
+{
+	/*background-image: url('/images/homepage-carousel.png');
+	background-position: left -20px;*/
+	display: block;
+	float: left;
+	list-style: none;
+}
+
+.hp-carousel .navigator ul li:first-child
+{
+	background-position: left top;
+	padding-left: 10px;
+}
+
+.hp-carousel .navigator ul li.last
+{
+	background-position: right -20px;
+	padding-right: 10px;
+}
+
+.hp-carousel .navigator li div
+{
+	background-image: url('../../images/homepage-carousel.html');
+	background-position: right -56px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	height: 11px;
+	margin: 6px 2px;
+	width: 11px;
+}
+
+.hp-carousel .navigator li.selected div
+{
+	background-position: right -45px;
+	cursor: default;
+}
+
+ #bhp_youtube {  
+    font-size: 12px;
+    height: 280px;
+    left: -241px;
+    position: relative;
+    text-align: center;
+    top: 0px;
+    width: 455px;
+	}
+
+#bhp_headline {
+    font-size: 15px;
+    left: 530px;
+    position: absolute;
+    text-align: center;
+}
+
+#bhp_headline h2{color: #000000;   line-height: 105%;}
+
+#share_video{
+	color: #333333;
+    font-size: 12px;
+    left: 507px;
+    position: absolute;
+    text-align: center;
+    top: 88px;
+    width: 334px;
+}
+
+#contribution{
+	color: #999999;
+    font-size: 12px;
+    left: 766px;
+    position: absolute;
+    text-align: justify;
+    top: 243px;
+}
+
+#see_it{ 
+	color: #8B7836;
+    font-size: 14px;
+    font-weight: bold;
+    left: 766px;
+    position: absolute;
+    top: 277px;
+}
+
+#see_it a {color: #8B7836;  text-decoration: none;}
+
+
+/*------------- vhp start -------------*/
+
+#rearview_small{position:absolute; top:43px; left:75px; z-index:1}
+#needle_small{position:absolute; top:62px; left:74px; z-index:1}
+
+#headlights_small_controls{ position:relative;}
+#headlights_small_trigger{height:129px; width:260px;position:absolute; top:0px; left:0px; z-index:100}
+
+.rearview_small_controls{ position:relative; height:129px; width:260px;}
+.rearview_small_controls img { position:absolute; top:23px; left:78px; z-index:10}
+.rearview_small_trigger{height:129px; width:260px;position:absolute; top:0px; left:0px; z-index:100}
+
+.odometre_small_controls{ height:129px; width:260px; position:relative;}
+.odometre_small_controls img{ position:absolute; top:42px; left:74px; z-index:10}
+.odometre_small_trigger{height:129px; width:220px;position:absolute; top:0px; left:0px; z-index:100}
+
+
+/*------------- features section start------------- */
+
+a.backtop {background: url("../../index.html") no-repeat scroll 0 5px transparent; padding: 0px 0px 0px 14px; float: right; margin-top:25px;}
+a.backtop:hover{ background-position: 0px -10px}
+
+.playvideo {position: relative;}
+.playvideo span {position: absolute; top: 50%; left: 50%; z-index: 100; background: url("../../index.html") no-repeat;}
+
+.playvideo.large span {background-position: 0 0;  width: 130px; height: 125px; margin-left: -65px; margin-top: -62px; }
+.playvideo.large:hover span{ background-position: 0 -125px;}
+
+.playvideo.medium span {background-position: 0 -354px; width: 98px; height: 94px; margin-left: -44px; margin-top: -42px;}
+.playvideo.medium:hover span {background-position: 0 -448px;}
+
+.playvideo.small span {background-position: 0 -250px; width: 52px; height: 52px; margin-left: -26px; margin-top: -26px;}
+.playvideo.small:hover span {background-position: 0 -302px;}
+
+.playvideo img {position: relative; top: 0px; left: 0px; z-index: 50;}
+
+
+/*300 design*/
+
+#headlights { position: relative;height: 320px;}
+#headlights #off{ position: absolute; right: 0px; top: 0px; z-index: 10; }
+#headlights #led { position: absolute; top: 0px; right: 0px; z-index: 20; display: none; }
+#headlights #spot { position: absolute; top: 0px; right: 0px; z-index: 30; display: none; }
+#headlights #all { position: absolute; top: 0px; right: 0px; z-index: 40; display: none; }
+
+#headlights a.led { background: url('../../images/vehicles/2012/300/lights_cta.html') no-repeat 0px 0px; width: 54px; height: 45px; display: block; position: absolute; top: 255px; right: 90px; z-index:300; }
+#headlights a.led.active, #headlights a.led:hover{ background-position: 0 -45px;}
+#headlights a.spot { background: url('../../images/vehicles/2012/300/lights_cta.html') no-repeat 0px -90px; width: 54px; height: 45px; display: block; position: absolute; top: 255px; right: 25px; z-index:300; }
+#headlights a.spot.active, #headlights a.spot:hover{ background-position: 0 -135px;}
+
+#cupholder { position: relative; height: 210px; width: 580px; float: right; }
+#cupholder #cupholder-bg{ position:absolute; top:0px; right:0px; z-index:1;}
+#cupholder .backtop { position:absolute; right:0px; bottom:0px; z-index:10;}
+
+#cupholder #right .btn_hot{top: 50px; left: 50px;}
+#cupholder #right .btn_cold{top: 50px; left: 100px;}
+
+#cupholder #left .btn_hot{top: 110px; left: 50px}
+#cupholder #left .btn_cold{top: 110px; left: 100px;}
+
+
+.btn_hot { background: url('../../images/vehicles/2012/300/cupholder_cta.html') no-repeat 0 0; position: relative; height: 45px; width: 54px; display: block; position: absolute; z-index:10; }
+.btn_hot.active, .btn_hot:hover { background-position: 0 -45px }
+
+.btn_cold{ background: url('../../images/vehicles/2012/300/cupholder_cta.html') no-repeat 0 -90px; position: relative; height: 45px; width: 54px; display: block; position: absolute;z-index:10; }
+.btn_cold.active, .btn_cold:hover { background-position: 0 -135px }
+
+#cupholder #right .hot, #cupholder #right .cold{position: absolute; top: 5px; right: 139px; z-index:10;}
+#cupholder #left .hot, #cupholder #left .cold{ position: absolute; top: 105px; right: 139px; z-index:10;}
+
+#gearbox .hotspot-link,#gearbox .hotspot-image{ top: 205px; left: 800px;} 
+#dashboard .hotspot-link,#dashboard .hotspot-image{ top: 25px; left: 875px;} 
+#seats .hotspot-link,#seats .hotspot-image{ top: 291px; left: 494px;} 
+#headrest .hotspot-link,#headrest .hotspot-image{ top: 55px; left: 106px;} 
+
+#sunroof_animation{ position:relative;}
+#sunroof-trigger{height:380px; width:640px; position:absolute; top:0px; left:0px;z-index:100}
+
+.sunroof-btn {background: url('../../images/vehicles/2012/300/btn_sunroof.html') no-repeat; width: 50px; height: 43px; display: block; position: absolute; top:0px; left:0px; z-index:300}
+#sunroof-close:hover{ background-position: 0 -43px;}
+#sunroof-close.active{ background-position: 0 -86px;}
+#sunroof-vent{ top:43px; background-position: 0 -129px;}
+#sunroof-vent:hover{background-position: 0 -172px;}
+#sunroof-vent.active{background-position: 0 -215px;}
+#sunroof-open{ top:86px; background-position: 0 -258px;}
+#sunroof-open:hover{background-position: 0 -301px;}
+#sunroof-open.active{background-position: 0 -344px;}
+
+/*300 performance*/
+
+#odometre-large{position:relative;height:372px;width:460px;}
+#odometre-large #bg{ position:absolute; top:0px; left:0px; z-index:1;}
+#odometre-large img{position: absolute; top: 129px; right: 262px; z-index:50;}
+#odometre_large_trigger{ height:372px;width:460px; position:absolute; top:0px; left:0px;z-index:100;}
+
+#odometre-number { position:relative;}
+#needle_number{height:97px; width:72px; display:block; z-index:50;top:145px; left:163px; position:absolute;}
+#odometre_number_trigger{ height:97px;width:72px; position:absolute; top:145px; left:163px; z-index:100;}
+
+#odometre_pedals{position:absolute; top:270px; right:0px; height:73px;width:67px; display: block;  background: url('../../images/vehicles/2012/300/btn_odometre.html') no-repeat 0px 0px;z-index:200}
+#odometre_pedals:hover{background-position: 0 -73px;}
+#odometre_pedals.active{background-position: 0 -146px;} 
+
+#pistons{position: relative; height: 433px; width: 460px; float: right;}
+#pistons img{ position: absolute; top: 0px; right: 0px; z-index:50}
+#pistons #piston_engine_copy{ top:174px; left:185px; z-index:1000;}
+#pistons_trigger{ height: 433px; width: 460px;position:absolute; top:0px; left:0px;z-index:200}
+
+/*300 innovation*/
+
+#rearview-play{ position:absolute; top:100px; left:124px; height:94px; width:97px; background: url("../../images/btn_play.html") no-repeat 0 -448px ; z-index:200; cursor: pointer; display:none; }
+#rearview{position: relative; height: 240px; width: 580px; float:left;}
+#rearview_controls { clear:both;}
+#rearview img{position: absolute; top: 0px; right: 0px; z-index:50}
+#rearview_trigger{height: 240px; width: 580px; position:absolute; top:0px; left:0px; z-index:100}
+
+/*200 design*/
+
+#C200-DES #headlights a.led { background: url('../../images/vehicles/2012/200/lights_cta.html') no-repeat 0px 0px; width: 54px; height: 45px; display: block; position: absolute; top: 255px; right: 90px; z-index:300; }
+#C200-DES #headlights a.led.active, #C200-DES #headlights a.led:hover{ background-position: 0 -45px;}
+#C200-DES #headlights a.spot { background: url('../../images/vehicles/2012/200/lights_cta.html') no-repeat 0px -90px; width: 54px; height: 45px; display: block; position: absolute; top: 255px; right: 25px; z-index:300; }
+#C200-DES #headlights a.spot.active, #C200-DES #headlights a.spot:hover{ background-position: 0 -135px;}
+
+#heated-seats { position:relative;}
+#left.heat-seat-high,  #left.heat-seat-low{ position:absolute; top:138px; left:171px;}
+#right.heat-seat-high,  #right.heat-seat-low{ position:absolute; top:177px; left:57px;}
+
+.heated-seat-cta {background: url('../../images/vehicles/2012/200/heat-seat_cta.html') no-repeat 0px 0px; height:45px; width:54px; position:absolute; z-index:10; top:140px; right:20px; display:block;}
+
+#right.heated-seat-cta{top:200px; right:20px;} 
+
+.heated-seat-cta.hi{ background-position:0 -45px;}
+.heated-seat-cta.lo{ background-position:0 -90px;}
+.heated-seat-cta:hover{ opacity:.8;filter: alpha(opacity = 50)}
+
+/*200c design*/
+#convertible_animation { position:relative;}
+#convertible_animation #convertible {position:absolute; top:56px; right:65px; z-index:10}
+#convertible_animation a{ position:absolute; left:0px; z-index:100; background: url("../../images/vehicles/2012/200_convertible/cta_convertible-roof.html") no-repeat 0 0 ; height:45px; width:54px; z-index:20}
+#convertible_animation a#convetible-close{ top:55px; background-position:0 -45px;}
+#convertible_animation a#convetible-close:hover, #convertible_animation a#convetible-close.active{background-position:0 -135px;}
+#convertible_animation a#convertible-open{ top:0px; background-position:0 0px;}
+#convertible_animation a#convertible-open:hover, #convertible_animation a#convertible-open.active{background-position:0 -90px;}
+#convertible-trigger{height:270px; width:450px; position:absolute; top:0px; right:250px;z-index:20;}
+
+/*200 innovation*/
+#C200-INNOV .uconnect-module .connect-info .connect-screen { left:74px; top:118px;}
+#C200-INNOV .uconnect-module .connect-info li .copy { width:460px; top:210px;}
+#C200-INNOV .logo { position:absolute; top:160px; right:20px; margin:0px;}
+#C200-INNOV .uconnect-module .connect-cta { top:150px;}
+
+/*200c innovation*/
+#C200C-INNOV .uconnect-module .connect-info .connect-screen { left:74px; top:118px;}
+#C200C-INNOV .uconnect-module .connect-info li .copy { width:460px; top:210px;}
+#C200C-INNOV .logo { position:absolute; top:160px; right:20px; margin:0px;}
+#C200C-INNOV .uconnect-module .connect-cta { top:150px;}
+
+
+/*town and country design*/
+#tnc-uconnect .connect-screen{ position: absolute; top:51px; left:581px;}
+#tnc-uconnect .logo{ position:absolute; top:145px; left:230px;}
+#tnc-uconnect .connect-info li .copy{ width:460px; top:220px;}
+#tnc-uconnect .connect-cta{ top:165px;}
+
+#tnc-doortrunk-animation{ position:relative; height:416px;}
+#tnc-door{ position:absolute; z-index:100; top:88px; left:425px;}
+#tnc-door-trigger{height:216px; width:295px; position:absolute; top:88px; left:425px;z-index:100}
+#tnc-trunk{ position:absolute; z-index:100; top:62px; right:42px;}
+#tnc-trunk-trigger{height:182px; width:204px; position:absolute; top:62px; right:42px; z-index:100}
+.tnc-trunkdoor-button {background: url("../../images/vehicles/2012/town_country/door-trunk_cta.html") no-repeat 0 0; width: 51px; height: 45px; display: block; position: absolute; top:0px; left:0px; z-index:300}
+#tnc-door-close{ top:350px; left:435px; background-position: 0 0px;}
+#tnc-door-close:hover, #tnc-door-close.active {background-position: 0 -45px;}
+#tnc-door-open{top:350px; left:485px; background-position: 0 -90px;}
+#tnc-door-open:hover, #tnc-door-open.active {background-position: 0 -135px;}
+#tnc-trunk-close{ top:350px;left:745px; background-position: 0 -180px;}
+#tnc-trunk-close:hover, #tnc-trunk-close.active {background-position: 0 -225px;}
+#tnc-trunk-open{ top:350px; left:795px;background-position: 0 -270px;}
+#tnc-trunk-open:hover, #tnc-trunk-open.active {background-position: 0 -315px;}
+
+#tailgate_animation{ position:relative; height:270px;}
+#tailgate_animation a{ position:absolute; top:0px; z-index:100; background: url("../../images/vehicles/2012/town_country/tailgate_cta.html") no-repeat 0 0 ; height:45px; width:51px;}
+#tailgate_animation a#tailgate-normal{ left:20px; background-position:0 -45px;}
+#tailgate_animation a#tailgate-normal:hover, #tailgate_animation a#tailgate-normal.active{background-position:0 0px;}
+#tailgate_animation a#tailgate-tail{ left:70px;background-position:0 -135px;}
+#tailgate_animation a#tailgate-tail:hover, #tailgate_animation a#tailgate-tail.active{background-position:0 -90px;}
+#tailgate-trigger{height:270px; width:450px; position:absolute; top:0px; right:0px;z-index:10;}
+
+#tnc-seatsinterior_animation{ position:relative; height:475px;}
+#tnc-seatsinterior_animation a.cta-seat_normal, #tnc-seatsinterior_animation a.cta-seat_stow{ position:absolute; z-index:50; background: url("../../images/vehicles/2012/town_country/seats_cta.html") no-repeat 0 0 ; height:45px; width:51px;}
+#tnc-seatsinterior_animation a.cta-seat_normal{background-position:0 -45px;}
+#tnc-seatsinterior_animation a.cta-seat_normal:hover, #tnc-seatsinterior_animation a.cta-seat_normal.active{background-position:0 0px;}
+#tnc-seatsinterior_animation a.cta-seat_stow{background-position:0 -135px;}
+#tnc-seatsinterior_animation a.cta-seat_stow:hover, #tnc-seatsinterior_animation a.cta-seat_stow.active{background-position:0 -90px;}
+#tnc-seatsinterior_animation a#cta-seat1-normal{ top:400px; left:399px;}
+#tnc-seatsinterior_animation a#cta-seat1-stow{ top:400px; left:449px; }
+#tnc-seatsinterior_animation a#cta-seat2-normal{ top:40px; left:399px;}
+#tnc-seatsinterior_animation a#cta-seat2-stow{ top:40px; left:449px; }
+#tnc-seatsinterior_animation a#cta-seat3-normal{ top:380px; left:109px;}
+#tnc-seatsinterior_animation a#cta-seat3-stow{ top:380px; left:159px; }
+#tnc-seatsinterior_animation a#cta-seat4-normal{ top:20px; left:109px;}
+#tnc-seatsinterior_animation a#cta-seat4-stow{ top:20px; left:159px; }
+#tnc-seatsinterior_animation #seat-int-1{ position:absolute; top:178px; right:342px; z-index:20}
+#tnc-seatsinterior_animation #seat-int-2{ position:absolute; top:66px; right:381px; z-index:10 }
+#tnc-seatsinterior_animation #seat-int-3{ position:absolute; top:168px; right:608px; z-index:20}
+#tnc-seatsinterior_animation #seat-int-4{ position:absolute; top:74px; left:74px; z-index:10}
+#tnc-seatsinterior_animation #seat-int-1_trigger{ height:100px; width:100px; position:absolute; top:235px; right:431px; z-index:30;}
+#tnc-seatsinterior_animation #seat-int-2_trigger{ height:100px; width:100px; position:absolute; top:100px; right:441px; z-index:30;}
+#tnc-seatsinterior_animation #seat-int-3_trigger{ height:100px; width:100px; position:absolute; top:240px; right:671px; z-index:30;}
+#tnc-seatsinterior_animation #seat-int-4_trigger{ height:100px; width:100px; position:absolute; top:150px; left:218px; z-index:30;}
+
+#dvdplayer { position: relative;}
+#dvdplayer #dvd {position:absolute; top:89px; left:94px;}
+#dvdplayer #dvd_trigger {height:50px; width:50px; z-index:10; position:absolute; top:110px; left:150px}
+
+
+
+/*town and country safety*/
+#vid_technology a.playvideo span{ margin-left:-70px; margin-top:-70px;}
+#video_mirror a.playvideo span{ margin-left:-104px; margin-top:-75px;}
+
+
+/*------------- features section end------------- */
+
+/*all vehicles page*/
+#V-LINEUP {background: url('../../index.html') no-repeat center top;}
+#V-LINEUP .hero{ height:230px;}
+#vlp .models{ font-size: 12px; color: #333333; letter-spacing: 2px; padding: 15px 0px 20px 105px;}
+#vlp .models span{ cursor: pointer; font-size: 8px; padding: 2px 6px 2px 12px; *padding: 2px 6px 1px 12px; padding: 2px 6px 1px 12px\0/; color: #666666;}
+#vlp .models span:hover { color:#FFFFFF;}
+#vlp .models span.selected{ background: #333333 url("../images/buttons.png") no-repeat 5px -91px; cursor: default; color: #CCCCCC;}
+#vlp .year{ position: relative; height: 490px; margin: 0px 80px 30px 83px; display: none;}
+#vlp .year h3.title{position:absolute; top:-35px; left:251px;}
+
+.vlp-bucket{ width: 187px; position: absolute; top: 0px; z-index: 50 ;padding: 0px 11px 0px 11px;}
+.vlp-bucket.active{ background: url('../../index.html') repeat-y 0 0; *background: none; background:none \0/;z-index: 100; }
+
+.vlp-head{ background: url('../../index.html') no-repeat 0 0; height: 41px; width: 187px; text-align: center; }
+.vlp-head h1{ font-size: 12px; padding-top: 15px; }
+.C200c .vlp-head h1, .Ctnc .vlp-head h1{ padding-top: 5px; }
+.C200{ left:0px; }
+.C200c{ left:188px; }
+.C300{ left:376px; }
+.Ctnc{ left:564px; }
+
+.vlp-content{ background: #151515 url('../../index.html') no-repeat 0 0; padding-bottom: 15px; }
+.vlp-vehicle{ height: 130px; position :relative; }
+.vlp-vehicle img{ position: absolute; top: 40px; left: 0px; display: none; }
+.vlp-vehicle img:first-child{ display :block}
+.vlp-bucket{ font-size: 9px ;}
+.vlp-bucket .trim { font-size: 11px; letter-spacing: 2px; color:#CCCCCC; }
+.vlp-bucket ul{ height: 240px ;}
+.vlp-bucket li a{ width: 100%; float: left; position: relative; }
+.vlp-bucket li{ padding: 6px 10px 8px 25px; float: left; width: 152px; }
+.vlp-bucket li:hover { background-color: #121212; }
+.vlp-bucket li:hover a{ color: #FFFFFF; }
+.vlp-bucket li:hover span.carrot{ display: block;}
+.vlp-bucket li span.carrot{ background: url("../images/buttons.png"); background-position: right -12px ;height: 6px; position: absolute; right: 0; top: 3px; width: 6px; display: none; }
+.vlp-bucket .innerImage{ float: left; margin: 0 0 5px 25px; }
+
+
+/*exit page*/
+/*#exitpage {background: url('/images/interstitial.jpg') no-repeat center 120px; height:500px}*/
+/*error page*/
+/*#error {background: url('/images/error_hero.jpg') no-repeat center 10px;}
+#error #main-content{ min-height: 340px; color: #999999; text-align :center;}
+#error #main-content h1{ padding: 60px 0px 8px 0px; color: #999999; font-size:16px; letter-spacing:2px;}
+#error #main-content p{ width: 300px; margin: 0 auto; line-height:18px;}
+#error #main-content .search-box {position: absolute;top: 260px;left: 400px; }
+#error #main-content .search-box input{color: #888888;}
+
+#default_copy {display: none;}*/
+/*
+#search #search-header{ margin-top: 45px; background: #101010 url("/images/search_google.jpg") no-repeat 525px 10px; margin-bottom: 40px;}
+#search h3{ float: left; color: #888888; font-size: 11px; letter-spacing: 3px; padding: 15px 20px 15px 32px;}
+#search h3 span{ color: #ffffff;letter-spacing: 3px;}
+#search h3#other{ padding-left: 160px;}
+
+#search_area_form {background: url("/images/search_bg.jpg") no-repeat center top; margin-bottom: 0; height: 35px; width: 297px; float: left; margin-top: 10px; position: relative;}
+
+#search_area_form input { background-color: transparent; color: #888888; font-size: 11px; padding: 5px 0px 0px 10px; width: 250px; overflow: hidden; float: left;}
+#search_area_form span a{ float: right; height: 20px; width: 30px;}
+
+#results_container {padding: 0px 140px 0px 30px;}
+#searchResultSet{ padding-top: 10px; }
+#searchMessage {margin-bottom: 10px;}
+.searchResultLink{ color: #CCCCCC;}
+.snippet-box{line-height: 15px;}
+
+#searchResult {margin: 0 0 15px;}
+#searchResultUrl{color: #b6a86d}
+
+#additional_search_box {margin-bottom: 8px; padding-left: 12px; width: 250px;}
+#additional_search_box p {margin-bottom: 15px; line-height: 14px;}
+#additional_search_box #intro{ color: #cccccc}
+#additional_search_box a { color: #b6a86d; font-weight: bold; margin-bottom: 5px;}
+
+.right_column_promo {border: 1px solid #888888; margin-bottom: 8px; padding: 15px 15px 25px 15px;}
+.right_column_promo h4{ color: #cccccc; padding-bottom: 5px;}
+.right_column_promo a{ float: right; position: relative; padding:0px 10px 2px 0px ;}
+
+.n{ float: right; margin-top: 20px;}
+.n .i{ color:#cccccc;}*/
+
+
+#content.findDealers{
+	background-color: #ffffff;
+	overflow: hidden;
+}
+
+#asc div.inventoryView div.content_body_frame_leftView
+{
+	padding-left: 0px;
+}
+
+#asc div.inventoryView table.listitem_table
+{
+	width: 573px;
+}
+
+#asc div.inventoryView div.header_bottom_middle, div.inventoryView div.header_top_middle
+{
+	width: 566px;
+}
+
+#asc div.inventoryView div.content_body_frame_right_header
+{
+	width: 567px;
+}
+
+#asc div.inventoryView div.header_view_title a:link, #asc a:hover, #asc #main-navigation .models .years a:hover
+{
+   color: #ffffff !important;
+}
+
+#asc #main-navigation a.main-link, #asc #main-navigation a.main-link:hover, #asc #main-navigation a.main-link:visited
+{
+	color: #ffffff !important;
+}
+
+#asc #main-navigation .models .years a, #asc #main-navigation .models .years a:visited
+{
+	color: #999999;
+}
+
+#asc div.inventoryView div.right_header_right
+{
+	margin-left: 0px;
+}
+
+/*this is chrysler page*/
+
+#this-is-chrysler
+{
+	background: transparent url("../images/this-is-chrysler_hero.jpg") no-repeat scroll center top;
+}
+
+#this-is-chrysler #main-content
+{
+	min-height: 294px;
+	text-align: center;
+}
+
+#this-is-chrysler #main-content h2
+{
+	padding-top: 24px;
+}
+
+#this-is-chrysler #main-content h2, #this-is-chrysler #main-content p
+{
+	margin-bottom: 14px
+}
+
+#this-is-chrysler #main-content h1
+{
+	font-weight: bold;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler, #this-is-chrysler .promo-carousel-this-is-chrysler .view, #this-is-chrysler .promo-carousel-this-is-chrysler .view ul
+{
+	height: 215px;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler
+{
+	float: none;
+	padding: 0px 7px;
+	width: 926px;
+	margin: 0 auto;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .view
+{
+	width: 896px;
+	width: 882px;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .view ul li
+{
+	background-image: url("../images/promo-carousel.png");
+	background-position: left top;
+	height: 208px;
+	margin-left: 0px;
+	padding: 7px 0px 0px 18px;
+	width: 276px;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .prev-arrow, #this-is-chrysler .promo-carousel-this-is-chrysler .next-arrow
+{
+	background-image: url("../images/promo-carousel.png");
+	height: 180px;
+	margin-top: 6px;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .prev-arrow
+{
+	background-position: -338px center;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .next-arrow
+{
+	background-position: -359px center;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .prev-arrow:hover
+{
+	background-position: -294px center;
+}
+
+#this-is-chrysler .promo-carousel-this-is-chrysler .next-arrow:hover
+{
+	background-position: -315px center;
+}
+
+/*--------------- VEHICLE LANDING PAGES ---------------*/
+
+#configurator
+{
+	height: 390px;
+	padding-left: 30px;
+	position: relative;
+}
+
+#configurator h1
+{
+	font-size: 15px;
+	height: 58px;
+	letter-spacing: 0.1em;
+	line-height: 150%;
+	padding-top: 24px;
+}
+
+#configurator ul.highlights
+{
+	height: 86px;
+	position: relative;
+	width: 340px;
+	letter-spacing: 0.01em;
+	z-index: 2;
+	color: #FFFFFF;
+}
+
+#configurator ul.highlights li
+{
+	margin-bottom: 6px;
+	font-size: 0.95em;
+}
+
+#configurator .verb
+{
+	display: block;
+	font-size: 9px;
+}
+
+#configurator .lease-info, #configurator .cash-info
+{
+	border-bottom: 2px #666666 solid;
+	height: 76px;
+	float: left;
+	/*float: left; //IE7 fix for no lease div */
+}
+
+#configurator .lease-info 
+{
+	width: 170px;
+}
+
+#configurator .cash-info {
+	width: 173px;
+	position: relative;
+    z-index: 2;
+}
+
+#configurator .lease-info .price, #configurator .cash-info .price
+{
+	height: auto;
+}
+
+#configurator .lease-info .price .slash
+{
+    margin-top: -3px;
+}
+
+#configurator .lease-info .price, #configurator .lease-info .price .amount, #configurator .cash-info .price, #configurator .cash-info .price .amount
+{
+	font-size: 28px;
+}
+
+#configurator .cash-info .price .amount 
+{
+	letter-spacing: -2px;
+	padding-right: 5px;
+}
+
+#configurator .lease-info .price .dollar-sign, #configurator .cash-info .price .dollar-sign
+{
+	font-size: 18px;
+}
+
+#configurator .lease-info .price .more-info span, #configurator .cash-info .price .more-info span
+{
+	font-size: 10px;
+}
+
+#configurator .lease-info .price span.clear-both, #configurator .cash-info .price span.clear-both
+{
+	float: none;
+}
+
+#configurator .msrp
+{
+	clear: left;
+	float: left;
+	height: 50px;
+	padding-top: 12px;
+	width: 120px;
+}
+
+#configurator .msrp .price, #configurator .mpg .figure
+{
+	font-size: 20px;
+	letter-spacing: -0.03em;
+}
+
+#configurator .msrp .price .dollar-sign
+{
+	font-size: 12px;
+	line-height: 18px;
+	padding-top: 2px;
+	vertical-align: text-top;
+}
+
+#configurator .mpg
+{
+	float: left;
+	padding-top: 12px;
+	width: 100px;
+	z-index:1;
+}
+
+#configurator .mpg .figure span
+{
+	font-size: 9px;
+}
+
+#configurator .button
+{
+	clear: both;
+	margin-bottom: 13px;
+	width: 130px;
+	font-weight: bold;
+	font-style:normal !important;
+    line-height: 10px;
+}
+
+#configurator .SNIbutton {
+	background-image: url("../images/1px-bg.png");
+    float: left;
+    margin-left: 148px;
+    top: -36px;
+    width: 177px;
+}
+
+#configurator #SNIbutton
+{
+  float: left;
+    margin-left: 150px;
+    top: -36px;
+    width: 200px;
+}
+
+#configurator .tools-links {
+    display: block;
+    font-size: 9px;
+    left: 30px;
+    margin-top: 5px;
+    position: absolute;
+    width: 250px;
+}
+
+#configurator .tools-links li
+{
+	display: block;
+	float: left;
+	margin-bottom: 8px;
+	width: 120px;
+}
+
+#configurator #trim-selector
+{
+	background-image: url('../../index.html');
+	background-position: left 21px;
+	background-repeat: no-repeat;
+	bottom: 15px;
+	left: 338px;
+	position: absolute;
+	width: 269px;
+	z-index: 3;
+}
+
+#configurator #trim-selector span, #configurator #change-view span
+{
+	display: block;
+	font-size: 9px;
+	height: 19px;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+#configurator #trim-selector div.view
+{
+	float: left;
+	height: 28px;
+	position: relative;
+	overflow: hidden;
+	width: 257px;
+}
+
+#configurator #trim-selector .prev, #configurator #trim-selector .next
+{
+	background-image: url('../../index.html');
+	background-position: -30px -65px;
+	background-repeat: no-repeat;
+	display: none;
+	float: left;
+	height: 26px;
+	width: 6px;
+}
+
+#configurator #trim-selector.scroll .prev, #configurator #trim-selector.scroll .next
+{
+	display: block;
+}
+
+#configurator #trim-selector .next
+{
+	background-position: -48px -65px;
+}
+
+#configurator #trim-selector .prev:hover
+{
+	background-position: -36px -65px;
+}
+
+#configurator #trim-selector .next:hover
+{
+	background-position: -42px -65px;
+}
+
+#configurator #trim-selector ul
+{
+	left: 0px;
+	position: absolute;
+	top: 2px;
+}
+
+#configurator #trim-selector ul li
+{
+	cursor: pointer;
+	float: left;
+	height: 18px;
+	margin: 0px 7px;
+	min-width: 30px;
+	padding-top: 6px;
+	text-align: center;
+}
+
+#configurator #trim-selector ul li.selected
+{
+	border-color: #678fcc;
+	border-style: solid;
+	border-width: 2px 0px;
+	margin-top: -2px;
+}
+
+#configurator #change-view
+{
+	bottom: 16px;
+	position: absolute;
+	right: 70px;
+	width: 132px;
+	z-index: 3;
+}
+
+#configurator #change-view ul li
+{
+	background-image: url('../../index.html');
+	background-position: -131px -26px;
+	cursor: pointer;
+	float: left;
+	font-size: 0px;
+	height: 27px;
+	width: 66px;
+}
+
+#configurator #trim-selector ul li.selected, #configurator #change-view ul li.selected
+{
+	cursor: default;
+}
+
+#configurator #change-view ul li#view_front.selected
+{
+	background-position: left -26px;
+}
+
+#configurator #change-view ul li#view_back
+{
+	background-position: -67px -26px;
+}
+
+#configurator #change-view ul li#view_back.selected
+{
+	background-position: right -26px;
+}
+
+#configurator #car-container
+{
+	height: 390px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 660px;
+	-webkit-user-select: none; 
+	-khtml-user-select: none; 
+	-moz-user-select: none; 
+	-o-user-select: none; 
+	user-select: none;
+}
+
+#configurator #car-container .option
+{
+	height: 390px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 660px;
+	z-index: 0;
+}
+
+#configurator #car-container .option img
+{
+	display: none;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	z-index: 0;
+}
+
+.hotspots, .feature-hotspots
+{
+	height: 100%;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 1;
+}
+
+.hotspots li.spot
+{
+	background-image: url('../../index.html');
+	background-position: left -54px;
+    cursor: pointer;
+	display: block;
+	height: 31px;
+	position: absolute;
+	width: 30px;
+}
+
+.hotspots li.spot.selected
+{
+	background-image: none;
+}
+
+.hotspots li.spot div
+{
+	background-image: url('../../index.html');
+	cursor: default;
+	display: none;
+	padding: 12px 8px 12px 18px;
+	position: static;
+	width: 130px;
+}
+
+.hotspots li.spot div strong
+{
+	display: block;
+	font-size: 9px;
+	font-weight: normal;
+	letter-spacing: 1px;
+	margin-bottom: 8px;
+	text-transform: uppercase;
+}
+
+.hotspots li.spot.interior div strong
+{
+	display: inline;
+	margin-bottom: 0px;
+}
+
+.hotspots li.spot.interior div strong:hover
+{
+	cursor: pointer;
+}
+
+.hotspots li.spot div ul li
+{
+	border-bottom: 2px transparent solid;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin: 0px 6px 6px 0px;
+	padding-bottom: 2px;
+}
+
+.hotspots li.spot div ul li.selected
+{
+	border-bottom-color: #678fcc;
+	cursor: default;
+}
+
+.hotspots li.spot div ul li img
+{
+	display: block;
+}
+
+.hotspots li.spot .option-name
+{
+	clear: both;
+	display: block;
+	font-size: 9px;
+}
+
+.lease-info .legal, .cash-info .legal
+{ 
+	font-size: 9px !important; 
+}
+.hotspots li.spot .close
+{
+	background-image: url('../../index.html');
+	background-position: -54px -65px;
+	cursor: pointer;
+	display: block;
+	font-size: 0px;
+	height: 20px;
+	position: absolute;
+	right: 2px;
+	top: 2px;
+	width: 20px;
+}
+
+.hotspots li.spot .close:hover
+{
+	background-position: -74px -65px;
+}
+
+.hotspots li.spot.tl div
+{
+	left: 15px;
+	top: 15px;
+}
+
+.hotspots li.spot.tr div
+{
+	right: 15px;
+	top: 15px;
+}
+
+.hotspots li.spot.bl div
+{
+	bottom: 15px;
+	left: 15px;
+}
+
+.hotspots li.spot.br div
+{
+	bottom: 15px;
+	right: 15px;
+}
+
+.vhp-buckets
+{
+	margin-bottom: 40px;
+	float: left;
+}
+
+.vhp-buckets .bucket
+{
+	background-color: #000000;
+	float: left;
+	height: 215px;
+	margin-left: 38px;
+	position: relative;
+	width: 288px;
+}
+
+.vhp-buckets .bucket:first-child
+{
+	margin-left: 0px;
+}
+
+.vhp-buckets .bucket h3
+{
+	position: relative;
+	z-index: 2;
+}
+
+.vhp-buckets .bucket h3 a
+{
+	background-image: url('../images/blank.gif');
+	font-size: 13px;
+	height: 205px;
+	left: 0px;
+	letter-spacing: 0.2em;
+	padding-top: 10px;
+	position: absolute;
+	text-align: center;
+	top: 0px;
+	width: 100%;
+}
+
+.vhp-buckets .bucket h3 a.loading
+{
+	background-image: url('../images/loading-bar.gif');
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.vhp-buckets .bucket img
+{
+	display: block;
+	left: 0px;
+	position: absolute;
+	top: 20px;
+	z-index: 0;
+}
+
+.vhp-buckets .bucket p
+{
+	left: 0px;
+	position: absolute;
+	text-align: center;
+	top: 160px;
+	width: 100%;
+	z-index: 1;
+}
+
+.vhp-buckets .bucket a.learn-more
+{
+	display: block;
+	font-style: italic;
+	font-weight: bold;
+	left: 0px;
+	position: absolute;
+	text-align: center;
+	text-transform: uppercase;
+	top: 194px;
+	width: 100%;
+	z-index: 1;
+}
+
+.vhp-buckets .bucket a.learn-more span
+{
+	letter-spacing: 0.1em;
+	position: relative;
+}
+
+.vhp-buckets .bucket a.learn-more span span
+{
+	right: -10px;
+	top: 2px;
+}
+
+.promo-tiles
+{
+	width: 940px;
+	margin: 0 auto 30px auto;
+}
+	
+.promo-tiles a
+{
+	background-image: url('../../index.html');
+	display: block;
+	float: left;
+	height: 128px;
+	margin-left: 40px;
+	/*padding: 1px;*/
+	width: 448px;
+	position:relative;
+	overflow: hidden;
+}
+
+.promo-tiles a:first-child
+{
+	margin-left: 0px;
+}
+
+.promo-tiles a img
+{
+	display: block;
+}
+
+/*--------------- FEATURE PAGES ---------------*/
+
+#design-300
+{
+	background: transparent url('../../images/vehicles/2012/300/hero_rooftop.html') no-repeat scroll center top;
+}
+
+.feature-hero
+{
+	background: transparent url('../../index.html') repeat-x scroll left bottom;
+	height: 460px;
+    padding-bottom: 1px;
+}
+
+.feature-hero h1, .feature-hero h2
+{
+	text-align: center;
+    width: 380px;
+}
+
+.feature-hero h1
+{
+    height: 16px;
+    padding: 26px 0px 14px 0px;
+}
+
+.feature-hero h2
+{
+    height: auto;	
+	margin-bottom:5px;
+}
+
+.feature-hero h1 span.reg,
+.feature-section h4 span.reg{ font-size: 2em }
+
+.bookmarks
+{
+	background-image: url('../images/bg_40-opacity.png');
+	height: auto;
+	margin-left: 5px;
+	padding: 25px 10px 25px 25px;
+	width: 265px;
+}
+
+.bookmarks h4
+{
+	font-size: 0.95em;
+	letter-spacing: 1px;
+	margin-bottom: 5px;
+}
+
+.bookmarks ul li
+{
+	padding: 5px 0;
+	/*margin-bottom: 10px;*/
+	/* changed so the tooltip will show. overflow was hidding it */
+	overflow:hidden;
+}
+
+.bookmarks ul li a
+{
+	background-image: url("../images/buttons.png");
+    background-position: left -42px;
+    background-repeat: no-repeat;
+    padding: 2px 0px 2px 10px;
+}
+
+.bookmarks span.reg
+{
+	font-size: 1em;
+}
+
+.feature-section
+{
+	background: transparent url('../../index.html') repeat-x scroll left bottom;
+    padding: 35px 0px 1px 0px;
+}
+
+.feature-section h4
+{
+	line-height: 20px;
+}
+
+.feature-section p
+{
+	line-height: 20px;
+	margin-bottom: 15px;
+}
+
+.feature-section #5star_safety_logo .tooltip{
+	position: relative;
+	top: -20px;
+	left: -10px;
+}
+
+.bottom-image
+{
+	display: block;
+	margin: 0px auto;
+}
+
+.template-a, .template-b, .template-c, .template-d, .template-e, .uconnect
+{
+	margin-bottom: 20px;
+	padding-top: 20px;
+}
+
+.template-d.layout-i .image
+{
+	margin-bottom: 20px;
+}
+
+.template-c.layout-i .copy-2, .template-c.layout-ii .copy-2, .template-e.layout-ii .image-3
+{
+	margin-left: 20px;
+}
+
+.template-e.layout-i .image-3
+{
+	margin-right: 20px;
+}
+
+.template-a .image, .template-b .image-1, .template-b .image-2, .template-c .image-1, .template-c .image-2, .template-d .image, .template-e .image-1, .template-e .image-2, .template-e .image-3
+{
+	position: relative;
+}
+
+.template-a.layout-i .copy, .template-a.layout-ii .image,
+.template-a.layout-iii .copy, .template-a.layout-iv .image,
+.template-a.layout-v .copy, .template-a.layout-vi .image,
+.template-b.layout-i .copy, .template-b.layout-i .image-2, .template-b.layout-ii .image-1,
+.template-b.layout-iii .copy, .template-b.layout-iii .image-2, .template-b.layout-iv .image-1,
+.template-b.layout-v .copy, .template-b.layout-v .image-2, .template-b.layout-vi .image-1,
+.template-b.layout-vii .copy,
+.template-c.layout-i .copy-1, .template-c.layout-i .copy-2, .template-c.layout-i .image-2, .template-c.layout-ii .image-1,
+.template-c.layout-iii .copy-1, .template-c.layout-iii .image-2,
+.template-c.layout-iv .copy-2, .template-c.layout-iv .image-1,
+.template-d.layout-i .copy-1, .template-d.layout-iii .image,
+.template-d.layout-ii .copy-1, .template-d.layout-ii .copy-2,
+.template-e.layout-i .copy-1, .template-e.layout-i .copy-2, .template-e.layout-i .image-2,
+.template-e.layout-ii .image-1, .template-e.layout-ii .image-3,
+.uconnect.layout-ii .copy, .uconnect.layout-iv .copy, .uconnect.layout-i .image, .uconnect.layout-iii .image
+{
+	float: left;
+}
+
+.template-a.layout-ii .copy, .template-a.layout-i .image,
+.template-a.layout-iv .copy, .template-a.layout-iii .image,
+.template-a.layout-vi .copy, .template-a.layout-v .image,
+.template-b.layout-ii .copy, .template-b.layout-ii .image-2, .template-b.layout-i .image-1,
+.template-b.layout-iv .copy, .template-b.layout-iv .image-2, .template-b.layout-iii .image-1,
+.template-b.layout-vi .copy, .template-b.layout-vi .image-2, .template-b.layout-v .image-1,
+.template-b.layout-vii .image-2,
+.template-c.layout-ii .copy-1, .template-c.layout-ii .copy-2, .template-c.layout-ii .image-2, .template-c.layout-i .image-1,
+.template-c.layout-iv .copy-1, .template-c.layout-iv .image-2,
+.template-c.layout-iii .copy-2, .template-c.layout-iii .image-1,
+.template-d.layout-i .copy-2, .template-d.layout-ii .image,
+.template-d.layout-iii .copy-1, .template-d.layout-iii .copy-2,
+.template-e.layout-ii .copy-1, .template-e.layout-ii .copy-2, .template-e.layout-ii .image-2,
+.template-e.layout-i .image-1, .template-e.layout-i .image-3,
+.uconnect.layout-i .copy, .uconnect.layout-ii .image, .uconnect.layout-iii .copy, .uconnect.layout-iv .image,
+.template-a.layout-ii .copy .facebook-share .button,
+.template-a.layout-iv .copy .facebook-share .button,
+.template-a.layout-vi .copy .facebook-share .button,
+.template-b.layout-ii .image-2 .facebook-share .button,
+.template-b.layout-iv .copy .facebook-share .button,
+.template-b.layout-vi .copy .facebook-share .button,
+.template-c.layout-i .image-1 .facebook-share .button,
+.template-c.layout-iv .copy-1 .facebook-share .button,
+.template-d.layout-i .copy-2 .facebook-share .button,
+.template-d.layout-iii .copy-2 .facebook-share .button,
+.template-e.layout-ii .copy-2 .facebook-share .button,
+.uconnect.layout-i .copy .facebook-share .button, .uconnect.layout-iii .copy .facebook-share .button
+{
+	float: right;
+}
+
+.template-a.layout-i .copy, .template-a.layout-i .image,
+.template-a.layout-ii .copy, .template-a.layout-ii .image,
+.template-b.layout-i .copy, .template-b.layout-i .image-2, .template-b.layout-ii .image-1,
+.template-b.layout-ii .copy, .template-b.layout-ii .image-2, .template-b.layout-i .image-1,
+.template-b.layout-v .copy, .template-b.layout-v .image-2, .template-b.layout-vi .image-1,
+.template-b.layout-vi .copy, .template-b.layout-vi .image-2, .template-b.layout-v .image-1,
+.template-c.layout-i .copy-1, .template-c.layout-i .image-1,
+.template-c.layout-ii .copy-1, .template-c.layout-ii .image-1,
+.template-d.layout-i .copy-1, .template-d.layout-i .copy-2,
+.template-e.layout-i .copy-1, .template-e.layout-ii .copy-1,
+.template-e.layout-i .image-1, .template-e.layout-ii .image-1,
+.uconnect.layout-iii .copy, .uconnect.layout-iv .copy, .uconnect.layout-iii .image, .uconnect.layout-iv .image
+{
+	width: 460px;
+}
+
+.template-a.layout-iii .copy, .template-a.layout-iv .copy,
+.template-c.layout-iii .copy-1, .template-c.layout-iii .image-2,
+.template-c.layout-iv .copy-1, .template-c.layout-iv .image-2,
+.uconnect.layout-i .copy, .uconnect.layout-ii .copy
+{
+	width: 340px;
+}
+
+.template-a.layout-iii .image, .template-a.layout-iv .image,
+.template-c.layout-iii .copy-2, .template-c.layout-iii .image-1,
+.template-c.layout-iv .copy-2, .template-c.layout-iv .image-1,
+.uconnect.layout-i .image, .uconnect.layout-ii .image
+{
+	width: 580px;
+}
+
+.template-a.layout-v .copy, .template-a.layout-vi .copy,
+.template-b.layout-iii .copy, .template-b.layout-iii .image-2,
+.template-b.layout-iv .copy, .template-b.layout-iv .image-2,
+.template-c.layout-i .copy-2, .template-c.layout-ii .copy-2,
+.template-d.layout-ii .copy-1, .template-d.layout-ii .copy-2,
+.template-d.layout-iii .copy-1, .template-d.layout-iii .copy-2
+{
+	width: 280px;
+}
+
+.template-a.layout-v .image, .template-a.layout-vi .image,
+.template-b.layout-iii .image-1, .template-b.layout-iv .image-1,
+.template-d.layout-ii .image, .template-d.layout-iii .image
+{
+	width: 640px;
+}
+
+.template-b.layout-vii .copy
+{
+	width: 700px;
+}
+
+.template-b.layout-vii .image-2,
+.template-e.layout-i .copy-2, .template-e.layout-i .image-2, .template-e.layout-i .image-3,
+.template-e.layout-ii .copy-2, .template-e.layout-ii .image-2, .template-e.layout-ii .image-3
+{
+	width: 220px;
+}
+
+.template-c.layout-i .image-2, .template-c.layout-ii .image-2
+{
+	width: 160px;
+}
+
+.uconnect ul
+{
+	display: block;
+	min-height: 300px;
+	position: relative;
+}
+
+.uconnect ul li
+{
+	left: 0px;
+	position: absolute;
+	top: 46px;
+}
+
+.uconnect ul li p
+{
+	display: none;
+}
+
+.uconnect ul li.selected p
+{
+	display: block;
+}
+
+.uconnect ul li strong.cta
+{
+	background-image: url('../../index.html');
+	cursor: pointer;
+	display: block;
+	filter: alpha(opacity = 40);
+	font-size: 0px;
+	height: 34px;
+	left: 0px;
+	opacity: 0.4;
+	position: absolute;
+	top: -46px;
+	width: 34px;
+}
+
+.uconnect ul li strong.cta:hover
+{
+	filter: alpha(opacity = 70);
+	opacity: 0.7;
+}
+
+.uconnect ul li.selected strong.cta
+{
+	cursor: default;
+	filter: alpha(opacity = 100);
+	opacity: 1;
+}
+
+.uconnect ul li#voice strong.cta
+{
+	background-position: -34px top;
+	left: 70px;
+}
+
+.uconnect ul li#web strong.cta
+{
+	background-position: -68px top;
+	left: 140px;
+}
+
+.uconnect ul li#entertainment strong.cta
+{
+	background-position: -102px top;
+	left: 210px;
+}
+
+.uconnect ul li#navigation strong.cta
+{
+	background-position: -136px top;
+	left: 280px;
+}
+
+.uconnect ul li p strong
+{
+	text-transform: uppercase;
+}
+
+.uconnect .image
+{
+	position: relative;
+}
+
+.uconnect .image img
+{
+	display: none;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	z-index: 1
+}
+
+.uconnect .image img.selected
+{
+	display: block;
+}
+
+.uconnect .image img:first-child
+{
+	position: static;
+	z-index: 0;
+}
+
+.back-top
+{
+	margin-top: 12px;
+	padding-bottom: 12px;
+	text-align: right;
+}
+
+.back-top a
+{
+	padding-left: 10px;
+	position: relative;
+}
+
+.back-top a span
+{
+	background-image: url('../images/buttons.png');
+	background-position: left -75px;
+	display: block;
+	height: 5px;
+	left: -3px;
+	position: absolute;
+	top: 4px;
+	width: 8px;
+}
+
+.back-top a:hover span
+{
+	background-position: left -85px;
+}
+
+.facebook-share
+{
+	height: 21px;
+}
+
+.template-a.layout-i .image .feature-hotspots,
+.template-a.layout-iii .image .feature-hotspots,
+.template-a.layout-v .image .feature-hotspots,
+.template-b.layout-ii .image-2 .feature-hotspots, .template-b.layout-i .image-1 .feature-hotspots,
+.template-b.layout-iv .image-2 .feature-hotspots, .template-b.layout-iii .image-1 .feature-hotspots,
+.template-b.layout-vi .image-2 .feature-hotspots, .template-b.layout-v .image-1 .feature-hotspots,
+.template-b.layout-vii .image-2 .feature-hotspots,
+.template-c.layout-ii .image-2 .feature-hotspots, .template-c.layout-i .image-1 .feature-hotspots,
+.template-c.layout-iv .image-2 .feature-hotspots,
+.template-c.layout-iii .image-1 .feature-hotspots,
+.template-d.layout-ii .image .feature-hotspots,
+.template-e.layout-ii .image-2 .feature-hotspots,
+.template-e.layout-i .image-1 .feature-hotspots, .template-e.layout-i .image-3 .feature-hotspots
+{
+	left: auto;
+	right: 0px;
+}
+
+.feature-hotspots
+{
+	width: 940px;
+}
+
+.feature-hotspots li
+{
+	background-image: url('../../index.html');
+	cursor: pointer;
+	display: block;
+	height: 48px;
+	position: absolute;
+	width: 49px;
+	z-index: 1;
+	
+}
+
+.feature-hotspots li:hover
+{
+	background-position: -49px top;
+}
+
+.feature-hotspots li.selected
+{
+	background-image: url('../../index.html');
+	cursor: default;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	z-index: 2;
+}
+
+.feature-hotspots li div
+{
+	box-shadow: 0px 0px 8px 4px black;
+	display: none;
+	position: absolute;
+}
+
+.feature-hotspots li div img
+{
+	display: block;
+}
+
+.feature-hotspots li div span
+{
+	background-image: url('../../index.html');
+	background-position: left -48px;
+	cursor: pointer;
+	display: none;
+	height: 43px;
+	position: absolute;
+	right: -20px;
+	top: -20px;
+	width: 43px;
+}
+
+.feature-hotspots li span:hover
+{
+	background-position: -43px -48px;
+}
+
+.feature-hotspots-loader
+{
+	background: url("../../index.html");
+	background-position: center center;
+	background-repeat: no-repeat;
+	display: none;
+	left: 0px;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	width: 100%;
+	z-index: 3;
+}
+
+/*--------------- GATEWAY PAGE ---------------*/
+
+#gateway-200
+{
+	background: transparent url('../../images/vehicles/2012/200/hero_gateway.html') no-repeat scroll center top;
+}
+
+.gateway-page .convertible, .gateway-page .sedan
+{
+	float: left;
+	height: 180px;
+	margin-left: 30px;
+	padding-top: 330px;
+	width: 590px;
+}
+
+.gateway-page .sedan
+{
+	margin-left: 0px;
+	width: 320px;
+}
+
+.gateway-page h1
+{
+	font-size: 14px;
+	letter-spacing: 2px;
+}
+
+.model-info
+{
+	margin-top: 8px;
+}
+
+.model-info .button
+{
+	margin-top: 14px;
+}
+
+.model-info .lease-info
+{
+	float: left;
+	width: 140px;
+}
+
+.model-info .lease-info .button
+{
+	width: 100px;
+}
+
+.model-info .msrp .button
+{
+	width: 100%;
+}
+
+.model-info .msrp
+{
+	float: left;
+	width: 126px;
+}
+
+.gateway-page .models
+{
+	margin-top: 20px;
+}
+
+.gateway-page .models strong
+{
+	font-size: 12px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+.gateway-page .models .years
+{
+	position: relative;
+}
+
+.gateway-page .models .year
+{
+	display: none;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+}
+
+.gateway-page .models .year.selected
+{
+	display: block;
+}
+
+.gateway-page .models .years ul li
+{
+	float: left;
+	margin-right: 20px;
+}
+
+/*--------------- HISTORY PAGE ---------------*/
+
+#timeline
+{
+	height: 30px;
+	width: 561px;
+	margin: 0px auto 30px auto;
+}
+
+#timeline ul
+{
+	background-image: url('../images/history_timeline.png');
+	background-position: left 28px;
+	background-repeat: repeat-x;
+	display: block;
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+#timeline ul li
+{
+	background-image: url('../images/history_timeline.png');
+	background-position: 34px 21px;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	float: left;
+	height: 100%;
+	position: relative;
+	text-align: center;
+	width: 70px;
+}
+
+#timeline ul li:first-child
+{
+	margin-left: -34px;
+}
+
+#timeline ul li.last
+{
+	position: absolute;
+    right: -35px;
+    top: 0px;
+}
+
+#timeline ul li span
+{
+	display: none;
+}
+
+#timeline ul li.selected
+{
+	background-position: 34px -9px;
+}
+
+#timeline ul li.selected:hover
+{
+	cursor: default;
+}
+
+#timeline ul li.selected span
+{
+	background-color: #20386a;
+	display: block;
+	height: 3px;
+	left: 22px;
+	position: absolute;
+	top: 14px;
+	width: 25px;
+}
+
+#history .scroll
+{
+	height: 230px;
+	margin: 0px auto 60px auto;
+	width: 561px;
+}
+
+#history .scroll p
+{
+	margin-top: 12px;
+}
+
+#history .scroll p:first-child
+{
+	margin-top: 0px;
+}
+
+#history .scroll-bar
+{
+	background-color: #555555;
+	float: right;
+    height: 100%;
+    margin: 0px 1px;
+    position: relative;
+    width: 8px;
+}
+
+#history .scroll-bar span
+{
+	display: block;
+	height: 28px;
+	left: 0px;
+	position: absolute;
+	top: 0px;
+	width: 8px;
+}
+
+#history .scrollable-content
+{
+    height: 100%;
+    margin-right: 28px;
+    overflow: hidden;
+    position: relative;
+}
+
+#history .scrollable-content .view
+{
+    position: absolute;
+    width: 100%;
+}
+
+#history #main-content
+{
+	position: relative;
+}
+
+#full-history
+{
+	position: absolute;
+	right: 0px;
+	top: 452px;
+}
+
+#full-history img
+{
+	display: block;
+}
+
+#warranty
+{
+	background-image: url('../../index.html');
+}
+
+#warranty #main-content h1
+{
+	font-size: 14px;
+	height: 34px;
+	padding-top: 23px;
+}
+
+#warranty .form-wrap
+{
+	background-color: #000000;
+	height: 368px;
+	position: relative;
+}
+
+#warranty #main-content form
+{
+	background-image: url('../../index.html');
+	background-repeat: repeat-x;
+	padding: 20px 0px 0px 40px;
+	width: 292px;
+}
+
+#warranty #main-content form fieldset
+{
+	padding: 24px 0px 14px 0px;
+}
+
+#warranty #main-content form .button
+{
+	width: 100px;
+}
+
+#warranty #main-content h2
+{
+	font-size: 14px;
+}
+
+#warranty #main-content p sup
+{
+	bottom: 0.3em;
+}
+
+#warranty #main-content img.hero
+{
+	display: block;
+	height: 368px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 608px;
+}
+
+#warranty #main-content .dropdown
+{
+	float: left;
+	margin:	0px 11px 14px 0px;
+	width: 100px;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+sup.adjust_bhp {
+    color: #0B0B3B;
+    left: -68px;
+    top: -84px;	
+}
+
+sup.adjust_vlp {
+	color: #0B0B3B;
+    left: 315px;
+    *left: 314px;
+    opacity: 0;
+    top: -73px;
+}
+
+.promo-tiles a sup.tooltip{
+	position:absolute;
+	color: #fff;
+	opacity: 0;
+	height:11px;
+}
+
+[data-lid=town_and_country_conquest] sup.adjust_vlp {
+	top: 91px;
+	left:347px;
+}
+
+[data-lid=bonus_cash_300] sup.tooltip {
+	color: #000 !important;
+	top:60px;
+	left:180px;
+	/*
+	*top: 78px;
+	*left:138px;
+	left: 138px \0/;
+	top: 78px \0/;
+	*/
+}
+
+[data-lid=bonus_cash_300] sup.tooltip2 {
+	top:35px;
+	left:213px;
+}
+
+[data-lid=power_train_warranty] sup.adjust_vlp {
+	top: 63px;
+	left: 401px;
+}
+
+[data-lid=with_class_exclusive_retractable_hardtop] sup.tooltip {
+	top: 39px;
+	left: 238px;
+}
+
+sup.adjust_bmo {
+    color: #0B0B3B;
+    left: 230px;
+    top: -51px;
+}
+
+.uconnect ul li#web p strong
+{
+	text-transform: none;
+}
+
+/* ------------   styles for R-ball issue  ----------------- */
+.rballsub{
+	position: static;
+	vertical-align: bottom;
+	line-height: 7px;
+	font-size: 10px;
+}
+#top_plan_sales_faq a, #news_and_announcements a {
+    text-decoration: none !important;
+}
+#top_plan_sales_faq p, #news_and_announcements p {
+    border-bottom: 1px solid;
+    line-height: 16px;
+    padding-bottom: 2px;
+    text-decoration: none;
+}
+/* ------------   End of R-ball issue css  ------------------*/
+
+#configurator .msrp {
+  border-right: 1px dotted #fff;
+  display: block;
+  padding: 2px 18px 0 0;
+  margin-top:5px;
+  margin-bottom:5px;
+  width: 130px;
+  *margin-bottom:5px !important;
+}
+
+#configurator .bmo_sni{
+	margin-top: 10px;
+	position:relative;
+	top:43px;
+	*top:40px !important;
+}
+#vhp-tnc div#configurator div.bmo_sni {
+    top: 47px !important;
+}
+#configurator .cash-info{
+	padding:7px 0 0 10px;
+	border:0;
+	width:183px;
+	z-index:9999;
+	height: 63px;
+	*min-height: 60px !important;
+}
+@media all and (device-width: 768px) and (device-height: 1024px){
+	html,body{
+		overflow: hidden;
+	}
+}

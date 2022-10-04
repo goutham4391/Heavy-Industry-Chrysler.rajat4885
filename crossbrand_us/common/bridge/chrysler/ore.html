@@ -1,0 +1,159 @@
+<html>
+
+  
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/ore.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+<head>
+    <meta http-equiv="Content-Type"
+          content="text/html; charset=UTF-8" />
+    <meta content="IE=edge,chrome=1"
+          http-equiv="X-UA-Compatible" />
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+          name="viewport" />
+
+    <script language="javascript"
+            src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+
+    <script language="javascript">
+      var app = getParameter("app");
+      var brandID = "CUC"; /* Universal function to get parameter from url string */
+      var vehicle = getParameter("family") || getParameter("vehicle");
+      var page = getParameter("page");
+      var modelYearCode = getParameter("modelYearCode");
+      var modelCode = getParameter("modelCode");
+      var vin = getParameter("vin");
+      var vehicleCode = null;
+      var brand = getParameter("brand") || 'chrysler';
+      var model = getParameter("vehicle");
+      var year = getParameter("year");
+      var color = getParameter("color");
+     // var drivetype = getParameter("driveType");
+      var drivetype = getParameter("drivetype") || getParameter("driveType"); 
+      var zipcode = getParameter("zipcode");
+      var trim = getParameter("trim");
+      var radius = getParameter("radius");
+      var dealerCode = getParameter("dealerCode");
+      var engine = getParameter("engine");
+      var transmission = getParameter("transmission");
+	    var campaign = getParameter("campaign") || "start-buying-process";
+
+      var modelCodes = {
+        "200": "09",
+        "200_convertible": "00",
+        "chrysler_200": "09",
+        "chrysler_200c": "00",
+        "300": "01",
+        "chrysler_300": "01",
+        "pt_convertible": "02",
+        "aspen": "03",
+        "aspen_hybrid": "03",
+        "crossfire": "04",
+        "pacifica": "05",
+        "pt_cruiser": "06",
+        "sebring_sedan": "07",
+        "sebring": "07",
+        "town_country": "08",
+        "sebring_convertible": "19",
+        "pacifica_hybrid": "10",
+        "voyager": "13"
+      };
+ 	var translate = {
+      	"defaultTranslation" : {
+			    "300": "chrysler-300"
+        }
+      };
+
+	  function translateName(vehi, yr) {
+		if(!vehi){
+			return '';
+		}
+		if(translate[yr] && translate[yr][vehi]) {
+			return translate[yr][vehi];
+		} else {
+      if (translate['defaultTranslation'] && translate['defaultTranslation'][vehi]) {
+        return translate['defaultTranslation'][vehi];
+      }
+    }
+		  return vehi;
+	  }
+
+      if (modelYearCode) {
+        year = modelYearCode.substr(3, 4);
+        vehicleCode = modelYearCode.substr(-2);
+      }
+
+      if (modelCode) {
+        vehicleCode = modelCode.substr(-2);
+      }
+
+      if (vehicleCode) {
+        Object.keys(modelCodes).forEach(function (key) {
+          if (modelCodes[key] == vehicleCode) {
+            vehicle = key;
+          }
+        });
+      }
+
+      function findApp() {
+        var appUrl = "";
+        var query = "";
+
+        appUrl = "https://e-shop.chrysler.com/t1";
+
+          if(!(window.location.host === "www.chrysler.com" || window.location.host === "es.chrysler.com")) {
+			appUrl = "https://uat.e-shop.chrysler.com/t1";
+          }
+
+		 query += "refrel=chrysler&vehicle_type=new";
+
+		if(vin) {
+			query += "&vin=" + vin;
+
+		} else {
+        	if (vehicle &&  year) {
+				appUrl += "/" + year + "/" + translateName(vehicle.replace(/_/g, "-"), year) + "/";
+            }
+			if (color) {
+			  query += "&color=" + color;
+			}
+			if (drivetype) {
+			  query += "&drivetype=" + drivetype;
+			}
+
+			if (trim) {
+			  query += "&trim=" + trim;
+			}
+			if (radius) {
+			  query += "&radius=" + radius;
+			}
+			if (engine) {
+			  query += "&engine=" + engine;
+			}
+			if (transmission) {
+			  query += "&transmission=" + transmission;
+			}
+		}
+            if (dealerCode) {
+			  query += "&dealercode=" + dealerCode;
+			}
+
+			if (zipcode) {
+			  query += "&zipcode=" + zipcode;
+			}
+	
+            if (campaign) {
+                query += "&ott=" + campaign;
+            }
+
+        doRedirect(appUrl, query);
+        //document.write(appUrl + "?" + query)
+      }
+      findApp();
+    </script>
+
+  </head>
+
+  <body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/ore.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:25 GMT -->
+</html>

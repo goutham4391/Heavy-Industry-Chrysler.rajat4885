@@ -1,0 +1,123 @@
+<html>
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/bmo.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:12 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+<script type="application/javascript" src="../../../../services/vehicleData.getVehicle.prod.chrysler.js"></script>
+<script src="../../../shopping-tools/shared/data_functions.js"></script>
+<script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+
+    <script language="javascript">
+
+      var _modelCodes = {
+            "200": "09", 
+            "200_convertible": "00", 
+            "chrysler_200": "09", 
+            "chrysler_200c": "00", 
+            "300": "01", 
+            "pt_convertible": "02", 
+            "aspen": "03", 
+            "aspen_hybrid": "03", 
+            "crossfire": "04", 
+            "pacifica": "05", 
+            "pt_cruiser": "06", 
+            "sebring_sedan": "07", 
+            "sebring": "07", 
+            "town_country": "08", 
+            "sebring_convertible": "19",
+            "pacifica_hybrid": "10",
+            "voyager": "13"
+        };
+
+	   function findApp() {
+
+    var brandID = 'CUC'; /* Universal function to get parameter from url string */
+
+    var vehicleObject;
+
+    var vehicleTrimObject;
+
+    if (!modelYearCode) {
+      if (ccode) {
+        modelYearCode = ccode.substring(0, 9);
+      } else if (year && vehicle && _modelCodes[vehicle]) {
+        modelYearCode = brandID + year + _modelCodes[vehicle];
+      } else if (pageName.indexOf('uconnect') >= 0) {
+        modelYearCode = getCookie('modelYearCode');
+      }
+    }
+
+    if (modelYearCode && isValidMYC(modelYearCode)) {
+      if (modelYearCode && !year) {
+        year = modelYearCode.substr(3, 4);
+        vehicle = getVehicleFromModelCode(modelYearCode.substr(-2));
+      }
+
+      if (vehicle) {
+        appUrl += '.' + vehicle;
+      }
+
+      if (vehicle && year) {
+        appUrl += '.' + year;
+        hashBase += '/models/' + year + '/' + vehicle;
+      }
+
+	  appUrl += '.html';
+
+      if ((vehicle && year && trim) && (!ccode || !llp)) {
+        try {
+          vehicleObject = Vehicles.getVehicleObject({ year: year, vehicle: vehicle });
+        } catch (ex) {
+          vehicleObject = void 0;
+        }
+
+        vehicleTrimObject = vehicleObject && vehicleObject.models ? vehicleObject.models[trim] : void 0;
+
+        if (vehicleTrimObject) {
+          if (!ccode) {
+            ccode = vehicleTrimObject.ccode;
+          }
+
+          if (!llp) {
+            llp = vehicleTrimObject.llp;
+          }
+        }
+      }
+
+      if (zipcode && ccode && llp) {
+        searchAddedToUrl = true;
+
+        if (vehicle && year) {
+          hashBase = '#/build/' + page + '/' + zipcode + '/' + ccode + '/' + llp + '/';
+        } else {
+          hashBase = '#/build/' + page + '/' + zipcode + '/' + ccode + '/' + llp + '/';
+        }
+
+        if (options) {
+          hashBase += options;
+        }
+      }
+    } else if (vehicle && isValidVehicle(vehicle, year)) {
+		appUrl += '.' + vehicle + '.' + year + '.html';
+        hashBase += '/models/' + year + '/' + vehicle;
+
+    } else {
+      return  doRedirect('../../../../vehicle-selector.bmo.html', campaign);
+    }
+
+    doRedirectBmo(appUrl, campaign, hashBase, searchAddedToUrl);
+  }
+
+    </script>
+
+  <script language="javascript" src="../bmo-bridge.js"></script>
+
+</head>
+
+<body></body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/bmo.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:13 GMT -->
+</html>

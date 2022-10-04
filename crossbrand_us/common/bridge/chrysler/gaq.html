@@ -1,0 +1,68 @@
+<html>
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/gaq.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:22 GMT -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport" />
+
+<script language="javascript" src="../../../shopping-tools/shared/bridge_funcs.js"></script>
+<script language="javascript">
+    var appUrl = "";
+    var query = "";
+    var campaign = getCampaign();
+    var app = getParameter("app");
+    var year = getParameter("year");
+    var vehicle = getParameter("vehicle") || getParameter("family");
+    var zipcode = getParameter("zipcode");
+    var dealerid = getParameter("dealerid");
+    var model = getParameter("model");
+    var trim = getParameter("trim") || '';
+
+	/** section to add temporary overrides **/
+            if (vehicle == "chrysler_300" || vehicle =="chrysler-300") {
+                vehicle = "300";
+            }
+    function findApp() {
+        
+     switch (app) {
+            case "gaq":
+                if (vehicle && year) {
+                    appUrl = "/gaq." + vehicle + "." + year + ".html";
+                } else {
+                    appUrl = "../../../../gaq.html";
+                }
+                break;
+
+            case "testdrive":
+            if (vehicle && year) {
+                    appUrl = "/satd." + vehicle + "." + year + ".html";
+                } else {
+                    appUrl = "../../../../satd.html";
+                }
+                break;
+
+            default:
+                appUrl = "../../../../gaq.html";
+        }
+        if (model || trim) {
+                var model_or_trim = model ? model : trim;
+                query += "?model=" + model_or_trim
+            }
+        if (campaign) {
+            query += "&" + campaign;
+        }
+        doRedirect(appUrl, query);
+    }
+    findApp();
+</script>
+
+</head>
+
+<body>
+
+</body>
+
+
+<!-- Mirrored from www.chrysler.com/crossbrand_us/common/bridge/chrysler/gaq.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 03 Oct 2022 19:08:23 GMT -->
+</html>
